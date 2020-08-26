@@ -1,0 +1,648 @@
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-474dt-2[0m stage [32mci[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1598482967.2106998,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-474dt-2[0m stage [32mci[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-474dt-2[0m stage [32mci[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-474dt-2[0m stage [32mci[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-474dt-qfq4p[0m
+{"level":"info","ts":1598482980.6958768,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ master in path /workspace/source"}
+{"level":"warn","ts":1598482980.6959467,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1598482980.7366238,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-474dt-2[0m stage [32mci[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-474dt-2[0m stage [32mci[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:c67b7c68af44a6504323d93f1758ff8041c6c39e,2:e358babd88932776b59106f8484174833f1c218c
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow e358babd88932776b59106f8484174833f1c218c: c67b7c68af44a6504323d93f1758ff8041c6c39e:
+DEBUG: ran git fetch --unshallow origin e358babd88932776b59106f8484174833f1c218c: c67b7c68af44a6504323d93f1758ff8041c6c39e: in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard c67b7c68af44a6504323d93f1758ff8041c6c39e
+DEBUG: ran git reset --hard c67b7c68af44a6504323d93f1758ff8041c6c39e in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git merge e358babd88932776b59106f8484174833f1c218c
+DEBUG: ran git merge e358babd88932776b59106f8484174833f1c218c in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e c67b7c68af44a6504323d93f1758ff8041c6c39e..HEAD
+Merged SHA e358babd88932776b59106f8484174833f1c218c with commit message 'rollback image' into base branch master
+Merged SHA 53c49d263eed25537745735f1fcbea793e35bd2c with commit message 'rollback image' into base branch master
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-474dt-2[0m stage [32mci[0m and container [32mstep-terraform-lint[0m
+terraform init
+[0m[1mTerraform initialized in an empty directory![0m
+
+The directory has no Terraform configuration files. You may begin working
+with Terraform immediately by creating Terraform configuration files.[0m
+terraform version
+Terraform v0.12.17
+
+Your version of Terraform is out of date! The latest version
+is 0.13.1. You can update by downloading from https://www.terraform.io/downloads.html
+terraform fmt -check -diff -recursive
+terraform validate
+[32m[1mSuccess![0m The configuration is valid.
+[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-474dt-2[0m stage [32mci[0m and container [32mstep-terratest[0m
+GO111MODULE=on go test -failfast -timeout 1h -parallel 8 -count=1 -v ./...
+go: downloading github.com/google/uuid v1.1.1
+go: downloading github.com/gruntwork-io/terratest v0.28.13
+go: downloading github.com/Azure/go-autorest v14.2.0+incompatible
+go: downloading github.com/otiai10/copy v1.2.0
+go: downloading github.com/Azure/azure-sdk-for-go v45.1.0+incompatible
+go: downloading github.com/stretchr/testify v1.6.1
+go: downloading github.com/Azure/azure-storage-blob-go v0.10.0
+go: extracting github.com/google/uuid v1.1.1
+go: extracting github.com/otiai10/copy v1.2.0
+go: extracting github.com/Azure/go-autorest v14.2.0+incompatible
+go: downloading github.com/Azure/go-autorest/autorest v0.11.4
+go: extracting github.com/stretchr/testify v1.6.1
+go: downloading gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+go: extracting github.com/Azure/azure-storage-blob-go v0.10.0
+go: extracting github.com/Azure/go-autorest/autorest v0.11.4
+go: downloading github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: downloading github.com/Azure/go-autorest/autorest/azure/auth v0.4.2
+go: downloading github.com/Azure/go-autorest/tracing v0.6.0
+go: extracting gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+go: extracting github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: extracting github.com/Azure/go-autorest/tracing v0.6.0
+go: downloading golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
+go: downloading github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: extracting github.com/Azure/go-autorest/autorest/azure/auth v0.4.2
+go: downloading github.com/Azure/go-autorest/autorest/azure/cli v0.3.1
+go: downloading github.com/Azure/azure-pipeline-go v0.2.2
+go: extracting github.com/Azure/go-autorest/autorest/azure/cli v0.3.1
+go: downloading github.com/pmezard/go-difflib v1.0.0
+go: extracting github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: downloading github.com/Azure/go-autorest/autorest/date v0.3.0
+go: extracting github.com/Azure/azure-pipeline-go v0.2.2
+go: downloading github.com/davecgh/go-spew v1.1.1
+go: extracting golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
+go: extracting github.com/davecgh/go-spew v1.1.1
+go: extracting github.com/Azure/go-autorest/autorest/date v0.3.0
+go: downloading github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d
+go: extracting github.com/pmezard/go-difflib v1.0.0
+go: downloading golang.org/x/sys v0.0.0-20200107162124-548cf772de50
+go: downloading github.com/dimchansky/utfbom v1.1.0
+go: extracting github.com/dimchansky/utfbom v1.1.0
+go: downloading github.com/mitchellh/go-homedir v1.1.0
+go: extracting github.com/gruntwork-io/terratest v0.28.13
+go: extracting github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d
+go: downloading github.com/Azure/go-autorest/logger v0.2.0
+go: extracting github.com/mitchellh/go-homedir v1.1.0
+go: extracting github.com/Azure/go-autorest/logger v0.2.0
+go: extracting golang.org/x/sys v0.0.0-20200107162124-548cf772de50
+go: downloading k8s.io/api v0.18.3
+go: downloading k8s.io/client-go v0.18.3
+go: extracting k8s.io/client-go v0.18.3
+go: extracting k8s.io/api v0.18.3
+go: downloading k8s.io/apimachinery v0.18.3
+go: downloading k8s.io/klog v1.0.0
+go: downloading github.com/gogo/protobuf v1.3.1
+go: extracting k8s.io/klog v1.0.0
+go: downloading golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+go: extracting golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+go: extracting k8s.io/apimachinery v0.18.3
+go: downloading golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
+go: extracting github.com/gogo/protobuf v1.3.1
+go: downloading sigs.k8s.io/yaml v1.2.0
+go: downloading github.com/gruntwork-io/gruntwork-cli v0.5.1
+go: extracting sigs.k8s.io/yaml v1.2.0
+go: downloading github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c
+go: extracting github.com/gruntwork-io/gruntwork-cli v0.5.1
+go: downloading sigs.k8s.io/structured-merge-diff v1.0.1-0.20191108220359-b1b620dd3f06
+go: extracting github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c
+go: downloading cloud.google.com/go v0.51.0
+go: extracting sigs.k8s.io/structured-merge-diff v1.0.1-0.20191108220359-b1b620dd3f06
+go: extracting golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
+go: downloading sigs.k8s.io/structured-merge-diff/v3 v3.0.0
+go: downloading github.com/aws/aws-sdk-go v1.27.1
+go: extracting sigs.k8s.io/structured-merge-diff/v3 v3.0.0
+go: downloading github.com/go-sql-driver/mysql v1.4.1
+go: extracting cloud.google.com/go v0.51.0
+go: extracting github.com/go-sql-driver/mysql v1.4.1
+go: downloading gopkg.in/inf.v0 v0.9.1
+go: extracting gopkg.in/inf.v0 v0.9.1
+go: extracting github.com/Azure/azure-sdk-for-go v45.1.0+incompatible
+go: extracting github.com/aws/aws-sdk-go v1.27.1
+go: downloading gopkg.in/yaml.v2 v2.2.8
+go: downloading github.com/go-errors/errors v1.0.2-0.20180813162953-d98b870cc4e0
+go: downloading github.com/spf13/pflag v1.0.5
+go: downloading github.com/urfave/cli v1.22.1
+go: extracting github.com/go-errors/errors v1.0.2-0.20180813162953-d98b870cc4e0
+go: downloading github.com/google/gofuzz v1.1.0
+go: extracting github.com/urfave/cli v1.22.1
+go: extracting gopkg.in/yaml.v2 v2.2.8
+go: extracting github.com/spf13/pflag v1.0.5
+go: downloading k8s.io/utils v0.0.0-20200324210504-a9aa75ae1b89
+go: downloading github.com/golang/protobuf v1.3.2
+go: extracting github.com/google/gofuzz v1.1.0
+go: downloading golang.org/x/text v0.3.2
+go: extracting k8s.io/utils v0.0.0-20200324210504-a9aa75ae1b89
+go: downloading github.com/cpuguy83/go-md2man v1.0.10
+go: extracting github.com/cpuguy83/go-md2man v1.0.10
+go: downloading github.com/cpuguy83/go-md2man/v2 v2.0.0
+go: extracting github.com/golang/protobuf v1.3.2
+go: downloading github.com/json-iterator/go v1.1.8
+go: extracting github.com/cpuguy83/go-md2man/v2 v2.0.0
+go: extracting github.com/json-iterator/go v1.1.8
+go: downloading github.com/russross/blackfriday v1.5.2
+go: extracting github.com/russross/blackfriday v1.5.2
+go: downloading github.com/russross/blackfriday/v2 v2.0.1
+go: extracting github.com/russross/blackfriday/v2 v2.0.1
+go: downloading github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: extracting github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: downloading github.com/imdario/mergo v0.3.7
+go: downloading github.com/modern-go/reflect2 v1.0.1
+go: downloading github.com/shurcooL/sanitized_anchor_name v1.0.0
+go: downloading github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: downloading github.com/googleapis/gnostic v0.3.1
+go: downloading github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: downloading golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
+go: extracting github.com/imdario/mergo v0.3.7
+go: downloading github.com/Azure/go-autorest/autorest/to v0.3.0
+go: extracting github.com/modern-go/reflect2 v1.0.1
+go: downloading github.com/pquerna/otp v1.2.0
+go: extracting github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: extracting golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
+go: extracting github.com/shurcooL/sanitized_anchor_name v1.0.0
+go: extracting github.com/Azure/go-autorest/autorest/to v0.3.0
+go: extracting github.com/pquerna/otp v1.2.0
+go: extracting github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: downloading github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
+go: extracting github.com/googleapis/gnostic v0.3.1
+go: extracting github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
+go: extracting golang.org/x/text v0.3.2
+go: finding github.com/Azure/azure-sdk-for-go v45.1.0+incompatible
+go: finding github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: finding github.com/Azure/go-autorest/autorest/azure/auth v0.4.2
+go: finding github.com/google/uuid v1.1.1
+go: finding github.com/gruntwork-io/terratest v0.28.13
+go: finding github.com/otiai10/copy v1.2.0
+go: finding github.com/Azure/go-autorest/autorest v0.11.4
+go: finding github.com/Azure/go-autorest/autorest/date v0.3.0
+go: finding github.com/Azure/go-autorest/tracing v0.6.0
+go: finding github.com/Azure/go-autorest/autorest/azure/cli v0.3.1
+go: finding github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: finding github.com/dimchansky/utfbom v1.1.0
+go: finding github.com/Azure/go-autorest/autorest/to v0.3.0
+go: finding golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
+go: finding github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: finding github.com/Azure/go-autorest/logger v0.2.0
+go: finding github.com/stretchr/testify v1.6.1
+go: finding github.com/mitchellh/go-homedir v1.1.0
+go: finding github.com/davecgh/go-spew v1.1.1
+go: finding github.com/pmezard/go-difflib v1.0.0
+go: finding gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+go: finding github.com/Azure/azure-storage-blob-go v0.10.0
+go: finding github.com/gruntwork-io/gruntwork-cli v0.5.1
+go: finding github.com/Azure/azure-pipeline-go v0.2.2
+go: finding github.com/go-errors/errors v1.0.2-0.20180813162953-d98b870cc4e0
+go: finding github.com/urfave/cli v1.22.1
+go: finding github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d
+go: finding golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
+go: finding github.com/aws/aws-sdk-go v1.27.1
+go: finding golang.org/x/sys v0.0.0-20200107162124-548cf772de50
+go: finding github.com/cpuguy83/go-md2man/v2 v2.0.0
+go: finding k8s.io/api v0.18.3
+go: finding github.com/russross/blackfriday/v2 v2.0.1
+go: finding github.com/gogo/protobuf v1.3.1
+go: finding github.com/shurcooL/sanitized_anchor_name v1.0.0
+go: finding k8s.io/apimachinery v0.18.3
+go: finding github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: finding k8s.io/client-go v0.18.3
+go: finding github.com/go-sql-driver/mysql v1.4.1
+go: finding gopkg.in/inf.v0 v0.9.1
+go: finding golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+go: finding github.com/google/gofuzz v1.1.0
+go: finding github.com/golang/protobuf v1.3.2
+go: finding github.com/imdario/mergo v0.3.7
+go: finding github.com/pquerna/otp v1.2.0
+go: finding github.com/googleapis/gnostic v0.3.1
+go: finding github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
+go: finding github.com/spf13/pflag v1.0.5
+go: finding cloud.google.com/go v0.51.0
+go: finding k8s.io/klog v1.0.0
+go: finding gopkg.in/yaml.v2 v2.2.8
+go: finding github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c
+go: finding sigs.k8s.io/structured-merge-diff/v3 v3.0.0
+go: finding sigs.k8s.io/yaml v1.2.0
+go: finding github.com/json-iterator/go v1.1.8
+go: finding github.com/modern-go/reflect2 v1.0.1
+go: finding github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: finding golang.org/x/text v0.3.2
+go: finding golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
+go: finding k8s.io/utils v0.0.0-20200324210504-a9aa75ae1b89
+=== RUN   TestTerraformWithBackupEnabledTest
+=== PAUSE TestTerraformWithBackupEnabledTest
+=== RUN   TestTerraformEDnsWithApexDomainCluster
+=== PAUSE TestTerraformEDnsWithApexDomainCluster
+=== RUN   TestTerraformBasicJxCluster
+=== PAUSE TestTerraformBasicJxCluster
+=== RUN   TestTerraformJxClusterWithContainerRegistry
+=== PAUSE TestTerraformJxClusterWithContainerRegistry
+=== CONT  TestTerraformWithBackupEnabledTest
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:02Z retry.go:72: terraform [init -upgrade=false]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:02Z logger.go:66: Running command terraform with args [init -upgrade=false]
+=== CONT  TestTerraformJxClusterWithContainerRegistry
+=== CONT  TestTerraformBasicJxCluster
+=== CONT  TestTerraformEDnsWithApexDomainCluster
+TestTerraformBasicJxCluster 2020-08-26T23:05:02Z retry.go:72: terraform [init -upgrade=false]
+TestTerraformBasicJxCluster 2020-08-26T23:05:02Z logger.go:66: Running command terraform with args [init -upgrade=false]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:02Z retry.go:72: terraform [init -upgrade=false]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:02Z logger.go:66: Running command terraform with args [init -upgrade=false]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:02Z retry.go:72: terraform [init -upgrade=false]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:02Z logger.go:66: Running command terraform with args [init -upgrade=false]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:02Z logger.go:66: [0m[1mInitializing modules...[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:02Z logger.go:66: [0m[1mInitializing modules...[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:02Z logger.go:66: - backup in modules/backup
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:02Z logger.go:66: - cluster in modules/cluster
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:02Z logger.go:66: - dns in modules/dns
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:02Z logger.go:66: - registry in modules/registry
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:02Z logger.go:66: - vault in modules/vault
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:02Z logger.go:66: - vnet in modules/vnet
+TestTerraformBasicJxCluster 2020-08-26T23:05:02Z logger.go:66: [0m[1mInitializing modules...[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:02Z logger.go:66: - backup in modules/backup
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:02Z logger.go:66: - cluster in modules/cluster
+TestTerraformBasicJxCluster 2020-08-26T23:05:02Z logger.go:66: - backup in modules/backup
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:02Z logger.go:66: [0m[1mInitializing modules...[0m
+TestTerraformBasicJxCluster 2020-08-26T23:05:02Z logger.go:66: - cluster in modules/cluster
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:02Z logger.go:66: - dns in modules/dns
+TestTerraformBasicJxCluster 2020-08-26T23:05:02Z logger.go:66: - dns in modules/dns
+TestTerraformBasicJxCluster 2020-08-26T23:05:02Z logger.go:66: - registry in modules/registry
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:02Z logger.go:66: - registry in modules/registry
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:02Z logger.go:66: - vault in modules/vault
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:02Z logger.go:66: - vnet in modules/vnet
+TestTerraformBasicJxCluster 2020-08-26T23:05:02Z logger.go:66: - vault in modules/vault
+TestTerraformBasicJxCluster 2020-08-26T23:05:02Z logger.go:66: - vnet in modules/vnet
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:02Z logger.go:66: - backup in modules/backup
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:02Z logger.go:66: - cluster in modules/cluster
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:02Z logger.go:66: - dns in modules/dns
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:02Z logger.go:66: - registry in modules/registry
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:02Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:02Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:02Z logger.go:66: - vault in modules/vault
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:02Z logger.go:66: [0m[1mInitializing the backend...[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:02Z logger.go:66: - vnet in modules/vnet
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:02Z logger.go:66: [0m[1mInitializing the backend...[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:02Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:02Z logger.go:66: [0m[1mInitializing the backend...[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:02Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:02Z logger.go:66: [0m[1mInitializing provider plugins...[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:02Z logger.go:66: - Checking for available provider plugins...
+TestTerraformBasicJxCluster 2020-08-26T23:05:02Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-08-26T23:05:02Z logger.go:66: [0m[1mInitializing the backend...[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:02Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:02Z logger.go:66: [0m[1mInitializing provider plugins...[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:02Z logger.go:66: - Checking for available provider plugins...
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:02Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:02Z logger.go:66: [0m[1mInitializing provider plugins...[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:02Z logger.go:66: - Checking for available provider plugins...
+TestTerraformBasicJxCluster 2020-08-26T23:05:02Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-08-26T23:05:02Z logger.go:66: [0m[1mInitializing provider plugins...[0m
+TestTerraformBasicJxCluster 2020-08-26T23:05:02Z logger.go:66: - Checking for available provider plugins...
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:03Z logger.go:66: - Downloading plugin for provider "kubernetes" (hashicorp/kubernetes) 1.12.0...
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:03Z logger.go:66: - Downloading plugin for provider "azurerm" (hashicorp/azurerm) 2.24.0...
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:03Z logger.go:66: - Downloading plugin for provider "azurerm" (hashicorp/azurerm) 2.24.0...
+TestTerraformBasicJxCluster 2020-08-26T23:05:03Z logger.go:66: - Downloading plugin for provider "kubernetes" (hashicorp/kubernetes) 1.12.0...
+TestTerraformBasicJxCluster 2020-08-26T23:05:04Z logger.go:66: - Downloading plugin for provider "random" (hashicorp/random) 2.3.0...
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:04Z logger.go:66: - Downloading plugin for provider "random" (hashicorp/random) 2.3.0...
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:05Z logger.go:66: - Downloading plugin for provider "azuread" (hashicorp/azuread) 0.11.0...
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:05Z logger.go:66: - Downloading plugin for provider "azurerm" (hashicorp/azurerm) 2.24.0...
+TestTerraformBasicJxCluster 2020-08-26T23:05:05Z logger.go:66: - Downloading plugin for provider "azurerm" (hashicorp/azurerm) 2.24.0...
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:06Z logger.go:66: - Downloading plugin for provider "kubernetes" (hashicorp/kubernetes) 1.12.0...
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:06Z logger.go:66: - Downloading plugin for provider "azuread" (hashicorp/azuread) 0.11.0...
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:07Z logger.go:66: - Downloading plugin for provider "random" (hashicorp/random) 2.3.0...
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:07Z logger.go:66: - Downloading plugin for provider "kubernetes" (hashicorp/kubernetes) 1.12.0...
+TestTerraformBasicJxCluster 2020-08-26T23:05:07Z logger.go:66: - Downloading plugin for provider "azuread" (hashicorp/azuread) 0.11.0...
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:08Z logger.go:66: - Downloading plugin for provider "azuread" (hashicorp/azuread) 0.11.0...
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: [0m[32m
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: You may now begin working with Terraform. Try running "terraform plan" to see
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: any changes that are required for your infrastructure. All Terraform commands
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: should now work.
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: If you ever set or change modules or backend configuration for Terraform,
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: rerun this command to reinitialize your working directory. If you forget, other
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: commands will detect it and remind you to do so if necessary.[0m
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z retry.go:72: terraform [get -update]
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: Running command terraform with args [get -update]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:09Z logger.go:66: - Downloading plugin for provider "random" (hashicorp/random) 2.3.0...
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: - backup in modules/backup
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: - cluster in modules/cluster
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: - dns in modules/dns
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: - registry in modules/registry
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: - vault in modules/vault
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: - vnet in modules/vnet
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z retry.go:72: terraform [apply -input=false -auto-approve -lock=false]
+TestTerraformBasicJxCluster 2020-08-26T23:05:09Z logger.go:66: Running command terraform with args [apply -input=false -auto-approve -lock=false]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:09Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:09Z logger.go:66: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:09Z logger.go:66: [0m[32m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:09Z logger.go:66: You may now begin working with Terraform. Try running "terraform plan" to see
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:09Z logger.go:66: any changes that are required for your infrastructure. All Terraform commands
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:09Z logger.go:66: should now work.
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:09Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:09Z logger.go:66: If you ever set or change modules or backend configuration for Terraform,
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:09Z logger.go:66: rerun this command to reinitialize your working directory. If you forget, other
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:09Z logger.go:66: commands will detect it and remind you to do so if necessary.[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:09Z retry.go:72: terraform [get -update]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:09Z logger.go:66: Running command terraform with args [get -update]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:10Z logger.go:66: - backup in modules/backup
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:10Z logger.go:66: - cluster in modules/cluster
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:10Z logger.go:66: - dns in modules/dns
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:10Z logger.go:66: - registry in modules/registry
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:10Z logger.go:66: - vault in modules/vault
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:10Z logger.go:66: - vnet in modules/vnet
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:10Z retry.go:72: terraform [apply -input=false -auto-approve -var apex_domain_resource_group_name=apex-dns-rg
+ -var external_dns_enabled=true -var apex_domain=nelson.datacom.build
+ -lock=false]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:10Z logger.go:66: Running command terraform with args [apply -input=false -auto-approve -var apex_domain_resource_group_name=apex-dns-rg
+ -var external_dns_enabled=true -var apex_domain=nelson.datacom.build
+ -lock=false]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: [0m[32m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: You may now begin working with Terraform. Try running "terraform plan" to see
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: any changes that are required for your infrastructure. All Terraform commands
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: should now work.
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: If you ever set or change modules or backend configuration for Terraform,
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: rerun this command to reinitialize your working directory. If you forget, other
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: commands will detect it and remind you to do so if necessary.[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z retry.go:72: terraform [get -update]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: Running command terraform with args [get -update]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: - backup in modules/backup
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: - cluster in modules/cluster
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: - dns in modules/dns
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: - registry in modules/registry
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: - vault in modules/vault
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: - vnet in modules/vnet
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z retry.go:72: terraform [apply -input=false -auto-approve -var create_registry=true -lock=false]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:11Z logger.go:66: Running command terraform with args [apply -input=false -auto-approve -var create_registry=true -lock=false]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: [0m[32m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: You may now begin working with Terraform. Try running "terraform plan" to see
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: any changes that are required for your infrastructure. All Terraform commands
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: should now work.
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: If you ever set or change modules or backend configuration for Terraform,
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: rerun this command to reinitialize your working directory. If you forget, other
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: commands will detect it and remind you to do so if necessary.[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z retry.go:72: terraform [get -update]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: Running command terraform with args [get -update]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: - backup in modules/backup
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: - cluster in modules/cluster
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: - dns in modules/dns
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: - registry in modules/registry
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: - vault in modules/vault
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: - vnet in modules/vnet
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z retry.go:72: terraform [apply -input=false -auto-approve -var enable_backup=true -lock=false]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:12Z logger.go:66: Running command terraform with args [apply -input=false -auto-approve -var enable_backup=true -lock=false]
+TestTerraformBasicJxCluster 2020-08-26T23:05:18Z logger.go:66: [31m
+TestTerraformBasicJxCluster 2020-08-26T23:05:18Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+TestTerraformBasicJxCluster 2020-08-26T23:05:18Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-08-26T23:05:18Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformBasicJxCluster 2020-08-26T23:05:18Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformBasicJxCluster 2020-08-26T23:05:18Z logger.go:66: [0m
+TestTerraformBasicJxCluster 2020-08-26T23:05:18Z logger.go:66: [0m[0m
+TestTerraformBasicJxCluster 2020-08-26T23:05:18Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformBasicJxCluster 2020-08-26T23:05:18Z retry.go:72: terraform [destroy -auto-approve -input=false -lock=false]
+TestTerraformBasicJxCluster 2020-08-26T23:05:18Z logger.go:66: Running command terraform with args [destroy -auto-approve -input=false -lock=false]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:19Z logger.go:66: [31m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:19Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:19Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:19Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:19Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:19Z logger.go:66: [0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:19Z logger.go:66: [0m[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:19Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:19Z retry.go:72: terraform [destroy -auto-approve -input=false -var enable_backup=true -lock=false]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:19Z logger.go:66: Running command terraform with args [destroy -auto-approve -input=false -var enable_backup=true -lock=false]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:20Z logger.go:66: [31m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:20Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:20Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:20Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:20Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:20Z logger.go:66: [0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:20Z logger.go:66: [0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:28Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:28Z retry.go:72: terraform [destroy -auto-approve -input=false -var create_registry=true -lock=false]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:28Z logger.go:66: Running command terraform with args [destroy -auto-approve -input=false -var create_registry=true -lock=false]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:29Z logger.go:66: [31m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:29Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:29Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:29Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:29Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:29Z logger.go:66: [0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:29Z logger.go:66: [0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:29Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:29Z retry.go:72: terraform [destroy -auto-approve -input=false -var external_dns_enabled=true -var apex_domain=nelson.datacom.build
+ -var apex_domain_resource_group_name=apex-dns-rg
+ -lock=false]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:29Z logger.go:66: Running command terraform with args [destroy -auto-approve -input=false -var external_dns_enabled=true -var apex_domain=nelson.datacom.build
+ -var apex_domain_resource_group_name=apex-dns-rg
+ -lock=false]
+TestTerraformBasicJxCluster 2020-08-26T23:05:33Z logger.go:66: [31m
+TestTerraformBasicJxCluster 2020-08-26T23:05:33Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+TestTerraformBasicJxCluster 2020-08-26T23:05:33Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-08-26T23:05:33Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformBasicJxCluster 2020-08-26T23:05:33Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformBasicJxCluster 2020-08-26T23:05:33Z logger.go:66: [0m
+TestTerraformBasicJxCluster 2020-08-26T23:05:33Z logger.go:66: [0m[0m
+TestTerraformBasicJxCluster 2020-08-26T23:05:33Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:34Z logger.go:66: [31m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:34Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:34Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:34Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:34Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:34Z logger.go:66: [0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:34Z logger.go:66: [0m[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:05:34Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:36Z logger.go:66: [31m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:36Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:36Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:36Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:36Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:36Z logger.go:66: [0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:36Z logger.go:66: [0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:05:36Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:36Z logger.go:66: [31m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:36Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:36Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:36Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:36Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:36Z logger.go:66: [0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:36Z logger.go:66: [0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:05:36Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+--- FAIL: TestTerraformEDnsWithApexDomainCluster (38.76s)
+    apply.go:15: 
+        	Error Trace:	apply.go:15
+        	            				terraform_edns_cluster_test.go:50
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformEDnsWithApexDomainCluster
+    destroy.go:11: 
+        	Error Trace:	destroy.go:11
+        	            				panic.go:563
+        	            				testing.go:653
+        	            				apply.go:15
+        	            				terraform_edns_cluster_test.go:50
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformEDnsWithApexDomainCluster
+--- FAIL: TestTerraformWithBackupEnabledTest (38.81s)
+    apply.go:15: 
+        	Error Trace:	apply.go:15
+        	            				terraform_cluster_backup_test.go:49
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformWithBackupEnabledTest
+    destroy.go:11: 
+        	Error Trace:	destroy.go:11
+        	            				panic.go:563
+        	            				testing.go:653
+        	            				apply.go:15
+        	            				terraform_cluster_backup_test.go:49
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformWithBackupEnabledTest
+--- FAIL: TestTerraformJxClusterWithContainerRegistry (38.85s)
+    apply.go:15: 
+        	Error Trace:	apply.go:15
+        	            				terraform_**_cluster_with_container_registry_test.go:43
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformJxClusterWithContainerRegistry
+    destroy.go:11: 
+        	Error Trace:	destroy.go:11
+        	            				panic.go:563
+        	            				testing.go:653
+        	            				apply.go:15
+        	            				terraform_**_cluster_with_container_registry_test.go:43
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformJxClusterWithContainerRegistry
+--- FAIL: TestTerraformBasicJxCluster (38.91s)
+    apply.go:15: 
+        	Error Trace:	apply.go:15
+        	            				terraform_**_cluster_test.go:39
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformBasicJxCluster
+    destroy.go:11: 
+        	Error Trace:	destroy.go:11
+        	            				panic.go:563
+        	            				testing.go:653
+        	            				apply.go:15
+        	            				terraform_**_cluster_test.go:39
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: parse "df8eac07-e025-4521-80e8-6b66838cb092\n": net/url: invalid control character in URL[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformBasicJxCluster
+FAIL
+FAIL	github.com/jenkins-x/terraform-azurerm-**/test	38.928s
+FAIL
+make: *** [test] Error 1
+[31m
+Pipeline failed on stage 'ci' : container 'step-terratest'. The execution of the pipeline has stopped.[0m
