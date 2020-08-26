@@ -1,0 +1,640 @@
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kbfb2-3[0m stage [32mci[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1598485839.0829,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kbfb2-3[0m stage [32mci[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kbfb2-3[0m stage [32mci[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kbfb2-3[0m stage [32mci[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-kbfb2-kbtts[0m
+{"level":"info","ts":1598485852.6805828,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ master in path /workspace/source"}
+{"level":"warn","ts":1598485852.6806705,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1598485852.726229,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kbfb2-3[0m stage [32mci[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kbfb2-3[0m stage [32mci[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:c67b7c68af44a6504323d93f1758ff8041c6c39e,2:e358babd88932776b59106f8484174833f1c218c
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow e358babd88932776b59106f8484174833f1c218c: c67b7c68af44a6504323d93f1758ff8041c6c39e:
+DEBUG: ran git fetch --unshallow origin e358babd88932776b59106f8484174833f1c218c: c67b7c68af44a6504323d93f1758ff8041c6c39e: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard c67b7c68af44a6504323d93f1758ff8041c6c39e
+DEBUG: ran git reset --hard c67b7c68af44a6504323d93f1758ff8041c6c39e in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge e358babd88932776b59106f8484174833f1c218c
+DEBUG: ran git merge e358babd88932776b59106f8484174833f1c218c in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e c67b7c68af44a6504323d93f1758ff8041c6c39e..HEAD
+Merged SHA e358babd88932776b59106f8484174833f1c218c with commit message 'rollback image' into base branch master
+Merged SHA 53c49d263eed25537745735f1fcbea793e35bd2c with commit message 'rollback image' into base branch master
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kbfb2-3[0m stage [32mci[0m and container [32mstep-terraform-lint[0m
+terraform init
+[0m[1mTerraform initialized in an empty directory![0m
+
+The directory has no Terraform configuration files. You may begin working
+with Terraform immediately by creating Terraform configuration files.[0m
+terraform version
+Terraform v0.12.17
+
+Your version of Terraform is out of date! The latest version
+is 0.13.1. You can update by downloading from https://www.terraform.io/downloads.html
+terraform fmt -check -diff -recursive
+terraform validate
+[32m[1mSuccess![0m The configuration is valid.
+[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kbfb2-3[0m stage [32mci[0m and container [32mstep-terratest[0m
+GO111MODULE=on go test -failfast -timeout 1h -parallel 8 -count=1 -v ./...
+go: downloading github.com/otiai10/copy v1.2.0
+go: downloading github.com/google/uuid v1.1.1
+go: downloading github.com/Azure/azure-sdk-for-go v45.1.0+incompatible
+go: downloading github.com/Azure/go-autorest v14.2.0+incompatible
+go: downloading github.com/gruntwork-io/terratest v0.28.13
+go: downloading github.com/stretchr/testify v1.6.1
+go: downloading github.com/Azure/azure-storage-blob-go v0.10.0
+go: extracting github.com/Azure/go-autorest v14.2.0+incompatible
+go: extracting github.com/google/uuid v1.1.1
+go: extracting github.com/otiai10/copy v1.2.0
+go: downloading github.com/Azure/go-autorest/autorest v0.11.4
+go: extracting github.com/Azure/azure-storage-blob-go v0.10.0
+go: extracting github.com/stretchr/testify v1.6.1
+go: downloading golang.org/x/sys v0.0.0-20200107162124-548cf772de50
+go: extracting github.com/Azure/go-autorest/autorest v0.11.4
+go: downloading github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: downloading github.com/Azure/go-autorest/autorest/azure/auth v0.4.2
+go: downloading github.com/Azure/go-autorest/tracing v0.6.0
+go: extracting github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: extracting github.com/Azure/go-autorest/tracing v0.6.0
+go: downloading github.com/Azure/go-autorest/autorest/date v0.3.0
+go: extracting github.com/Azure/go-autorest/autorest/azure/auth v0.4.2
+go: downloading github.com/dimchansky/utfbom v1.1.0
+go: downloading gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+go: extracting gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+go: downloading golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
+go: extracting github.com/dimchansky/utfbom v1.1.0
+go: downloading github.com/pmezard/go-difflib v1.0.0
+go: extracting github.com/Azure/go-autorest/autorest/date v0.3.0
+go: downloading github.com/Azure/go-autorest/logger v0.2.0
+go: extracting golang.org/x/sys v0.0.0-20200107162124-548cf772de50
+go: extracting github.com/Azure/go-autorest/logger v0.2.0
+go: downloading github.com/Azure/azure-pipeline-go v0.2.2
+go: extracting github.com/pmezard/go-difflib v1.0.0
+go: downloading github.com/davecgh/go-spew v1.1.1
+go: extracting github.com/Azure/azure-pipeline-go v0.2.2
+go: downloading github.com/Azure/go-autorest/autorest/azure/cli v0.3.1
+go: extracting github.com/Azure/go-autorest/autorest/azure/cli v0.3.1
+go: downloading github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: extracting github.com/davecgh/go-spew v1.1.1
+go: extracting github.com/gruntwork-io/terratest v0.28.13
+go: downloading github.com/mitchellh/go-homedir v1.1.0
+go: extracting github.com/mitchellh/go-homedir v1.1.0
+go: downloading github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d
+go: extracting github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: extracting golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
+go: extracting github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d
+go: downloading k8s.io/api v0.18.3
+go: downloading k8s.io/client-go v0.18.3
+go: downloading github.com/aws/aws-sdk-go v1.27.1
+go: downloading github.com/go-sql-driver/mysql v1.4.1
+go: extracting github.com/go-sql-driver/mysql v1.4.1
+go: extracting k8s.io/client-go v0.18.3
+go: extracting k8s.io/api v0.18.3
+go: downloading github.com/pquerna/otp v1.2.0
+go: extracting github.com/pquerna/otp v1.2.0
+go: extracting github.com/aws/aws-sdk-go v1.27.1
+go: downloading github.com/gogo/protobuf v1.3.1
+go: downloading k8s.io/apimachinery v0.18.3
+go: extracting k8s.io/apimachinery v0.18.3
+go: downloading github.com/gruntwork-io/gruntwork-cli v0.5.1
+go: downloading github.com/imdario/mergo v0.3.7
+go: extracting github.com/imdario/mergo v0.3.7
+go: downloading github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c
+go: extracting github.com/gruntwork-io/gruntwork-cli v0.5.1
+go: downloading github.com/urfave/cli v1.22.1
+go: extracting github.com/urfave/cli v1.22.1
+go: extracting github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c
+go: extracting github.com/gogo/protobuf v1.3.1
+go: downloading sigs.k8s.io/structured-merge-diff v1.0.1-0.20191108220359-b1b620dd3f06
+go: downloading github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: extracting sigs.k8s.io/structured-merge-diff v1.0.1-0.20191108220359-b1b620dd3f06
+go: extracting github.com/Azure/azure-sdk-for-go v45.1.0+incompatible
+go: extracting github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: downloading sigs.k8s.io/structured-merge-diff/v3 v3.0.0
+go: downloading github.com/cpuguy83/go-md2man v1.0.10
+go: downloading golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
+go: downloading github.com/golang/protobuf v1.3.2
+go: extracting github.com/cpuguy83/go-md2man v1.0.10
+go: downloading github.com/cpuguy83/go-md2man/v2 v2.0.0
+go: extracting sigs.k8s.io/structured-merge-diff/v3 v3.0.0
+go: extracting github.com/golang/protobuf v1.3.2
+go: extracting github.com/cpuguy83/go-md2man/v2 v2.0.0
+go: downloading github.com/russross/blackfriday v1.5.2
+go: downloading gopkg.in/yaml.v2 v2.2.8
+go: extracting golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
+go: downloading github.com/go-errors/errors v1.0.2-0.20180813162953-d98b870cc4e0
+go: extracting github.com/russross/blackfriday v1.5.2
+go: extracting github.com/go-errors/errors v1.0.2-0.20180813162953-d98b870cc4e0
+go: extracting gopkg.in/yaml.v2 v2.2.8
+go: downloading github.com/google/gofuzz v1.1.0
+go: downloading github.com/russross/blackfriday/v2 v2.0.1
+go: extracting github.com/google/gofuzz v1.1.0
+go: downloading k8s.io/klog v1.0.0
+go: extracting k8s.io/klog v1.0.0
+go: downloading github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
+go: extracting github.com/russross/blackfriday/v2 v2.0.1
+go: downloading golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+go: downloading github.com/spf13/pflag v1.0.5
+go: extracting golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+go: extracting github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
+go: extracting github.com/spf13/pflag v1.0.5
+go: downloading github.com/shurcooL/sanitized_anchor_name v1.0.0
+go: downloading github.com/json-iterator/go v1.1.8
+go: downloading golang.org/x/text v0.3.2
+go: extracting github.com/shurcooL/sanitized_anchor_name v1.0.0
+go: downloading github.com/googleapis/gnostic v0.3.1
+go: extracting github.com/json-iterator/go v1.1.8
+go: downloading github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: extracting github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: downloading github.com/modern-go/reflect2 v1.0.1
+go: extracting github.com/googleapis/gnostic v0.3.1
+go: extracting github.com/modern-go/reflect2 v1.0.1
+go: downloading sigs.k8s.io/yaml v1.2.0
+go: extracting sigs.k8s.io/yaml v1.2.0
+go: downloading cloud.google.com/go v0.51.0
+go: extracting cloud.google.com/go v0.51.0
+go: downloading gopkg.in/inf.v0 v0.9.1
+go: extracting golang.org/x/text v0.3.2
+go: extracting gopkg.in/inf.v0 v0.9.1
+go: downloading k8s.io/utils v0.0.0-20200324210504-a9aa75ae1b89
+go: extracting k8s.io/utils v0.0.0-20200324210504-a9aa75ae1b89
+go: downloading golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
+go: extracting golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
+go: downloading github.com/Azure/go-autorest/autorest/to v0.3.0
+go: downloading github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: extracting github.com/Azure/go-autorest/autorest/to v0.3.0
+go: extracting github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: finding github.com/Azure/azure-sdk-for-go v45.1.0+incompatible
+go: finding github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: finding github.com/Azure/go-autorest/autorest/azure/auth v0.4.2
+go: finding github.com/google/uuid v1.1.1
+go: finding github.com/gruntwork-io/terratest v0.28.13
+go: finding github.com/otiai10/copy v1.2.0
+go: finding github.com/Azure/go-autorest/autorest v0.11.4
+go: finding github.com/Azure/go-autorest/autorest/date v0.3.0
+go: finding github.com/Azure/go-autorest/tracing v0.6.0
+go: finding github.com/Azure/go-autorest/autorest/azure/cli v0.3.1
+go: finding github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: finding github.com/Azure/go-autorest/autorest/to v0.3.0
+go: finding github.com/dimchansky/utfbom v1.1.0
+go: finding golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
+go: finding github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: finding github.com/Azure/go-autorest/logger v0.2.0
+go: finding github.com/stretchr/testify v1.6.1
+go: finding github.com/mitchellh/go-homedir v1.1.0
+go: finding github.com/davecgh/go-spew v1.1.1
+go: finding github.com/pmezard/go-difflib v1.0.0
+go: finding gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+go: finding github.com/Azure/azure-storage-blob-go v0.10.0
+go: finding github.com/gruntwork-io/gruntwork-cli v0.5.1
+go: finding github.com/Azure/azure-pipeline-go v0.2.2
+go: finding github.com/go-errors/errors v1.0.2-0.20180813162953-d98b870cc4e0
+go: finding github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d
+go: finding github.com/urfave/cli v1.22.1
+go: finding golang.org/x/sys v0.0.0-20200107162124-548cf772de50
+go: finding golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
+go: finding github.com/aws/aws-sdk-go v1.27.1
+go: finding github.com/cpuguy83/go-md2man/v2 v2.0.0
+go: finding k8s.io/api v0.18.3
+go: finding github.com/russross/blackfriday/v2 v2.0.1
+go: finding github.com/shurcooL/sanitized_anchor_name v1.0.0
+go: finding github.com/gogo/protobuf v1.3.1
+go: finding github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: finding k8s.io/apimachinery v0.18.3
+go: finding k8s.io/client-go v0.18.3
+go: finding github.com/imdario/mergo v0.3.7
+go: finding github.com/golang/protobuf v1.3.2
+go: finding github.com/go-sql-driver/mysql v1.4.1
+go: finding github.com/googleapis/gnostic v0.3.1
+go: finding github.com/google/gofuzz v1.1.0
+go: finding golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+go: finding gopkg.in/inf.v0 v0.9.1
+go: finding github.com/pquerna/otp v1.2.0
+go: finding github.com/spf13/pflag v1.0.5
+go: finding github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
+go: finding cloud.google.com/go v0.51.0
+go: finding k8s.io/klog v1.0.0
+go: finding gopkg.in/yaml.v2 v2.2.8
+go: finding sigs.k8s.io/structured-merge-diff/v3 v3.0.0
+go: finding github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c
+go: finding sigs.k8s.io/yaml v1.2.0
+go: finding github.com/json-iterator/go v1.1.8
+go: finding github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: finding github.com/modern-go/reflect2 v1.0.1
+go: finding golang.org/x/text v0.3.2
+go: finding golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
+go: finding k8s.io/utils v0.0.0-20200324210504-a9aa75ae1b89
+=== RUN   TestTerraformWithBackupEnabledTest
+=== PAUSE TestTerraformWithBackupEnabledTest
+=== RUN   TestTerraformEDnsWithApexDomainCluster
+=== PAUSE TestTerraformEDnsWithApexDomainCluster
+=== RUN   TestTerraformBasicJxCluster
+=== PAUSE TestTerraformBasicJxCluster
+=== RUN   TestTerraformJxClusterWithContainerRegistry
+=== PAUSE TestTerraformJxClusterWithContainerRegistry
+=== CONT  TestTerraformWithBackupEnabledTest
+=== CONT  TestTerraformJxClusterWithContainerRegistry
+=== CONT  TestTerraformBasicJxCluster
+=== CONT  TestTerraformEDnsWithApexDomainCluster
+TestTerraformBasicJxCluster 2020-08-26T23:52:57Z retry.go:72: terraform [init -upgrade=false]
+TestTerraformBasicJxCluster 2020-08-26T23:52:57Z logger.go:66: Running command terraform with args [init -upgrade=false]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:57Z retry.go:72: terraform [init -upgrade=false]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:57Z logger.go:66: Running command terraform with args [init -upgrade=false]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z retry.go:72: terraform [init -upgrade=false]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z logger.go:66: Running command terraform with args [init -upgrade=false]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:57Z retry.go:72: terraform [init -upgrade=false]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:57Z logger.go:66: Running command terraform with args [init -upgrade=false]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z logger.go:66: [0m[1mInitializing modules...[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z logger.go:66: - backup in modules/backup
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z logger.go:66: - cluster in modules/cluster
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z logger.go:66: - dns in modules/dns
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z logger.go:66: - registry in modules/registry
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z logger.go:66: - vault in modules/vault
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z logger.go:66: - vnet in modules/vnet
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:57Z logger.go:66: [0m[1mInitializing modules...[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:57Z logger.go:66: [0m[1mInitializing modules...[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z logger.go:66: [0m[1mInitializing the backend...[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:57Z logger.go:66: - backup in modules/backup
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:57Z logger.go:66: - cluster in modules/cluster
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:57Z logger.go:66: - dns in modules/dns
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:57Z logger.go:66: - registry in modules/registry
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z logger.go:66: [0m[1mInitializing provider plugins...[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z logger.go:66: - Checking for available provider plugins...
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:57Z logger.go:66: - vault in modules/vault
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:57Z logger.go:66: - vnet in modules/vnet
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:57Z logger.go:66: - backup in modules/backup
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:57Z logger.go:66: - cluster in modules/cluster
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:57Z logger.go:66: - dns in modules/dns
+TestTerraformBasicJxCluster 2020-08-26T23:52:57Z logger.go:66: [0m[1mInitializing modules...[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:57Z logger.go:66: - registry in modules/registry
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:57Z logger.go:66: - vault in modules/vault
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:57Z logger.go:66: - vnet in modules/vnet
+TestTerraformBasicJxCluster 2020-08-26T23:52:57Z logger.go:66: - backup in modules/backup
+TestTerraformBasicJxCluster 2020-08-26T23:52:57Z logger.go:66: - cluster in modules/cluster
+TestTerraformBasicJxCluster 2020-08-26T23:52:57Z logger.go:66: - dns in modules/dns
+TestTerraformBasicJxCluster 2020-08-26T23:52:57Z logger.go:66: - registry in modules/registry
+TestTerraformBasicJxCluster 2020-08-26T23:52:57Z logger.go:66: - vault in modules/vault
+TestTerraformBasicJxCluster 2020-08-26T23:52:57Z logger.go:66: - vnet in modules/vnet
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:57Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:57Z logger.go:66: [0m[1mInitializing the backend...[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:57Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:57Z logger.go:66: [0m[1mInitializing the backend...[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:57Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:57Z logger.go:66: [0m[1mInitializing provider plugins...[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:57Z logger.go:66: - Checking for available provider plugins...
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:57Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:57Z logger.go:66: [0m[1mInitializing provider plugins...[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:57Z logger.go:66: - Checking for available provider plugins...
+TestTerraformBasicJxCluster 2020-08-26T23:52:57Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-08-26T23:52:57Z logger.go:66: [0m[1mInitializing the backend...[0m
+TestTerraformBasicJxCluster 2020-08-26T23:52:57Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-08-26T23:52:57Z logger.go:66: [0m[1mInitializing provider plugins...[0m
+TestTerraformBasicJxCluster 2020-08-26T23:52:57Z logger.go:66: - Checking for available provider plugins...
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:57Z logger.go:66: - Downloading plugin for provider "kubernetes" (hashicorp/kubernetes) 1.12.0...
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:58Z logger.go:66: - Downloading plugin for provider "kubernetes" (hashicorp/kubernetes) 1.12.0...
+TestTerraformBasicJxCluster 2020-08-26T23:52:58Z logger.go:66: - Downloading plugin for provider "random" (hashicorp/random) 2.3.0...
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:58Z logger.go:66: - Downloading plugin for provider "azuread" (hashicorp/azuread) 0.11.0...
+TestTerraformBasicJxCluster 2020-08-26T23:52:58Z logger.go:66: - Downloading plugin for provider "azurerm" (hashicorp/azurerm) 2.24.0...
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:52:59Z logger.go:66: - Downloading plugin for provider "kubernetes" (hashicorp/kubernetes) 1.12.0...
+TestTerraformWithBackupEnabledTest 2020-08-26T23:52:59Z logger.go:66: - Downloading plugin for provider "random" (hashicorp/random) 2.3.0...
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:52:59Z logger.go:66: - Downloading plugin for provider "random" (hashicorp/random) 2.3.0...
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:00Z logger.go:66: - Downloading plugin for provider "azurerm" (hashicorp/azurerm) 2.24.0...
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:00Z logger.go:66: - Downloading plugin for provider "azurerm" (hashicorp/azurerm) 2.24.0...
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:00Z logger.go:66: - Downloading plugin for provider "random" (hashicorp/random) 2.3.0...
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:01Z logger.go:66: - Downloading plugin for provider "azurerm" (hashicorp/azurerm) 2.24.0...
+TestTerraformBasicJxCluster 2020-08-26T23:53:02Z logger.go:66: - Downloading plugin for provider "azuread" (hashicorp/azuread) 0.11.0...
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:02Z logger.go:66: - Downloading plugin for provider "azuread" (hashicorp/azuread) 0.11.0...
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:03Z logger.go:66: - Downloading plugin for provider "azuread" (hashicorp/azuread) 0.11.0...
+TestTerraformBasicJxCluster 2020-08-26T23:53:03Z logger.go:66: - Downloading plugin for provider "kubernetes" (hashicorp/kubernetes) 1.12.0...
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: [0m[32m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: You may now begin working with Terraform. Try running "terraform plan" to see
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: any changes that are required for your infrastructure. All Terraform commands
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: should now work.
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: If you ever set or change modules or backend configuration for Terraform,
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: rerun this command to reinitialize your working directory. If you forget, other
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: commands will detect it and remind you to do so if necessary.[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z retry.go:72: terraform [get -update]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: Running command terraform with args [get -update]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: - backup in modules/backup
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: - cluster in modules/cluster
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: - dns in modules/dns
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: - registry in modules/registry
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: - vault in modules/vault
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:04Z logger.go:66: - vnet in modules/vnet
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: [0m[32m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: You may now begin working with Terraform. Try running "terraform plan" to see
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: any changes that are required for your infrastructure. All Terraform commands
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: should now work.
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: If you ever set or change modules or backend configuration for Terraform,
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: rerun this command to reinitialize your working directory. If you forget, other
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: commands will detect it and remind you to do so if necessary.[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z retry.go:72: terraform [get -update]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: Running command terraform with args [get -update]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: - backup in modules/backup
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: - cluster in modules/cluster
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: - dns in modules/dns
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: - registry in modules/registry
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: - vault in modules/vault
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: - vnet in modules/vnet
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:05Z retry.go:72: terraform [apply -input=false -auto-approve -var create_registry=true -lock=false]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:05Z logger.go:66: Running command terraform with args [apply -input=false -auto-approve -var create_registry=true -lock=false]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z retry.go:72: terraform [apply -input=false -auto-approve -var enable_backup=true -lock=false]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:05Z logger.go:66: Running command terraform with args [apply -input=false -auto-approve -var enable_backup=true -lock=false]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: [0m[32m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: You may now begin working with Terraform. Try running "terraform plan" to see
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: any changes that are required for your infrastructure. All Terraform commands
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: should now work.
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: If you ever set or change modules or backend configuration for Terraform,
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: rerun this command to reinitialize your working directory. If you forget, other
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: commands will detect it and remind you to do so if necessary.[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z retry.go:72: terraform [get -update]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: Running command terraform with args [get -update]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: - backup in modules/backup
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: - cluster in modules/cluster
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: - dns in modules/dns
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: - registry in modules/registry
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: - vault in modules/vault
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:05Z logger.go:66: - vnet in modules/vnet
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:06Z retry.go:72: terraform [apply -input=false -auto-approve -var apex_domain_resource_group_name=*********** -var external_dns_enabled=true -var apex_domain=******************** -lock=false]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:06Z logger.go:66: Running command terraform with args [apply -input=false -auto-approve -var apex_domain_resource_group_name=*********** -var external_dns_enabled=true -var apex_domain=******************** -lock=false]
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: [0m[32m
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: You may now begin working with Terraform. Try running "terraform plan" to see
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: any changes that are required for your infrastructure. All Terraform commands
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: should now work.
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: If you ever set or change modules or backend configuration for Terraform,
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: rerun this command to reinitialize your working directory. If you forget, other
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: commands will detect it and remind you to do so if necessary.[0m
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z retry.go:72: terraform [get -update]
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: Running command terraform with args [get -update]
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: - backup in modules/backup
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: - cluster in modules/cluster
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: - dns in modules/dns
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: - registry in modules/registry
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: - vault in modules/vault
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: - vnet in modules/vnet
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z retry.go:72: terraform [apply -input=false -auto-approve -lock=false]
+TestTerraformBasicJxCluster 2020-08-26T23:53:06Z logger.go:66: Running command terraform with args [apply -input=false -auto-approve -lock=false]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:13Z logger.go:66: [31m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:13Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: e9bbeb57-13b2-46c8-9ebd-f29502cc8600\\r\\nCorrelation ID: 8bc4d400-faa8-472a-8fab-7b151dfd4c04\\r\\nTimestamp: 2020-08-26 23:53:13Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:13Z\",\"trace_id\":\"e9bbeb57-13b2-46c8-9ebd-f29502cc8600\",\"correlation_id\":\"8bc4d400-faa8-472a-8fab-7b151dfd4c04\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc000b81950)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%!f(MISSING)ilter=appId+eq+%!a(MISSING)0e5-ce16-480c-935b-3f8aebf93f84%!&(MISSING)api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc000b81950)}[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:13Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:13Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:13Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:13Z logger.go:66: [0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:13Z logger.go:66: [0m[0m
+TestTerraformBasicJxCluster 2020-08-26T23:53:14Z logger.go:66: [31m
+TestTerraformBasicJxCluster 2020-08-26T23:53:14Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 1348a903-bb4f-4345-9a2e-d6aa92ee9600\\r\\nCorrelation ID: 53bec67b-42d8-4546-a662-4602a7bef8a5\\r\\nTimestamp: 2020-08-26 23:53:14Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:14Z\",\"trace_id\":\"1348a903-bb4f-4345-9a2e-d6aa92ee9600\",\"correlation_id\":\"53bec67b-42d8-4546-a662-4602a7bef8a5\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc000ca4cf0)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%!f(MISSING)ilter=appId+eq+%!a(MISSING)0e5-ce16-480c-935b-3f8aebf93f84%!&(MISSING)api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc000ca4cf0)}[0m
+TestTerraformBasicJxCluster 2020-08-26T23:53:14Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-08-26T23:53:14Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformBasicJxCluster 2020-08-26T23:53:14Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformBasicJxCluster 2020-08-26T23:53:14Z logger.go:66: [0m
+TestTerraformBasicJxCluster 2020-08-26T23:53:14Z logger.go:66: [0m[0m
+TestTerraformBasicJxCluster 2020-08-26T23:53:14Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 1348a903-bb4f-4345-9a2e-d6aa92ee9600\\r\\nCorrelation ID: 53bec67b-42d8-4546-a662-4602a7bef8a5\\r\\nTimestamp: 2020-08-26 23:53:14Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:14Z\",\"trace_id\":\"1348a903-bb4f-4345-9a2e-d6aa92ee9600\",\"correlation_id\":\"53bec67b-42d8-4546-a662-4602a7bef8a5\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc000ca4cf0)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc000ca4cf0)}[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformBasicJxCluster 2020-08-26T23:53:14Z retry.go:72: terraform [destroy -auto-approve -input=false -lock=false]
+TestTerraformBasicJxCluster 2020-08-26T23:53:14Z logger.go:66: Running command terraform with args [destroy -auto-approve -input=false -lock=false]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:14Z logger.go:66: [31m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:14Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 626547e6-d86b-467e-9010-0d2f6d28a700\\r\\nCorrelation ID: d0d3e33e-bd11-4c66-af26-3548811bc832\\r\\nTimestamp: 2020-08-26 23:53:14Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:14Z\",\"trace_id\":\"626547e6-d86b-467e-9010-0d2f6d28a700\",\"correlation_id\":\"d0d3e33e-bd11-4c66-af26-3548811bc832\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc0004f2480)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%!f(MISSING)ilter=appId+eq+%!a(MISSING)0e5-ce16-480c-935b-3f8aebf93f84%!&(MISSING)api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc0004f2480)}[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:14Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:14Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:14Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:14Z logger.go:66: [0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:14Z logger.go:66: [0m[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:15Z logger.go:66: [31m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:15Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 11695186-3f07-4440-a988-698ceb4f8200\\r\\nCorrelation ID: ee8a8eed-f975-44fa-96df-614f835af10f\\r\\nTimestamp: 2020-08-26 23:53:15Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:15Z\",\"trace_id\":\"11695186-3f07-4440-a988-698ceb4f8200\",\"correlation_id\":\"ee8a8eed-f975-44fa-96df-614f835af10f\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc0007870e0)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%!f(MISSING)ilter=appId+eq+%!a(MISSING)0e5-ce16-480c-935b-3f8aebf93f84%!&(MISSING)api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc0007870e0)}[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:15Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:15Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:15Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:15Z logger.go:66: [0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:15Z logger.go:66: [0m[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:16Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 11695186-3f07-4440-a988-698ceb4f8200\\r\\nCorrelation ID: ee8a8eed-f975-44fa-96df-614f835af10f\\r\\nTimestamp: 2020-08-26 23:53:15Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:15Z\",\"trace_id\":\"11695186-3f07-4440-a988-698ceb4f8200\",\"correlation_id\":\"ee8a8eed-f975-44fa-96df-614f835af10f\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc0007870e0)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc0007870e0)}[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:16Z retry.go:72: terraform [destroy -auto-approve -input=false -var enable_backup=true -lock=false]
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:16Z logger.go:66: Running command terraform with args [destroy -auto-approve -input=false -var enable_backup=true -lock=false]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:16Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: e9bbeb57-13b2-46c8-9ebd-f29502cc8600\\r\\nCorrelation ID: 8bc4d400-faa8-472a-8fab-7b151dfd4c04\\r\\nTimestamp: 2020-08-26 23:53:13Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:13Z\",\"trace_id\":\"e9bbeb57-13b2-46c8-9ebd-f29502cc8600\",\"correlation_id\":\"8bc4d400-faa8-472a-8fab-7b151dfd4c04\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc000b81950)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc000b81950)}[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:16Z retry.go:72: terraform [destroy -auto-approve -input=false -var create_registry=true -lock=false]
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:16Z logger.go:66: Running command terraform with args [destroy -auto-approve -input=false -var create_registry=true -lock=false]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:16Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 626547e6-d86b-467e-9010-0d2f6d28a700\\r\\nCorrelation ID: d0d3e33e-bd11-4c66-af26-3548811bc832\\r\\nTimestamp: 2020-08-26 23:53:14Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:14Z\",\"trace_id\":\"626547e6-d86b-467e-9010-0d2f6d28a700\",\"correlation_id\":\"d0d3e33e-bd11-4c66-af26-3548811bc832\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc0004f2480)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc0004f2480)}[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:16Z retry.go:72: terraform [destroy -auto-approve -input=false -var external_dns_enabled=true -var apex_domain=******************** -var apex_domain_resource_group_name=*********** -lock=false]
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:16Z logger.go:66: Running command terraform with args [destroy -auto-approve -input=false -var external_dns_enabled=true -var apex_domain=******************** -var apex_domain_resource_group_name=*********** -lock=false]
+TestTerraformBasicJxCluster 2020-08-26T23:53:20Z logger.go:66: [31m
+TestTerraformBasicJxCluster 2020-08-26T23:53:20Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 493cc5e6-7c7a-4fa3-914e-cf768c4fac00\\r\\nCorrelation ID: 347e47c2-5d87-4fe0-8d96-ff9b045c35f3\\r\\nTimestamp: 2020-08-26 23:53:20Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:20Z\",\"trace_id\":\"493cc5e6-7c7a-4fa3-914e-cf768c4fac00\",\"correlation_id\":\"347e47c2-5d87-4fe0-8d96-ff9b045c35f3\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc0001fbe60)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%!f(MISSING)ilter=appId+eq+%!a(MISSING)0e5-ce16-480c-935b-3f8aebf93f84%!&(MISSING)api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc0001fbe60)}[0m
+TestTerraformBasicJxCluster 2020-08-26T23:53:20Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-08-26T23:53:20Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformBasicJxCluster 2020-08-26T23:53:20Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformBasicJxCluster 2020-08-26T23:53:20Z logger.go:66: [0m
+TestTerraformBasicJxCluster 2020-08-26T23:53:20Z logger.go:66: [0m[0m
+TestTerraformBasicJxCluster 2020-08-26T23:53:20Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 493cc5e6-7c7a-4fa3-914e-cf768c4fac00\\r\\nCorrelation ID: 347e47c2-5d87-4fe0-8d96-ff9b045c35f3\\r\\nTimestamp: 2020-08-26 23:53:20Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:20Z\",\"trace_id\":\"493cc5e6-7c7a-4fa3-914e-cf768c4fac00\",\"correlation_id\":\"347e47c2-5d87-4fe0-8d96-ff9b045c35f3\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc0001fbe60)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc0001fbe60)}[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+--- FAIL: TestTerraformBasicJxCluster (23.14s)
+    apply.go:15: 
+        	Error Trace:	apply.go:15
+        	            				terraform_**_cluster_test.go:39
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 1348a903-bb4f-4345-9a2e-d6aa92ee9600\\r\\nCorrelation ID: 53bec67b-42d8-4546-a662-4602a7bef8a5\\r\\nTimestamp: 2020-08-26 23:53:14Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:14Z\",\"trace_id\":\"1348a903-bb4f-4345-9a2e-d6aa92ee9600\",\"correlation_id\":\"53bec67b-42d8-4546-a662-4602a7bef8a5\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc000ca4cf0)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc000ca4cf0)}[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformBasicJxCluster
+    destroy.go:11: 
+        	Error Trace:	destroy.go:11
+        	            				panic.go:563
+        	            				testing.go:653
+        	            				apply.go:15
+        	            				terraform_**_cluster_test.go:39
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 493cc5e6-7c7a-4fa3-914e-cf768c4fac00\\r\\nCorrelation ID: 347e47c2-5d87-4fe0-8d96-ff9b045c35f3\\r\\nTimestamp: 2020-08-26 23:53:20Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:20Z\",\"trace_id\":\"493cc5e6-7c7a-4fa3-914e-cf768c4fac00\",\"correlation_id\":\"347e47c2-5d87-4fe0-8d96-ff9b045c35f3\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc0001fbe60)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc0001fbe60)}[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformBasicJxCluster
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:23Z logger.go:66: [31m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:23Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 137f4a0c-79c1-4b8f-b6c2-73adf7fd7b00\\r\\nCorrelation ID: 51d6323f-cc27-4de1-a827-069c1861c104\\r\\nTimestamp: 2020-08-26 23:53:23Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:23Z\",\"trace_id\":\"137f4a0c-79c1-4b8f-b6c2-73adf7fd7b00\",\"correlation_id\":\"51d6323f-cc27-4de1-a827-069c1861c104\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc000be2990)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%!f(MISSING)ilter=appId+eq+%!a(MISSING)0e5-ce16-480c-935b-3f8aebf93f84%!&(MISSING)api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc000be2990)}[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:23Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:23Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:23Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:23Z logger.go:66: [0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:23Z logger.go:66: [0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-08-26T23:53:23Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 137f4a0c-79c1-4b8f-b6c2-73adf7fd7b00\\r\\nCorrelation ID: 51d6323f-cc27-4de1-a827-069c1861c104\\r\\nTimestamp: 2020-08-26 23:53:23Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:23Z\",\"trace_id\":\"137f4a0c-79c1-4b8f-b6c2-73adf7fd7b00\",\"correlation_id\":\"51d6323f-cc27-4de1-a827-069c1861c104\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc000be2990)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc000be2990)}[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:23Z logger.go:66: [31m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:23Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 3e008c73-a0ed-404c-8797-1a6c2eef9c00\\r\\nCorrelation ID: 4a9d0dff-3c32-4b7d-863c-db9f7990ba58\\r\\nTimestamp: 2020-08-26 23:53:23Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:23Z\",\"trace_id\":\"3e008c73-a0ed-404c-8797-1a6c2eef9c00\",\"correlation_id\":\"4a9d0dff-3c32-4b7d-863c-db9f7990ba58\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc0007317a0)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%!f(MISSING)ilter=appId+eq+%!a(MISSING)0e5-ce16-480c-935b-3f8aebf93f84%!&(MISSING)api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc0007317a0)}[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:23Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:23Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:23Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:23Z logger.go:66: [0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:23Z logger.go:66: [0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-08-26T23:53:23Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 3e008c73-a0ed-404c-8797-1a6c2eef9c00\\r\\nCorrelation ID: 4a9d0dff-3c32-4b7d-863c-db9f7990ba58\\r\\nTimestamp: 2020-08-26 23:53:23Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:23Z\",\"trace_id\":\"3e008c73-a0ed-404c-8797-1a6c2eef9c00\",\"correlation_id\":\"4a9d0dff-3c32-4b7d-863c-db9f7990ba58\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc0007317a0)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc0007317a0)}[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+--- FAIL: TestTerraformJxClusterWithContainerRegistry (27.24s)
+    apply.go:15: 
+        	Error Trace:	apply.go:15
+        	            				terraform_**_cluster_with_container_registry_test.go:43
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: e9bbeb57-13b2-46c8-9ebd-f29502cc8600\\r\\nCorrelation ID: 8bc4d400-faa8-472a-8fab-7b151dfd4c04\\r\\nTimestamp: 2020-08-26 23:53:13Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:13Z\",\"trace_id\":\"e9bbeb57-13b2-46c8-9ebd-f29502cc8600\",\"correlation_id\":\"8bc4d400-faa8-472a-8fab-7b151dfd4c04\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc000b81950)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc000b81950)}[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformJxClusterWithContainerRegistry
+    destroy.go:11: 
+        	Error Trace:	destroy.go:11
+        	            				panic.go:563
+        	            				testing.go:653
+        	            				apply.go:15
+        	            				terraform_**_cluster_with_container_registry_test.go:43
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 137f4a0c-79c1-4b8f-b6c2-73adf7fd7b00\\r\\nCorrelation ID: 51d6323f-cc27-4de1-a827-069c1861c104\\r\\nTimestamp: 2020-08-26 23:53:23Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:23Z\",\"trace_id\":\"137f4a0c-79c1-4b8f-b6c2-73adf7fd7b00\",\"correlation_id\":\"51d6323f-cc27-4de1-a827-069c1861c104\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc000be2990)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc000be2990)}[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformJxClusterWithContainerRegistry
+--- FAIL: TestTerraformEDnsWithApexDomainCluster (27.83s)
+    apply.go:15: 
+        	Error Trace:	apply.go:15
+        	            				terraform_edns_cluster_test.go:50
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 626547e6-d86b-467e-9010-0d2f6d28a700\\r\\nCorrelation ID: d0d3e33e-bd11-4c66-af26-3548811bc832\\r\\nTimestamp: 2020-08-26 23:53:14Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:14Z\",\"trace_id\":\"626547e6-d86b-467e-9010-0d2f6d28a700\",\"correlation_id\":\"d0d3e33e-bd11-4c66-af26-3548811bc832\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc0004f2480)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc0004f2480)}[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformEDnsWithApexDomainCluster
+    destroy.go:11: 
+        	Error Trace:	destroy.go:11
+        	            				panic.go:563
+        	            				testing.go:653
+        	            				apply.go:15
+        	            				terraform_edns_cluster_test.go:50
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 3e008c73-a0ed-404c-8797-1a6c2eef9c00\\r\\nCorrelation ID: 4a9d0dff-3c32-4b7d-863c-db9f7990ba58\\r\\nTimestamp: 2020-08-26 23:53:23Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:23Z\",\"trace_id\":\"3e008c73-a0ed-404c-8797-1a6c2eef9c00\",\"correlation_id\":\"4a9d0dff-3c32-4b7d-863c-db9f7990ba58\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc0007317a0)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc0007317a0)}[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformEDnsWithApexDomainCluster
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:27Z logger.go:66: [31m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:27Z logger.go:66: [1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 285401b6-c8a9-47a2-a8fa-d91f468f9600\\r\\nCorrelation ID: baf11322-f3d5-4697-b5f9-8e73a567d0b9\\r\\nTimestamp: 2020-08-26 23:53:27Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:27Z\",\"trace_id\":\"285401b6-c8a9-47a2-a8fa-d91f468f9600\",\"correlation_id\":\"baf11322-f3d5-4697-b5f9-8e73a567d0b9\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc000d041b0)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%!f(MISSING)ilter=appId+eq+%!a(MISSING)0e5-ce16-480c-935b-3f8aebf93f84%!&(MISSING)api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc000d041b0)}[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:27Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:27Z logger.go:66: [0m  on main.tf line 12, in provider "azurerm":
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:27Z logger.go:66:   12: provider "azurerm" [4m{[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:27Z logger.go:66: [0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:27Z logger.go:66: [0m[0m
+TestTerraformWithBackupEnabledTest 2020-08-26T23:53:27Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 285401b6-c8a9-47a2-a8fa-d91f468f9600\\r\\nCorrelation ID: baf11322-f3d5-4697-b5f9-8e73a567d0b9\\r\\nTimestamp: 2020-08-26 23:53:27Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:27Z\",\"trace_id\":\"285401b6-c8a9-47a2-a8fa-d91f468f9600\",\"correlation_id\":\"baf11322-f3d5-4697-b5f9-8e73a567d0b9\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc000d041b0)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc000d041b0)}[0m
+
+[0m  on main.tf line 12, in provider "azurerm":
+  12: provider "azurerm" [4m{[0m
+[0m
+[0m[0m}
+--- FAIL: TestTerraformWithBackupEnabledTest (30.74s)
+    apply.go:15: 
+        	Error Trace:	apply.go:15
+        	            				terraform_cluster_backup_test.go:49
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 11695186-3f07-4440-a988-698ceb4f8200\\r\\nCorrelation ID: ee8a8eed-f975-44fa-96df-614f835af10f\\r\\nTimestamp: 2020-08-26 23:53:15Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:15Z\",\"trace_id\":\"11695186-3f07-4440-a988-698ceb4f8200\",\"correlation_id\":\"ee8a8eed-f975-44fa-96df-614f835af10f\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc0007870e0)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc0007870e0)}[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformWithBackupEnabledTest
+    destroy.go:11: 
+        	Error Trace:	destroy.go:11
+        	            				panic.go:563
+        	            				testing.go:653
+        	            				apply.go:15
+        	            				terraform_cluster_backup_test.go:49
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mError building account: Error getting authenticated object ID: Error listing Service Principals: autorest.DetailedError{Original:adal.tokenRefreshError{message:"adal: Refresh request failed. Status Code = '400'. Response body: {\"error\":\"unauthorized_client\",\"error_description\":\"AADSTS700016: Application with identifier '************************************' was not found in the directory '************************************'. This can happen if the application has not been installed by the *****istrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.\\r\\nTrace ID: 285401b6-c8a9-47a2-a8fa-d91f468f9600\\r\\nCorrelation ID: baf11322-f3d5-4697-b5f9-8e73a567d0b9\\r\\nTimestamp: 2020-08-26 23:53:27Z\",\"error_codes\":[700016],\"timestamp\":\"2020-08-26 23:53:27Z\",\"trace_id\":\"285401b6-c8a9-47a2-a8fa-d91f468f9600\",\"correlation_id\":\"baf11322-f3d5-4697-b5f9-8e73a567d0b9\",\"error_uri\":\"https://login.microsoftonline.com/error?code=700016\"}", resp:(*http.Response)(0xc000d041b0)}, PackageType:"azure.BearerAuthorizer", Method:"WithAuthorization", StatusCode:400, Message:"Failed to refresh the Token for request to https://graph.windows.net/************************************/servicePrincipals?%24filter=appId+eq+%27************************************%27&api-version=1.6", ServiceError:[]uint8(nil), Response:(*http.Response)(0xc000d041b0)}[0m
+        	            	
+        	            	[0m  on main.tf line 12, in provider "azurerm":
+        	            	  12: provider "azurerm" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformWithBackupEnabledTest
+FAIL
+FAIL	github.com/jenkins-x/terraform-azurerm-**/test	30.748s
+FAIL
+make: *** [test] Error 1
+[31m
+Pipeline failed on stage 'ci' : container 'step-terratest'. The execution of the pipeline has stopped.[0m
