@@ -1,0 +1,63 @@
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-5ddx6-4[0m stage [32mci[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1598440840.1330569,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-5ddx6-4[0m stage [32mci[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-5ddx6-4[0m stage [32mci[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-5ddx6-4[0m stage [32mci[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-5ddx6-blw8p[0m
+{"level":"info","ts":1598441351.781926,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ master in path /workspace/source"}
+{"level":"warn","ts":1598441351.7819965,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1598441351.8203497,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-5ddx6-4[0m stage [32mci[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-5ddx6-4[0m stage [32mci[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:8832141c7133ffc6086c73e2a4d134ca0158a0b2,1:a399630adaa33878fc51dc552e3bdec0f48d97fc
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow a399630adaa33878fc51dc552e3bdec0f48d97fc: 8832141c7133ffc6086c73e2a4d134ca0158a0b2:
+DEBUG: ran git fetch --unshallow origin a399630adaa33878fc51dc552e3bdec0f48d97fc: 8832141c7133ffc6086c73e2a4d134ca0158a0b2: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git reset --hard 8832141c7133ffc6086c73e2a4d134ca0158a0b2
+DEBUG: ran git reset --hard 8832141c7133ffc6086c73e2a4d134ca0158a0b2 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge a399630adaa33878fc51dc552e3bdec0f48d97fc
+DEBUG: ran git merge a399630adaa33878fc51dc552e3bdec0f48d97fc in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 8832141c7133ffc6086c73e2a4d134ca0158a0b2..HEAD
+Merged SHA a399630adaa33878fc51dc552e3bdec0f48d97fc with commit message 'test  image bump' into base branch master
+Merged SHA b73c4dc19d962ca6a451c393386491bfedcdf2f7 with commit message 'feat(pencil): add in CI scripts' into base branch master
+Merged SHA d3d59c116acd58af00b0b15e7ddefba0d273282e with commit message 'chore: add community owners and a dummy pipeline to be implemented later' into base branch master
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-5ddx6-4[0m stage [32mci[0m and container [32mstep-terraform-lint[0m
+terraform init
+[0m[1mTerraform initialized in an empty directory![0m
+
+The directory has no Terraform configuration files. You may begin working
+with Terraform immediately by creating Terraform configuration files.[0m
+terraform version
+Terraform v0.13.0
+terraform fmt -check -diff -recursive
+**_module/main.tf
+--- old/**_module/main.tf
++++ new/**_module/main.tf
+@@ -10,12 +10,12 @@
+ // Configure providers
+ // ----------------------------------------------------------------------------
+ provider "azurerm" {
+-  version         = ">= 2.15.0"
++  version = ">= 2.15.0"
+   features {}
+ }
+ 
+ provider "azuread" {
+-  version         = ">=0.11.0"
++  version = ">=0.11.0"
+ }
+ 
+ provider "kubernetes" {
+make: *** [fmt] Error 3
+[31m
+Pipeline failed on stage 'ci' : container 'step-terraform-lint'. The execution of the pipeline has stopped.[0m
