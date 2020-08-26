@@ -1,0 +1,62 @@
+
+Showing logs for build [32mmeta-mellard-org-terraform-azur-8zwsv-9[0m stage [32mmeta-pipeline[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1598477255.1316102,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmeta-mellard-org-terraform-azur-8zwsv-9[0m stage [32mmeta-pipeline[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmeta-mellard-org-terraform-azur-8zwsv-9[0m stage [32mmeta-pipeline[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmeta-mellard-org-terraform-azur-8zwsv-9[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-mellard-org-terraform-azur-8zwsv-w7nrr[0m
+{"level":"info","ts":1598477267.3984327,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ 8832141c7133ffc6086c73e2a4d134ca0158a0b2 in path /workspace/source"}
+{"level":"warn","ts":1598477267.3985014,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1598477267.4409397,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mmeta-mellard-org-terraform-azur-8zwsv-9[0m stage [32mmeta-pipeline[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mmeta-mellard-org-terraform-azur-8zwsv-9[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:8832141c7133ffc6086c73e2a4d134ca0158a0b2,1:14892c68fb7a6c30ef19e7495f201c90fb069c15
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 14892c68fb7a6c30ef19e7495f201c90fb069c15: 8832141c7133ffc6086c73e2a4d134ca0158a0b2:
+DEBUG: ran git fetch --unshallow origin 14892c68fb7a6c30ef19e7495f201c90fb069c15: 8832141c7133ffc6086c73e2a4d134ca0158a0b2: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard 8832141c7133ffc6086c73e2a4d134ca0158a0b2
+DEBUG: ran git reset --hard 8832141c7133ffc6086c73e2a4d134ca0158a0b2 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 14892c68fb7a6c30ef19e7495f201c90fb069c15
+error: error during merge: merging 14892c68fb7a6c30ef19e7495f201c90fb069c15 into master: git output: CONFLICT (modify/delete): variables.tf deleted in 14892c68fb7a6c30ef19e7495f201c90fb069c15 and modified in HEAD. Version HEAD of variables.tf left in tree.
+Removing outputs.tf
+CONFLICT (modify/delete): modules/dns/main.tf deleted in 14892c68fb7a6c30ef19e7495f201c90fb069c15 and modified in HEAD. Version HEAD of modules/dns/main.tf left in tree.
+CONFLICT (modify/delete): main.tf deleted in 14892c68fb7a6c30ef19e7495f201c90fb069c15 and modified in HEAD. Version HEAD of main.tf left in tree.
+CONFLICT (modify/delete): local.tf deleted in 14892c68fb7a6c30ef19e7495f201c90fb069c15 and modified in HEAD. Version HEAD of local.tf left in tree.
+Auto-merging **_module/modules/dns/variables.tf
+CONFLICT (content): Merge conflict in **_module/modules/dns/variables.tf
+Auto-merging **_module/modules/cluster/outputs.tf
+CONFLICT (content): Merge conflict in **_module/modules/cluster/outputs.tf
+Auto-merging **_module/modules/cluster/main.tf
+CONFLICT (content): Merge conflict in **_module/modules/cluster/main.tf
+CONFLICT (modify/delete): **-requirements.yml.tpl deleted in 14892c68fb7a6c30ef19e7495f201c90fb069c15 and modified in HEAD. Version HEAD of **-requirements.yml.tpl left in tree.
+CONFLICT (add/add): Merge conflict in jenkins-x.yml
+Auto-merging jenkins-x.yml
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.: failed to run 'git merge 14892c68fb7a6c30ef19e7495f201c90fb069c15' command in directory '', output: 'CONFLICT (modify/delete): variables.tf deleted in 14892c68fb7a6c30ef19e7495f201c90fb069c15 and modified in HEAD. Version HEAD of variables.tf left in tree.
+Removing outputs.tf
+CONFLICT (modify/delete): modules/dns/main.tf deleted in 14892c68fb7a6c30ef19e7495f201c90fb069c15 and modified in HEAD. Version HEAD of modules/dns/main.tf left in tree.
+CONFLICT (modify/delete): main.tf deleted in 14892c68fb7a6c30ef19e7495f201c90fb069c15 and modified in HEAD. Version HEAD of main.tf left in tree.
+CONFLICT (modify/delete): local.tf deleted in 14892c68fb7a6c30ef19e7495f201c90fb069c15 and modified in HEAD. Version HEAD of local.tf left in tree.
+Auto-merging **_module/modules/dns/variables.tf
+CONFLICT (content): Merge conflict in **_module/modules/dns/variables.tf
+Auto-merging **_module/modules/cluster/outputs.tf
+CONFLICT (content): Merge conflict in **_module/modules/cluster/outputs.tf
+Auto-merging **_module/modules/cluster/main.tf
+CONFLICT (content): Merge conflict in **_module/modules/cluster/main.tf
+CONFLICT (modify/delete): **-requirements.yml.tpl deleted in 14892c68fb7a6c30ef19e7495f201c90fb069c15 and modified in HEAD. Version HEAD of **-requirements.yml.tpl left in tree.
+CONFLICT (add/add): Merge conflict in jenkins-x.yml
+Auto-merging jenkins-x.yml
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.'
+[31m
+Pipeline failed on stage 'meta-pipeline' : container 'step-git-merge'. The execution of the pipeline has stopped.[0m
