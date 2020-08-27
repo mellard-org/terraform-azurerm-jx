@@ -1,0 +1,56 @@
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-lzsxf-10[0m stage [32mci[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1598522588.0083292,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-lzsxf-10[0m stage [32mci[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-lzsxf-10[0m stage [32mci[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-lzsxf-10[0m stage [32mci[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-lzsxf-mj557[0m
+{"level":"info","ts":1598522602.2532082,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ master in path /workspace/source"}
+{"level":"warn","ts":1598522602.2532887,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1598522602.2961042,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-lzsxf-10[0m stage [32mci[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-lzsxf-10[0m stage [32mci[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:c67b7c68af44a6504323d93f1758ff8041c6c39e,2:971d74175404f43a8ab306612f92b4cbf2e107b4
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 971d74175404f43a8ab306612f92b4cbf2e107b4: c67b7c68af44a6504323d93f1758ff8041c6c39e:
+DEBUG: ran git fetch --unshallow origin 971d74175404f43a8ab306612f92b4cbf2e107b4: c67b7c68af44a6504323d93f1758ff8041c6c39e: in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git reset --hard c67b7c68af44a6504323d93f1758ff8041c6c39e
+DEBUG: ran git reset --hard c67b7c68af44a6504323d93f1758ff8041c6c39e in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 971d74175404f43a8ab306612f92b4cbf2e107b4
+DEBUG: ran git merge 971d74175404f43a8ab306612f92b4cbf2e107b4 in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e c67b7c68af44a6504323d93f1758ff8041c6c39e..HEAD
+Merged SHA 971d74175404f43a8ab306612f92b4cbf2e107b4 with commit message 'x' into base branch master
+Merged SHA c96b30bce7b04da7bb7e1044369fdc3333b05cd0 with commit message 'x' into base branch master
+Merged SHA ddebea26313889e964a02ee447e98df1e066b2d5 with commit message 'rollback image' into base branch master
+Merged SHA 7add634cb9ee82c413efae23a7b3810b1399320b with commit message 'rollback image' into base branch master
+Merged SHA d09e955b7742697edb781db88a031287c388cfcc with commit message 'rollback image' into base branch master
+Merged SHA 7e1a914eede78098478f839c1078ee9089b217a9 with commit message 'rollback image' into base branch master
+Merged SHA 28f842e9e83ffc94a86f26635d8b24f238a8fe7a with commit message 'rollback image' into base branch master
+Merged SHA e358babd88932776b59106f8484174833f1c218c with commit message 'rollback image' into base branch master
+Merged SHA 53c49d263eed25537745735f1fcbea793e35bd2c with commit message 'rollback image' into base branch master
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-lzsxf-10[0m stage [32mci[0m and container [32mstep-terraform-lint[0m
+terraform init
+[0m[1mTerraform initialized in an empty directory![0m
+
+The directory has no Terraform configuration files. You may begin working
+with Terraform immediately by creating Terraform configuration files.[0m
+terraform version
+Terraform v0.12.17
+
+Your version of Terraform is out of date! The latest version
+is 0.13.1. You can update by downloading from https://www.terraform.io/downloads.html
+terraform fmt -check -diff -recursive
+terraform validate
+[32m[1mSuccess![0m The configuration is valid.
+[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-lzsxf-10[0m stage [32mci[0m and container [32mstep-terratest[0m
