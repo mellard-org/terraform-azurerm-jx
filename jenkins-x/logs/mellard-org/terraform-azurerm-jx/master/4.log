@@ -1,0 +1,21 @@
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-nv8hq-4[0m stage [32mdummy[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1598687707.4947126,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-nv8hq-4[0m stage [32mdummy[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-nv8hq-4[0m stage [32mdummy[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-nv8hq-4[0m stage [32mdummy[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-nv8hq-6nt5c[0m
+{"level":"info","ts":1598687722.5438952,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ v0.0.3 in path /workspace/source"}
+{"level":"warn","ts":1598687722.5439672,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1598687722.5854805,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-nv8hq-4[0m stage [32mdummy[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-nv8hq-4[0m stage [32mdummy[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:a3dbe5e7f8d6e9f926d687ac1e13fd42274a4f52
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-nv8hq-4[0m stage [32mdummy[0m and container [32mstep-echo[0m
+release pipeline not yet implemented
