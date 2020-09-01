@@ -1,0 +1,36 @@
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-vqt9t-11[0m stage [32mbuild[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1598957748.340474,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-vqt9t-11[0m stage [32mbuild[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-vqt9t-11[0m stage [32mbuild[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-vqt9t-11[0m stage [32mbuild[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-vqt9t-kf9rg[0m
+{"level":"info","ts":1598957761.3242664,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ master in path /workspace/source"}
+{"level":"warn","ts":1598957761.3243845,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1598957761.376055,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-vqt9t-11[0m stage [32mbuild[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-vqt9t-11[0m stage [32mbuild[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36,3:40f7119f4adde4bbdfa78c28b64bdc5f07709a82
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 40f7119f4adde4bbdfa78c28b64bdc5f07709a82: 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36:
+DEBUG: ran git fetch --unshallow origin 40f7119f4adde4bbdfa78c28b64bdc5f07709a82: 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36
+DEBUG: ran git reset --hard 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 40f7119f4adde4bbdfa78c28b64bdc5f07709a82
+DEBUG: ran git merge 40f7119f4adde4bbdfa78c28b64bdc5f07709a82 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36..HEAD
+Merged SHA 40f7119f4adde4bbdfa78c28b64bdc5f07709a82 with commit message 'feat: Add in Key Vault test' into base branch master
+Merged SHA c68af34f36705d1a0c12e1035c1c6d1828de0d7d with commit message 'feat: Re-enabling CI pipeline' into base branch master
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-vqt9t-11[0m stage [32mbuild[0m and container [32mstep-build-test-commands[0m
+make: *** No rule to make target `linux'.  Stop.
+[31m
+Pipeline failed on stage 'build' : container 'step-build-test-commands'. The execution of the pipeline has stopped.[0m
