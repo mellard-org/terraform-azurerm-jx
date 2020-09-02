@@ -1,0 +1,33 @@
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-h5q7w-4[0m stage [32mrelease[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1599040948.0476902,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-h5q7w-4[0m stage [32mrelease[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-h5q7w-4[0m stage [32mrelease[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-h5q7w-4[0m stage [32mrelease[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-h5q7w-zwr9n[0m
+{"level":"info","ts":1599041099.1469402,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ master in path /workspace/source"}
+{"level":"warn","ts":1599041099.1470273,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1599041099.196528,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-h5q7w-4[0m stage [32mrelease[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-h5q7w-4[0m stage [32mrelease[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:d9493958a88d474c1db41b2f19252d38c5845f58,4:ccabe1c87a99189d9109bb566bf4780e359e5e30
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow ccabe1c87a99189d9109bb566bf4780e359e5e30: d9493958a88d474c1db41b2f19252d38c5845f58:
+DEBUG: ran git fetch --unshallow origin ccabe1c87a99189d9109bb566bf4780e359e5e30: d9493958a88d474c1db41b2f19252d38c5845f58: in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard d9493958a88d474c1db41b2f19252d38c5845f58
+DEBUG: ran git reset --hard d9493958a88d474c1db41b2f19252d38c5845f58 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git merge ccabe1c87a99189d9109bb566bf4780e359e5e30
+DEBUG: ran git merge ccabe1c87a99189d9109bb566bf4780e359e5e30 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e d9493958a88d474c1db41b2f19252d38c5845f58..HEAD
+Merged SHA ccabe1c87a99189d9109bb566bf4780e359e5e30 with commit message 'feat: add in release pipeline' into base branch master
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-h5q7w-4[0m stage [32mrelease[0m and container [32mstep-echo[0m
+release pipeline not yet implemented
