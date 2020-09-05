@@ -1,0 +1,1070 @@
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-rztzx-1[0m stage [32mci[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1599303286.0733898,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-rztzx-1[0m stage [32mci[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-rztzx-1[0m stage [32mci[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-rztzx-1[0m stage [32mci[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-rztzx-fwlx8[0m
+{"level":"info","ts":1599303300.3060715,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ master in path /workspace/source"}
+{"level":"warn","ts":1599303300.3061469,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1599303300.344776,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-rztzx-1[0m stage [32mci[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-rztzx-1[0m stage [32mci[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:f9a260795addaee94931aacef2ee1f3a768e1feb,7:58978103d1b641705d42e4557ac14c7b9b3b8d34
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 58978103d1b641705d42e4557ac14c7b9b3b8d34: f9a260795addaee94931aacef2ee1f3a768e1feb:
+DEBUG: ran git fetch --unshallow origin 58978103d1b641705d42e4557ac14c7b9b3b8d34: f9a260795addaee94931aacef2ee1f3a768e1feb: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard f9a260795addaee94931aacef2ee1f3a768e1feb
+DEBUG: ran git reset --hard f9a260795addaee94931aacef2ee1f3a768e1feb in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git merge 58978103d1b641705d42e4557ac14c7b9b3b8d34
+DEBUG: ran git merge 58978103d1b641705d42e4557ac14c7b9b3b8d34 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e f9a260795addaee94931aacef2ee1f3a768e1feb..HEAD
+Merged SHA 9d6b1f0b6aa94ae5ed5984532734708c217d3fad with commit message 'Merge commit '58978103d1b641705d42e4557ac14c7b9b3b8d34'' into base branch master
+Merged SHA 58978103d1b641705d42e4557ac14c7b9b3b8d34 with commit message 'feat: enable specification of node_resource_group for AKS cluster resources' into base branch master
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-rztzx-1[0m stage [32mci[0m and container [32mstep-terraform-lint[0m
+terraform init
+[0m[1mInitializing modules...[0m
+- backup in modules/backup
+- cluster in modules/cluster
+- dns in modules/dns
+- registry in modules/registry
+- vault in modules/vault
+- vnet in modules/vnet
+
+[0m[1mInitializing the backend...[0m
+
+[0m[1mInitializing provider plugins...[0m
+- Finding hashicorp/azurerm versions matching ">= 2.25.0"...
+- Finding hashicorp/random versions matching ">= 2.3.0"...
+- Finding hashicorp/azuread versions matching ">= 0.11.0"...
+- Finding hashicorp/kubernetes versions matching ">= 1.12.0"...
+- Installing hashicorp/azurerm v2.26.0...
+- Installed hashicorp/azurerm v2.26.0 (signed by HashiCorp)
+- Installing hashicorp/random v2.3.0...
+- Installed hashicorp/random v2.3.0 (signed by HashiCorp)
+- Installing hashicorp/azuread v1.0.0...
+- Installed hashicorp/azuread v1.0.0 (signed by HashiCorp)
+- Installing hashicorp/kubernetes v1.13.1...
+- Installed hashicorp/kubernetes v1.13.1 (signed by HashiCorp)
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+terraform version
+
+Your version of Terraform is out of date! The latest version
+is 0.13.2. You can update by downloading from https://www.terraform.io/downloads.html
+Terraform v0.13.0
++ provider registry.terraform.io/hashicorp/azuread v1.0.0
++ provider registry.terraform.io/hashicorp/azurerm v2.26.0
++ provider registry.terraform.io/hashicorp/kubernetes v1.13.1
++ provider registry.terraform.io/hashicorp/random v2.3.0
+terraform fmt -check -diff -recursive
+terraform validate
+[32m[1mSuccess![0m The configuration is valid.
+[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-rztzx-1[0m stage [32mci[0m and container [32mstep-terratest[0m
+GO111MODULE=on go test -failfast -timeout 1h -parallel 8 -count=1 -v ./...
+go: downloading github.com/Azure/go-autorest v14.2.0+incompatible
+go: downloading github.com/Azure/azure-sdk-for-go v45.1.0+incompatible
+go: downloading github.com/gruntwork-io/terratest v0.28.13
+go: downloading github.com/stretchr/testify v1.6.1
+go: downloading github.com/Azure/azure-storage-blob-go v0.10.0
+go: downloading github.com/google/uuid v1.1.1
+go: extracting github.com/Azure/go-autorest v14.2.0+incompatible
+go: downloading github.com/Azure/go-autorest/autorest v0.11.4
+go: extracting github.com/stretchr/testify v1.6.1
+go: extracting github.com/google/uuid v1.1.1
+go: downloading github.com/pmezard/go-difflib v1.0.0
+go: extracting github.com/Azure/azure-storage-blob-go v0.10.0
+go: downloading gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+go: extracting github.com/Azure/go-autorest/autorest v0.11.4
+go: downloading github.com/Azure/go-autorest/autorest/azure/auth v0.4.2
+go: downloading github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: downloading github.com/Azure/go-autorest/tracing v0.6.0
+go: extracting gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+go: extracting github.com/Azure/go-autorest/tracing v0.6.0
+go: downloading github.com/Azure/go-autorest/logger v0.2.0
+go: extracting github.com/Azure/go-autorest/autorest/azure/auth v0.4.2
+go: downloading github.com/dimchansky/utfbom v1.1.0
+go: extracting github.com/pmezard/go-difflib v1.0.0
+go: downloading github.com/otiai10/copy v1.2.0
+go: extracting github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: downloading github.com/Azure/go-autorest/autorest/azure/cli v0.3.1
+go: extracting github.com/Azure/go-autorest/logger v0.2.0
+go: downloading golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
+go: extracting github.com/otiai10/copy v1.2.0
+go: extracting github.com/dimchansky/utfbom v1.1.0
+go: downloading golang.org/x/sys v0.0.0-20200107162124-548cf772de50
+go: extracting github.com/Azure/go-autorest/autorest/azure/cli v0.3.1
+go: downloading github.com/Azure/azure-pipeline-go v0.2.2
+go: downloading github.com/mitchellh/go-homedir v1.1.0
+go: extracting github.com/Azure/azure-pipeline-go v0.2.2
+go: downloading github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d
+go: extracting github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d
+go: extracting github.com/gruntwork-io/terratest v0.28.13
+go: downloading github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: extracting github.com/mitchellh/go-homedir v1.1.0
+go: extracting golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
+go: downloading github.com/Azure/go-autorest/autorest/date v0.3.0
+go: extracting github.com/Azure/go-autorest/autorest/date v0.3.0
+go: downloading github.com/davecgh/go-spew v1.1.1
+go: extracting github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: extracting golang.org/x/sys v0.0.0-20200107162124-548cf772de50
+go: extracting github.com/davecgh/go-spew v1.1.1
+go: downloading k8s.io/api v0.18.3
+go: downloading k8s.io/client-go v0.18.3
+go: extracting k8s.io/client-go v0.18.3
+go: extracting k8s.io/api v0.18.3
+go: downloading github.com/aws/aws-sdk-go v1.27.1
+go: downloading k8s.io/apimachinery v0.18.3
+go: extracting k8s.io/apimachinery v0.18.3
+go: downloading github.com/gogo/protobuf v1.3.1
+go: extracting github.com/gogo/protobuf v1.3.1
+go: extracting github.com/Azure/azure-sdk-for-go v45.1.0+incompatible
+go: extracting github.com/aws/aws-sdk-go v1.27.1
+go: downloading github.com/google/gofuzz v1.1.0
+go: downloading sigs.k8s.io/structured-merge-diff v1.0.1-0.20191108220359-b1b620dd3f06
+go: downloading github.com/pquerna/otp v1.2.0
+go: downloading golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+go: extracting github.com/google/gofuzz v1.1.0
+go: extracting github.com/pquerna/otp v1.2.0
+go: downloading golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
+go: downloading github.com/go-sql-driver/mysql v1.4.1
+go: extracting sigs.k8s.io/structured-merge-diff v1.0.1-0.20191108220359-b1b620dd3f06
+go: extracting github.com/go-sql-driver/mysql v1.4.1
+go: extracting golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
+go: downloading k8s.io/utils v0.0.0-20200324210504-a9aa75ae1b89
+go: downloading k8s.io/klog v1.0.0
+go: extracting golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+go: downloading sigs.k8s.io/structured-merge-diff/v3 v3.0.0
+go: downloading github.com/imdario/mergo v0.3.7
+go: extracting k8s.io/klog v1.0.0
+go: downloading github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
+go: extracting k8s.io/utils v0.0.0-20200324210504-a9aa75ae1b89
+go: downloading github.com/gruntwork-io/gruntwork-cli v0.5.1
+go: extracting sigs.k8s.io/structured-merge-diff/v3 v3.0.0
+go: extracting github.com/imdario/mergo v0.3.7
+go: downloading github.com/json-iterator/go v1.1.8
+go: extracting github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
+go: extracting github.com/gruntwork-io/gruntwork-cli v0.5.1
+go: downloading github.com/spf13/pflag v1.0.5
+go: downloading github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c
+go: downloading github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: extracting github.com/json-iterator/go v1.1.8
+go: extracting github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c
+go: downloading github.com/golang/protobuf v1.3.2
+go: downloading github.com/googleapis/gnostic v0.3.1
+go: extracting github.com/golang/protobuf v1.3.2
+go: extracting github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: extracting github.com/spf13/pflag v1.0.5
+go: extracting github.com/googleapis/gnostic v0.3.1
+go: downloading github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: downloading gopkg.in/inf.v0 v0.9.1
+go: downloading golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
+go: downloading github.com/go-errors/errors v1.0.2-0.20180813162953-d98b870cc4e0
+go: extracting gopkg.in/inf.v0 v0.9.1
+go: downloading github.com/modern-go/reflect2 v1.0.1
+go: extracting github.com/go-errors/errors v1.0.2-0.20180813162953-d98b870cc4e0
+go: downloading sigs.k8s.io/yaml v1.2.0
+go: extracting github.com/modern-go/reflect2 v1.0.1
+go: downloading github.com/urfave/cli v1.22.1
+go: extracting github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: downloading gopkg.in/yaml.v2 v2.2.8
+go: extracting sigs.k8s.io/yaml v1.2.0
+go: extracting github.com/urfave/cli v1.22.1
+go: downloading cloud.google.com/go v0.51.0
+go: downloading github.com/cpuguy83/go-md2man v1.0.10
+go: extracting gopkg.in/yaml.v2 v2.2.8
+go: extracting golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
+go: extracting github.com/cpuguy83/go-md2man v1.0.10
+go: downloading github.com/cpuguy83/go-md2man/v2 v2.0.0
+go: extracting cloud.google.com/go v0.51.0
+go: extracting github.com/cpuguy83/go-md2man/v2 v2.0.0
+go: downloading golang.org/x/text v0.3.2
+go: downloading github.com/russross/blackfriday v1.5.2
+go: extracting github.com/russross/blackfriday v1.5.2
+go: downloading github.com/russross/blackfriday/v2 v2.0.1
+go: extracting github.com/russross/blackfriday/v2 v2.0.1
+go: downloading github.com/shurcooL/sanitized_anchor_name v1.0.0
+go: extracting golang.org/x/text v0.3.2
+go: extracting github.com/shurcooL/sanitized_anchor_name v1.0.0
+go: downloading github.com/Azure/go-autorest/autorest/to v0.3.0
+go: downloading github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: extracting github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: extracting github.com/Azure/go-autorest/autorest/to v0.3.0
+go: finding github.com/Azure/azure-sdk-for-go v45.1.0+incompatible
+go: finding github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: finding github.com/Azure/go-autorest/autorest/azure/auth v0.4.2
+go: finding github.com/google/uuid v1.1.1
+go: finding github.com/gruntwork-io/terratest v0.28.13
+go: finding github.com/otiai10/copy v1.2.0
+go: finding github.com/Azure/go-autorest/autorest v0.11.4
+go: finding github.com/Azure/go-autorest/autorest/date v0.3.0
+go: finding github.com/Azure/go-autorest/tracing v0.6.0
+go: finding github.com/Azure/go-autorest/autorest/azure/cli v0.3.1
+go: finding github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: finding github.com/Azure/go-autorest/autorest/to v0.3.0
+go: finding github.com/dimchansky/utfbom v1.1.0
+go: finding golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
+go: finding github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: finding github.com/Azure/go-autorest/logger v0.2.0
+go: finding github.com/stretchr/testify v1.6.1
+go: finding github.com/mitchellh/go-homedir v1.1.0
+go: finding github.com/davecgh/go-spew v1.1.1
+go: finding github.com/pmezard/go-difflib v1.0.0
+go: finding gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+go: finding github.com/Azure/azure-storage-blob-go v0.10.0
+go: finding github.com/gruntwork-io/gruntwork-cli v0.5.1
+go: finding github.com/Azure/azure-pipeline-go v0.2.2
+go: finding github.com/go-errors/errors v1.0.2-0.20180813162953-d98b870cc4e0
+go: finding github.com/urfave/cli v1.22.1
+go: finding github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d
+go: finding golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
+go: finding github.com/aws/aws-sdk-go v1.27.1
+go: finding golang.org/x/sys v0.0.0-20200107162124-548cf772de50
+go: finding github.com/cpuguy83/go-md2man/v2 v2.0.0
+go: finding k8s.io/api v0.18.3
+go: finding github.com/gogo/protobuf v1.3.1
+go: finding k8s.io/apimachinery v0.18.3
+go: finding github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: finding k8s.io/client-go v0.18.3
+go: finding golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+go: finding github.com/russross/blackfriday/v2 v2.0.1
+go: finding github.com/golang/protobuf v1.3.2
+go: finding github.com/google/gofuzz v1.1.0
+go: finding gopkg.in/inf.v0 v0.9.1
+go: finding github.com/imdario/mergo v0.3.7
+go: finding github.com/googleapis/gnostic v0.3.1
+go: finding github.com/spf13/pflag v1.0.5
+go: finding github.com/shurcooL/sanitized_anchor_name v1.0.0
+go: finding cloud.google.com/go v0.51.0
+go: finding k8s.io/klog v1.0.0
+go: finding github.com/go-sql-driver/mysql v1.4.1
+go: finding gopkg.in/yaml.v2 v2.2.8
+go: finding github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c
+go: finding sigs.k8s.io/yaml v1.2.0
+go: finding github.com/json-iterator/go v1.1.8
+go: finding github.com/modern-go/reflect2 v1.0.1
+go: finding github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: finding github.com/pquerna/otp v1.2.0
+go: finding golang.org/x/text v0.3.2
+go: finding sigs.k8s.io/structured-merge-diff/v3 v3.0.0
+go: finding github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
+go: finding golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
+go: finding k8s.io/utils v0.0.0-20200324210504-a9aa75ae1b89
+=== RUN   TestTerraformWithBackupEnabledTest
+=== PAUSE TestTerraformWithBackupEnabledTest
+=== RUN   TestTerraformEDnsWithApexDomainCluster
+=== PAUSE TestTerraformEDnsWithApexDomainCluster
+=== RUN   TestTerraformBasicJxCluster
+=== PAUSE TestTerraformBasicJxCluster
+=== RUN   TestTerraformJxClusterWithContainerRegistry
+=== PAUSE TestTerraformJxClusterWithContainerRegistry
+=== CONT  TestTerraformWithBackupEnabledTest
+=== CONT  TestTerraformJxClusterWithContainerRegistry
+=== CONT  TestTerraformBasicJxCluster
+=== CONT  TestTerraformEDnsWithApexDomainCluster
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:39Z retry.go:72: terraform [init -upgrade=false]
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:39Z logger.go:66: Running command terraform with args [init -upgrade=false]
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:39Z retry.go:72: terraform [init -upgrade=false]
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:39Z logger.go:66: Running command terraform with args [init -upgrade=false]
+TestTerraformBasicJxCluster 2020-09-05T10:57:39Z retry.go:72: terraform [init -upgrade=false]
+TestTerraformBasicJxCluster 2020-09-05T10:57:39Z logger.go:66: Running command terraform with args [init -upgrade=false]
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:39Z retry.go:72: terraform [init -upgrade=false]
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:39Z logger.go:66: Running command terraform with args [init -upgrade=false]
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:39Z logger.go:66: [0m[1mInitializing modules...[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:39Z logger.go:66: [0m[1mInitializing modules...[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:39Z logger.go:66: [0m[1mInitializing modules...[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:39Z logger.go:66: - backup in modules/backup
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:39Z logger.go:66: - cluster in modules/cluster
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:39Z logger.go:66: - dns in modules/dns
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:39Z logger.go:66: - registry in modules/registry
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:39Z logger.go:66: - vault in modules/vault
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:39Z logger.go:66: - vnet in modules/vnet
+TestTerraformBasicJxCluster 2020-09-05T10:57:39Z logger.go:66: [0m[1mInitializing modules...[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:39Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:39Z logger.go:66: [0m[1mInitializing the backend...[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:39Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:39Z logger.go:66: [0m[1mInitializing provider plugins...[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:39Z logger.go:66: - Finding hashicorp/azuread versions matching ">= 0.11.0"...
+TestTerraformBasicJxCluster 2020-09-05T10:57:39Z logger.go:66: - backup in modules/backup
+TestTerraformBasicJxCluster 2020-09-05T10:57:39Z logger.go:66: - cluster in modules/cluster
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:39Z logger.go:66: - backup in modules/backup
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:39Z logger.go:66: - cluster in modules/cluster
+TestTerraformBasicJxCluster 2020-09-05T10:57:39Z logger.go:66: - dns in modules/dns
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:39Z logger.go:66: - backup in modules/backup
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:39Z logger.go:66: - dns in modules/dns
+TestTerraformBasicJxCluster 2020-09-05T10:57:39Z logger.go:66: - registry in modules/registry
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:39Z logger.go:66: - cluster in modules/cluster
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:39Z logger.go:66: - registry in modules/registry
+TestTerraformBasicJxCluster 2020-09-05T10:57:39Z logger.go:66: - vault in modules/vault
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:39Z logger.go:66: - dns in modules/dns
+TestTerraformBasicJxCluster 2020-09-05T10:57:39Z logger.go:66: - vnet in modules/vnet
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:39Z logger.go:66: - vault in modules/vault
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:39Z logger.go:66: - registry in modules/registry
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:39Z logger.go:66: - vnet in modules/vnet
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:39Z logger.go:66: - vault in modules/vault
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:39Z logger.go:66: - vnet in modules/vnet
+TestTerraformBasicJxCluster 2020-09-05T10:57:39Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-09-05T10:57:39Z logger.go:66: [0m[1mInitializing the backend...[0m
+TestTerraformBasicJxCluster 2020-09-05T10:57:39Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-09-05T10:57:39Z logger.go:66: [0m[1mInitializing provider plugins...[0m
+TestTerraformBasicJxCluster 2020-09-05T10:57:39Z logger.go:66: - Finding hashicorp/kubernetes versions matching ">= 1.12.0"...
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:39Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:39Z logger.go:66: [0m[1mInitializing the backend...[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:39Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:39Z logger.go:66: [0m[1mInitializing the backend...[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:39Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:39Z logger.go:66: [0m[1mInitializing provider plugins...[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:39Z logger.go:66: - Finding hashicorp/azurerm versions matching ">= 2.25.0"...
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:39Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:39Z logger.go:66: [0m[1mInitializing provider plugins...[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:39Z logger.go:66: - Finding hashicorp/azurerm versions matching ">= 2.25.0"...
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:40Z logger.go:66: - Finding hashicorp/kubernetes versions matching ">= 1.12.0"...
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:40Z logger.go:66: - Finding hashicorp/random versions matching ">= 2.3.0"...
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:40Z logger.go:66: - Finding hashicorp/random versions matching ">= 2.3.0"...
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:40Z logger.go:66: - Finding hashicorp/azurerm versions matching ">= 2.25.0"...
+TestTerraformBasicJxCluster 2020-09-05T10:57:40Z logger.go:66: - Finding hashicorp/azurerm versions matching ">= 2.25.0"...
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:40Z logger.go:66: - Finding hashicorp/azuread versions matching ">= 0.11.0"...
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:40Z logger.go:66: - Finding hashicorp/azuread versions matching ">= 0.11.0"...
+TestTerraformBasicJxCluster 2020-09-05T10:57:40Z logger.go:66: - Finding hashicorp/random versions matching ">= 2.3.0"...
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:40Z logger.go:66: - Finding hashicorp/random versions matching ">= 2.3.0"...
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:40Z logger.go:66: - Finding hashicorp/kubernetes versions matching ">= 1.12.0"...
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:40Z logger.go:66: - Finding hashicorp/kubernetes versions matching ">= 1.12.0"...
+TestTerraformBasicJxCluster 2020-09-05T10:57:40Z logger.go:66: - Finding hashicorp/azuread versions matching ">= 0.11.0"...
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:40Z logger.go:66: - Installing hashicorp/azuread v1.0.0...
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:40Z logger.go:66: - Installing hashicorp/azuread v1.0.0...
+TestTerraformBasicJxCluster 2020-09-05T10:57:40Z logger.go:66: - Installing hashicorp/kubernetes v1.13.1...
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:40Z logger.go:66: - Installing hashicorp/random v2.3.0...
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:41Z logger.go:66: - Installed hashicorp/azuread v1.0.0 (signed by HashiCorp)
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:41Z logger.go:66: - Installing hashicorp/kubernetes v1.13.1...
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:41Z logger.go:66: - Installed hashicorp/azuread v1.0.0 (signed by HashiCorp)
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:41Z logger.go:66: - Installed hashicorp/random v2.3.0 (signed by HashiCorp)
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:41Z logger.go:66: - Installing hashicorp/kubernetes v1.13.1...
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:41Z logger.go:66: - Installing hashicorp/azuread v1.0.0...
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:41Z logger.go:66: - Installed hashicorp/kubernetes v1.13.1 (signed by HashiCorp)
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:42Z logger.go:66: - Installing hashicorp/azurerm v2.26.0...
+TestTerraformBasicJxCluster 2020-09-05T10:57:42Z logger.go:66: - Installed hashicorp/kubernetes v1.13.1 (signed by HashiCorp)
+TestTerraformBasicJxCluster 2020-09-05T10:57:42Z logger.go:66: - Installing hashicorp/azurerm v2.26.0...
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:42Z logger.go:66: - Installed hashicorp/azuread v1.0.0 (signed by HashiCorp)
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:42Z logger.go:66: - Installing hashicorp/kubernetes v1.13.1...
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:42Z logger.go:66: - Installed hashicorp/kubernetes v1.13.1 (signed by HashiCorp)
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:42Z logger.go:66: - Installing hashicorp/azurerm v2.26.0...
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:43Z logger.go:66: - Installed hashicorp/kubernetes v1.13.1 (signed by HashiCorp)
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:43Z logger.go:66: - Installing hashicorp/azurerm v2.26.0...
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:44Z logger.go:66: - Installed hashicorp/azurerm v2.26.0 (signed by HashiCorp)
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:44Z logger.go:66: - Installing hashicorp/random v2.3.0...
+TestTerraformBasicJxCluster 2020-09-05T10:57:45Z logger.go:66: - Installed hashicorp/azurerm v2.26.0 (signed by HashiCorp)
+TestTerraformBasicJxCluster 2020-09-05T10:57:45Z logger.go:66: - Installing hashicorp/random v2.3.0...
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:45Z logger.go:66: - Installed hashicorp/random v2.3.0 (signed by HashiCorp)
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:45Z logger.go:66: - Installed hashicorp/azurerm v2.26.0 (signed by HashiCorp)
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:45Z logger.go:66: - Installing hashicorp/random v2.3.0...
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:46Z logger.go:66: - Installed hashicorp/random v2.3.0 (signed by HashiCorp)
+TestTerraformBasicJxCluster 2020-09-05T10:57:46Z logger.go:66: - Installed hashicorp/random v2.3.0 (signed by HashiCorp)
+TestTerraformBasicJxCluster 2020-09-05T10:57:46Z logger.go:66: - Installing hashicorp/azuread v1.0.0...
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:46Z logger.go:66: - Installed hashicorp/azurerm v2.26.0 (signed by HashiCorp)
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: [0m[32m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: You may now begin working with Terraform. Try running "terraform plan" to see
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: any changes that are required for your infrastructure. All Terraform commands
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: should now work.
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: If you ever set or change modules or backend configuration for Terraform,
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: rerun this command to reinitialize your working directory. If you forget, other
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: commands will detect it and remind you to do so if necessary.[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z retry.go:72: terraform [get -update]
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: Running command terraform with args [get -update]
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: - backup in modules/backup
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: - cluster in modules/cluster
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: - dns in modules/dns
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: - registry in modules/registry
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: - vault in modules/vault
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:46Z logger.go:66: - vnet in modules/vnet
+TestTerraformBasicJxCluster 2020-09-05T10:57:46Z logger.go:66: - Installed hashicorp/azuread v1.0.0 (signed by HashiCorp)
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: [0m[32m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: You may now begin working with Terraform. Try running "terraform plan" to see
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: any changes that are required for your infrastructure. All Terraform commands
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: should now work.
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: If you ever set or change modules or backend configuration for Terraform,
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: rerun this command to reinitialize your working directory. If you forget, other
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: commands will detect it and remind you to do so if necessary.[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z retry.go:72: terraform [get -update]
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: Running command terraform with args [get -update]
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: - backup in modules/backup
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: - cluster in modules/cluster
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: - dns in modules/dns
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: - registry in modules/registry
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: - vault in modules/vault
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:47Z logger.go:66: - vnet in modules/vnet
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: [0m[32m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: You may now begin working with Terraform. Try running "terraform plan" to see
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: any changes that are required for your infrastructure. All Terraform commands
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: should now work.
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: If you ever set or change modules or backend configuration for Terraform,
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: rerun this command to reinitialize your working directory. If you forget, other
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: commands will detect it and remind you to do so if necessary.[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z retry.go:72: terraform [get -update]
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: Running command terraform with args [get -update]
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: - backup in modules/backup
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: - cluster in modules/cluster
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: - dns in modules/dns
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: - registry in modules/registry
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: - vault in modules/vault
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:47Z logger.go:66: - vnet in modules/vnet
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: [0m[32m
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: You may now begin working with Terraform. Try running "terraform plan" to see
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: any changes that are required for your infrastructure. All Terraform commands
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: should now work.
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: If you ever set or change modules or backend configuration for Terraform,
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: rerun this command to reinitialize your working directory. If you forget, other
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: commands will detect it and remind you to do so if necessary.[0m
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z retry.go:72: terraform [get -update]
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: Running command terraform with args [get -update]
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: - backup in modules/backup
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: - cluster in modules/cluster
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: - dns in modules/dns
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: - registry in modules/registry
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: - vault in modules/vault
+TestTerraformBasicJxCluster 2020-09-05T10:57:47Z logger.go:66: - vnet in modules/vnet
+TestTerraformBasicJxCluster 2020-09-05T10:57:59Z retry.go:72: terraform [apply -input=false -auto-approve -lock=false]
+TestTerraformBasicJxCluster 2020-09-05T10:57:59Z logger.go:66: Running command terraform with args [apply -input=false -auto-approve -lock=false]
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:59Z retry.go:72: terraform [apply -input=false -auto-approve -var create_registry=true -lock=false]
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:57:59Z logger.go:66: Running command terraform with args [apply -input=false -auto-approve -var create_registry=true -lock=false]
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:59Z retry.go:72: terraform [apply -input=false -auto-approve -var enable_backup=true -lock=false]
+TestTerraformWithBackupEnabledTest 2020-09-05T10:57:59Z logger.go:66: Running command terraform with args [apply -input=false -auto-approve -var enable_backup=true -lock=false]
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:59Z retry.go:72: terraform [apply -input=false -auto-approve -var apex_domain=******************** -var apex_domain_resource_group_name=*********** -var external_dns_enabled=true -lock=false]
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:57:59Z logger.go:66: Running command terraform with args [apply -input=false -auto-approve -var apex_domain=******************** -var apex_domain_resource_group_name=*********** -var external_dns_enabled=true -lock=false]
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:29Z logger.go:66: [0m[1mdata.azurerm_client_config.current: Refreshing state...[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:29Z logger.go:66: [0m[1mmodule.vault.data.azurerm_client_config.current: Refreshing state...[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:29Z logger.go:66: [0m[1mdata.azurerm_subscription.current: Refreshing state...[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:29Z logger.go:66: [0m[1mdata.azurerm_client_config.current: Refreshing state...[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:29Z logger.go:66: [0m[1mmodule.vault.data.azurerm_client_config.current: Refreshing state...[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:29Z logger.go:66: [0m[1mdata.azurerm_subscription.current: Refreshing state...[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:29Z logger.go:66: [0m[1mdata.azurerm_subscription.current: Refreshing state...[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:29Z logger.go:66: [0m[1mmodule.dns.data.azurerm_dns_zone.apex_domain_zone[0]: Refreshing state...[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:29Z logger.go:66: [0m[1mdata.azurerm_client_config.current: Refreshing state...[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:29Z logger.go:66: [0m[1mmodule.vault.data.azurerm_client_config.current: Refreshing state...[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:29Z logger.go:66: [0m[1mdata.azurerm_client_config.current: Refreshing state...[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:29Z logger.go:66: [0m[1mmodule.vault.data.azurerm_client_config.current: Refreshing state...[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:29Z logger.go:66: [0m[1mdata.azurerm_subscription.current: Refreshing state...[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:39Z logger.go:66: [0m[1mrandom_id.random: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:39Z logger.go:66: [0m[1mrandom_pet.pet: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:39Z logger.go:66: [0m[1mrandom_id.random: Creation complete after 0s [id=qQL56k93][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:39Z logger.go:66: [0m[1mrandom_pet.pet: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:39Z logger.go:66: [0m[1mrandom_pet.pet: Creation complete after 0s [id=dynamic-terrapin][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:39Z logger.go:66: [0m[1mrandom_pet.pet: Creation complete after 0s [id=accurate-primate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:39Z logger.go:66: [0m[1mrandom_id.random: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:40Z logger.go:66: [0m[1mrandom_id.random: Creation complete after 0s [id=u7K9kdcm][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:40Z logger.go:66: [0m[1mrandom_pet.pet: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:40Z logger.go:66: [0m[1mmodule.backup.random_string.velero[0]: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:40Z logger.go:66: [0m[1mmodule.backup.random_string.velero[0]: Creation complete after 0s [id=2t_mYT25j3NqebNQvhpe2Ggmsrk39QXH][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:40Z logger.go:66: [0m[1mrandom_id.random: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:40Z logger.go:66: [0m[1mrandom_pet.pet: Creation complete after 0s [id=ethical-coral][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:40Z logger.go:66: [0m[1mrandom_id.random: Creation complete after 0s [id=FzTd0CVn][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:40Z logger.go:66: [0m[1mmodule.backup.azuread_application.velero[0]: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:41Z logger.go:66: [0m[1mrandom_id.random: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:41Z logger.go:66: [0m[1mrandom_pet.pet: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:41Z logger.go:66: [0m[1mrandom_id.random: Creation complete after 0s [id=21MZmr1m][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:41Z logger.go:66: [0m[1mrandom_pet.pet: Creation complete after 0s [id=quality-moose][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:44Z logger.go:66: [0m[1mazurerm_resource_group.network: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:44Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:44Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:44Z logger.go:66: [0m[1mazurerm_resource_group.registry[0]: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:44Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:44Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Creation complete after 1s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-node-accurate-primate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:45Z logger.go:66: [0m[1mazurerm_resource_group.registry[0]: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-registry-accurate-primate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:45Z logger.go:66: [0m[1mmodule.registry.azurerm_container_registry.acr[0]: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:45Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Creation complete after 1s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-accurate-primate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:45Z logger.go:66: [0m[1mazurerm_resource_group.network: Creation complete after 1s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-accurate-primate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:45Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-accurate-primate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:45Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:45Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:45Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:46Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:46Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:46Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:46Z logger.go:66: [0m[1mazurerm_resource_group.network: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:46Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-node-dynamic-terrapin][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:46Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-dynamic-terrapin][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:47Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-dynamic-terrapin][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:47Z logger.go:66: [0m[1mazurerm_resource_group.network: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-dynamic-terrapin][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:47Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:47Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:47Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:47Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:47Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:47Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:47Z logger.go:66: [0m[1mazurerm_resource_group.network: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:48Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-ethical-coral][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:48Z logger.go:66: [0m[1mazurerm_resource_group.network: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-ethical-coral][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:48Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-ethical-coral][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:48Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:48Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-node-ethical-coral][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:48Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:48Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:50Z logger.go:66: [0m[1mmodule.backup.azuread_application.velero[0]: Creation complete after 10s [id=b40d09ca-caff-4680-878c-43c33c414e08][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:50Z logger.go:66: [0m[1mmodule.backup.azuread_service_principal.velero[0]: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:50Z logger.go:66: [0m[1mmodule.backup.azuread_application_password.velero[0]: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:51Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:51Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:51Z logger.go:66: [0m[1mazurerm_resource_group.network: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:51Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:51Z logger.go:66: [0m[1mazurerm_resource_group.dns[0]: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:51Z logger.go:66: [0m[1mazurerm_resource_group.network: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-quality-moose][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:51Z logger.go:66: [0m[1mazurerm_resource_group.dns[0]: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-dns-quality-moose][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:51Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-quality-moose][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:51Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:51Z logger.go:66: [0m[1mmodule.dns.azurerm_dns_zone.dns[0]: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:51Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Creation complete after 1s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-node-quality-moose][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:51Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Creation complete after 1s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-quality-moose][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:51Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:51Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:53Z logger.go:66: [0m[1mmodule.registry.azurerm_container_registry.acr[0]: Creation complete after 8s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-registry-accurate-primate/providers/Microsoft.ContainerRegistry/registries/tf**accurateprimate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:55Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [10s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:55Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Still creating... [10s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:55Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Still creating... [10s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:55Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Creation complete after 11s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-accurate-primate/providers/Microsoft.Network/virtualNetworks/tf-**-accurate-primate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:58:55Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:56Z logger.go:66: [0m[1mmodule.dns.azurerm_dns_zone.dns[0]: Creation complete after 6s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-dns-quality-moose/providers/Microsoft.Network/dnszones/tf**qualitymoose.********************][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:58:56Z logger.go:66: [0m[1mmodule.dns.azurerm_dns_ns_record.subdomain_ns_delegation[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:57Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:57Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Still creating... [10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:57Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Still creating... [10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:57Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Creation complete after 11s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-dynamic-terrapin/providers/Microsoft.Network/virtualNetworks/tf-**-dynamic-terrapin][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:58:58Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:58Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Still creating... [10s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:58Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [10s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:58Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Still creating... [10s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:58Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Creation complete after 11s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-ethical-coral/providers/Microsoft.Network/virtualNetworks/tf-**-ethical-coral][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:58:58Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:00Z logger.go:66: [0m[1mmodule.dns.azurerm_dns_ns_record.subdomain_ns_delegation[0]: Creation complete after 3s [id=/subscriptions/************************************/resourceGroups/***********/providers/Microsoft.Network/dnszones/********************/NS/tf**qualitymoose][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:00Z logger.go:66: [0m[1mmodule.backup.azuread_service_principal.velero[0]: Creation complete after 9s [id=2a8162d0-8fc1-4328-9f58-766e564bf634][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:00Z logger.go:66: [0m[1mmodule.backup.azuread_application_password.velero[0]: Creation complete after 9s [id=b40d09ca-caff-4680-878c-43c33c414e08/password/581eabc1-1964-c9da-8195-909609b816f8][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:01Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Still creating... [10s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:01Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [10s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:01Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Still creating... [10s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:02Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Creation complete after 11s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-quality-moose/providers/Microsoft.Network/virtualNetworks/tf-**-quality-moose][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:02Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:59:05Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [20s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:59:05Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Still creating... [20s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:59:05Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Creation complete after 21s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-accurate-primate/providers/Microsoft.Storage/storageAccounts/vaulttf**accurateprimate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:59:05Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:59:05Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Creation complete after 0s [id=https://vaulttf**accurateprimate.blob.core.windows.net/vault][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:59:05Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Still creating... [10s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:59:06Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Creation complete after 10s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-accurate-primate/providers/Microsoft.Network/virtualNetworks/tf-**-accurate-primate/subnets/tf-**-accurate-primate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:59:06Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:59:07Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:59:07Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Still creating... [20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:59:07Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Creation complete after 21s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-dynamic-terrapin/providers/Microsoft.Storage/storageAccounts/vaulttf**dynamicterrapin][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:59:07Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:59:07Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Creation complete after 0s [id=https://vaulttf**dynamicterrapin.blob.core.windows.net/vault][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:59:08Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Still creating... [10s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:08Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [20s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:08Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Still creating... [20s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:08Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Creation complete after 20s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-ethical-coral/providers/Microsoft.Storage/storageAccounts/vaulttf**ethicalcoral173][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:08Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:59:08Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Creation complete after 10s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-dynamic-terrapin/providers/Microsoft.Network/virtualNetworks/tf-**-dynamic-terrapin/subnets/tf-**-dynamic-terrapin][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:59:08Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:08Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Creation complete after 0s [id=https://vaulttf**ethicalcoral173.blob.core.windows.net/vault][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:08Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Still creating... [10s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:09Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Creation complete after 10s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-ethical-coral/providers/Microsoft.Network/virtualNetworks/tf-**-ethical-coral/subnets/tf-**-ethical-coral][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:09Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:11Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Creation complete after 20s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-quality-moose/providers/Microsoft.Storage/storageAccounts/vaulttf**qualitymoosedb5][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:11Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:11Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [20s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:11Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Creation complete after 0s [id=https://vaulttf**qualitymoosedb5.blob.core.windows.net/vault][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:12Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Still creating... [10s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:13Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Creation complete after 10s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-quality-moose/providers/Microsoft.Network/virtualNetworks/tf-**-quality-moose/subnets/tf-**-quality-moose][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:13Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:59:15Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:59:17Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [30s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:18Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [30s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:21Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [30s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:59:25Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:59:27Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [40s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:28Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [40s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:31Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [40s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:59:35Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [50s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:59:37Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [50s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:38Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [50s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:41Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [50s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:59:45Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m0s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:59:47Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m0s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:48Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m0s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T10:59:51Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m0s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T10:59:55Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T10:59:57Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m10s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T10:59:58Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m10s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:01Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m10s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:05Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:07Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m20s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:08Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m20s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:11Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m20s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:15Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:17Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m30s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:18Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m30s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:21Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m30s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:25Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:27Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m40s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:28Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m40s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:31Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m40s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:35Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m50s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:37Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m50s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:38Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m50s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:41Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m50s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:45Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [2m0s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:47Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [2m0s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:48Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [2m0s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:49Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Creation complete after 2m4s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-accurate-primate/providers/Microsoft.KeyVault/vaults/vaulttf**accurateprimate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:49Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:49Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Creation complete after 1s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-accurate-primate/providers/Microsoft.KeyVault/vaults/vaulttf**accurateprimate/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:49Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Creating...[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:50Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Creation complete after 1s [id=https://vaulttf**accurateprimate.vault.azure.net/keys/tf**accurateprimate-bbb2bd91d726/98d6d95eb91c46a79fa7efb3873a8d47][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:50Z logger.go:66: [31m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:50Z logger.go:66: [1m[31mError: [0m[0m[1mcreating Managed Kubernetes Cluster "tf**accurateprimate" (Resource Group "tf-**-rg-cluster-accurate-primate"): containerservice.ManagedClustersClient#CreateOrUpdate: Failure sending request: StatusCode=400 -- Original Error: Code="NodeResourceGroupAlreadyExists" Message="Node resource group 'tf-**-rg-cluster-node-accurate-primate' under subscription '************************************' already exists, please provide a new one."[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:50Z logger.go:66: 
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:50Z logger.go:66: [0m  on modules/cluster/main.tf line 1, in resource "azurerm_kubernetes_cluster" "aks":
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:50Z logger.go:66:    1: resource "azurerm_kubernetes_cluster" "aks" [4m{[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:50Z logger.go:66: [0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:50Z logger.go:66: [0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:50Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mcreating Managed Kubernetes Cluster "tf**accurateprimate" (Resource Group "tf-**-rg-cluster-accurate-primate"): containerservice.ManagedClustersClient#CreateOrUpdate: Failure sending request: StatusCode=400 -- Original Error: Code="NodeResourceGroupAlreadyExists" Message="Node resource group 'tf-**-rg-cluster-node-accurate-primate' under subscription '************************************' already exists, please provide a new one."[0m
+
+[0m  on modules/cluster/main.tf line 1, in resource "azurerm_kubernetes_cluster" "aks":
+   1: resource "azurerm_kubernetes_cluster" "aks" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:50Z retry.go:72: terraform [destroy -auto-approve -input=false -var create_registry=true -lock=false]
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:50Z logger.go:66: Running command terraform with args [destroy -auto-approve -input=false -var create_registry=true -lock=false]
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:51Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [2m0s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:51Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Creation complete after 2m4s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-ethical-coral/providers/Microsoft.KeyVault/vaults/vaulttf**ethicalcoral173][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:52Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:52Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Creation complete after 2m5s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-dynamic-terrapin/providers/Microsoft.KeyVault/vaults/vaulttf**dynamicterrapin][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:52Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:52Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Creation complete after 1s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-ethical-coral/providers/Microsoft.KeyVault/vaults/vaulttf**ethicalcoral173/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:52Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:52Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Creation complete after 1s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-dynamic-terrapin/providers/Microsoft.KeyVault/vaults/vaulttf**dynamicterrapin/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:52Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Creating...[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:53Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Creation complete after 1s [id=https://vaulttf**ethicalcoral173.vault.azure.net/keys/tf**ethicalcoral-1734ddd02567/debc592a9cd84ca0a2e4ec4be571e0ce][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:53Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Creation complete after 1s [id=https://vaulttf**dynamicterrapin.vault.azure.net/keys/tf**dynamicterrapin-a902f9ea4f77/34bc9687c59f4fafa61eb660d0d6a437][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:54Z logger.go:66: [31m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:54Z logger.go:66: [1m[31mError: [0m[0m[1mcreating Managed Kubernetes Cluster "tf**ethicalcoral" (Resource Group "tf-**-rg-cluster-ethical-coral"): containerservice.ManagedClustersClient#CreateOrUpdate: Failure sending request: StatusCode=400 -- Original Error: Code="NodeResourceGroupAlreadyExists" Message="Node resource group 'tf-**-rg-cluster-node-ethical-coral' under subscription '************************************' already exists, please provide a new one."[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:54Z logger.go:66: 
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:54Z logger.go:66: [0m  on modules/cluster/main.tf line 1, in resource "azurerm_kubernetes_cluster" "aks":
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:54Z logger.go:66:    1: resource "azurerm_kubernetes_cluster" "aks" [4m{[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:54Z logger.go:66: [0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:54Z logger.go:66: [31m
+TestTerraformBasicJxCluster 2020-09-05T11:00:54Z logger.go:66: [1m[31mError: [0m[0m[1mcreating Managed Kubernetes Cluster "tf**dynamicterrapin" (Resource Group "tf-**-rg-cluster-dynamic-terrapin"): containerservice.ManagedClustersClient#CreateOrUpdate: Failure sending request: StatusCode=400 -- Original Error: Code="NodeResourceGroupAlreadyExists" Message="Node resource group 'tf-**-rg-cluster-node-dynamic-terrapin' under subscription '************************************' already exists, please provide a new one."[0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:54Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-09-05T11:00:54Z logger.go:66: [0m  on modules/cluster/main.tf line 1, in resource "azurerm_kubernetes_cluster" "aks":
+TestTerraformBasicJxCluster 2020-09-05T11:00:54Z logger.go:66:    1: resource "azurerm_kubernetes_cluster" "aks" [4m{[0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:54Z logger.go:66: [0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:54Z logger.go:66: [0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:54Z logger.go:66: [0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:54Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mcreating Managed Kubernetes Cluster "tf**dynamicterrapin" (Resource Group "tf-**-rg-cluster-dynamic-terrapin"): containerservice.ManagedClustersClient#CreateOrUpdate: Failure sending request: StatusCode=400 -- Original Error: Code="NodeResourceGroupAlreadyExists" Message="Node resource group 'tf-**-rg-cluster-node-dynamic-terrapin' under subscription '************************************' already exists, please provide a new one."[0m
+
+[0m  on modules/cluster/main.tf line 1, in resource "azurerm_kubernetes_cluster" "aks":
+   1: resource "azurerm_kubernetes_cluster" "aks" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformBasicJxCluster 2020-09-05T11:00:54Z retry.go:72: terraform [destroy -auto-approve -input=false -lock=false]
+TestTerraformBasicJxCluster 2020-09-05T11:00:54Z logger.go:66: Running command terraform with args [destroy -auto-approve -input=false -lock=false]
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:54Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mcreating Managed Kubernetes Cluster "tf**ethicalcoral" (Resource Group "tf-**-rg-cluster-ethical-coral"): containerservice.ManagedClustersClient#CreateOrUpdate: Failure sending request: StatusCode=400 -- Original Error: Code="NodeResourceGroupAlreadyExists" Message="Node resource group 'tf-**-rg-cluster-node-ethical-coral' under subscription '************************************' already exists, please provide a new one."[0m
+
+[0m  on modules/cluster/main.tf line 1, in resource "azurerm_kubernetes_cluster" "aks":
+   1: resource "azurerm_kubernetes_cluster" "aks" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:54Z retry.go:72: terraform [destroy -auto-approve -input=false -var enable_backup=true -lock=false]
+TestTerraformWithBackupEnabledTest 2020-09-05T11:00:54Z logger.go:66: Running command terraform with args [destroy -auto-approve -input=false -var enable_backup=true -lock=false]
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:54Z logger.go:66: [0m[1mrandom_id.random: Refreshing state... [id=u7K9kdcm][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:00:54Z logger.go:66: [0m[1mrandom_pet.pet: Refreshing state... [id=accurate-primate][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:55Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Creation complete after 2m4s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-quality-moose/providers/Microsoft.KeyVault/vaults/vaulttf**qualitymoosedb5][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:55Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:56Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-quality-moose/providers/Microsoft.KeyVault/vaults/vaulttf**qualitymoosedb5/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:56Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Creating...[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:57Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Creation complete after 2s [id=https://vaulttf**qualitymoosedb5.vault.azure.net/keys/tf**qualitymoose-db53199abd66/382bf99d1cb64de184298cf1d075a989][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:57Z logger.go:66: [31m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:57Z logger.go:66: [1m[31mError: [0m[0m[1mcreating Managed Kubernetes Cluster "tf**qualitymoose" (Resource Group "tf-**-rg-cluster-quality-moose"): containerservice.ManagedClustersClient#CreateOrUpdate: Failure sending request: StatusCode=400 -- Original Error: Code="NodeResourceGroupAlreadyExists" Message="Node resource group 'tf-**-rg-cluster-node-quality-moose' under subscription '************************************' already exists, please provide a new one."[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:57Z logger.go:66: 
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:57Z logger.go:66: [0m  on modules/cluster/main.tf line 1, in resource "azurerm_kubernetes_cluster" "aks":
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:57Z logger.go:66:    1: resource "azurerm_kubernetes_cluster" "aks" [4m{[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:57Z logger.go:66: [0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:57Z logger.go:66: [0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:57Z retry.go:80: Returning due to fatal error: FatalError{Underlying: error while running command: exit status 1; [31m
+[1m[31mError: [0m[0m[1mcreating Managed Kubernetes Cluster "tf**qualitymoose" (Resource Group "tf-**-rg-cluster-quality-moose"): containerservice.ManagedClustersClient#CreateOrUpdate: Failure sending request: StatusCode=400 -- Original Error: Code="NodeResourceGroupAlreadyExists" Message="Node resource group 'tf-**-rg-cluster-node-quality-moose' under subscription '************************************' already exists, please provide a new one."[0m
+
+[0m  on modules/cluster/main.tf line 1, in resource "azurerm_kubernetes_cluster" "aks":
+   1: resource "azurerm_kubernetes_cluster" "aks" [4m{[0m
+[0m
+[0m[0m}
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:57Z retry.go:72: terraform [destroy -auto-approve -input=false -var external_dns_enabled=true -var apex_domain=******************** -var apex_domain_resource_group_name=*********** -lock=false]
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:00:57Z logger.go:66: Running command terraform with args [destroy -auto-approve -input=false -var external_dns_enabled=true -var apex_domain=******************** -var apex_domain_resource_group_name=*********** -lock=false]
+TestTerraformBasicJxCluster 2020-09-05T11:00:59Z logger.go:66: [0m[1mrandom_pet.pet: Refreshing state... [id=dynamic-terrapin][0m
+TestTerraformBasicJxCluster 2020-09-05T11:00:59Z logger.go:66: [0m[1mrandom_id.random: Refreshing state... [id=qQL56k93][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:00Z logger.go:66: [0m[1mmodule.backup.random_string.velero[0]: Refreshing state... [id=2t_mYT25j3NqebNQvhpe2Ggmsrk39QXH][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:00Z logger.go:66: [0m[1mrandom_id.random: Refreshing state... [id=FzTd0CVn][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:00Z logger.go:66: [0m[1mrandom_pet.pet: Refreshing state... [id=ethical-coral][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:00Z logger.go:66: [0m[1mmodule.backup.azuread_application.velero[0]: Refreshing state... [id=b40d09ca-caff-4680-878c-43c33c414e08][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:00Z logger.go:66: [0m[1mmodule.backup.azuread_service_principal.velero[0]: Refreshing state... [id=2a8162d0-8fc1-4328-9f58-766e564bf634][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:00Z logger.go:66: [0m[1mmodule.backup.azuread_application_password.velero[0]: Refreshing state... [id=b40d09ca-caff-4680-878c-43c33c414e08/password/581eabc1-1964-c9da-8195-909609b816f8][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:01Z logger.go:66: [0m[1mdata.azurerm_subscription.current: Refreshing state... [id=/subscriptions/************************************][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:01Z logger.go:66: [0m[1mmodule.vault.data.azurerm_client_config.current: Refreshing state... [id=2020-09-05 10:58:29.446130063 +0000 UTC][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:01Z logger.go:66: [0m[1mdata.azurerm_client_config.current: Refreshing state... [id=2020-09-05 10:58:29.447340871 +0000 UTC][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:01Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-node-accurate-primate][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:01Z logger.go:66: [0m[1mazurerm_resource_group.registry[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-registry-accurate-primate][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:01Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-accurate-primate][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:01Z logger.go:66: [0m[1mazurerm_resource_group.network: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-accurate-primate][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:01Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-accurate-primate][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:01Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-accurate-primate/providers/Microsoft.Network/virtualNetworks/tf-**-accurate-primate][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:01Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-accurate-primate/providers/Microsoft.Storage/storageAccounts/vaulttf**accurateprimate][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:01Z logger.go:66: [0m[1mmodule.registry.azurerm_container_registry.acr[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-registry-accurate-primate/providers/Microsoft.ContainerRegistry/registries/tf**accurateprimate][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:01Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-accurate-primate/providers/Microsoft.KeyVault/vaults/vaulttf**accurateprimate][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:01Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-accurate-primate/providers/Microsoft.Network/virtualNetworks/tf-**-accurate-primate/subnets/tf-**-accurate-primate][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:01Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-accurate-primate/providers/Microsoft.KeyVault/vaults/vaulttf**accurateprimate/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:02Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Refreshing state... [id=https://vaulttf**accurateprimate.vault.azure.net/keys/tf**accurateprimate-bbb2bd91d726/98d6d95eb91c46a79fa7efb3873a8d47][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:02Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Refreshing state... [id=https://vaulttf**accurateprimate.blob.core.windows.net/vault][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:02Z logger.go:66: [0m[1mrandom_pet.pet: Refreshing state... [id=quality-moose][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:02Z logger.go:66: [0m[1mrandom_id.random: Refreshing state... [id=21MZmr1m][0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:07Z logger.go:66: [0m[1mdata.azurerm_subscription.current: Refreshing state... [id=/subscriptions/************************************][0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:07Z logger.go:66: [0m[1mdata.azurerm_client_config.current: Refreshing state... [id=2020-09-05 10:58:29.512778183 +0000 UTC][0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:07Z logger.go:66: [0m[1mmodule.vault.data.azurerm_client_config.current: Refreshing state... [id=2020-09-05 10:58:29.515511701 +0000 UTC][0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:07Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-dynamic-terrapin][0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:07Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-dynamic-terrapin][0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:07Z logger.go:66: [0m[1mazurerm_resource_group.network: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-dynamic-terrapin][0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:07Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-node-dynamic-terrapin][0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:07Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-dynamic-terrapin/providers/Microsoft.Network/virtualNetworks/tf-**-dynamic-terrapin][0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:07Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-dynamic-terrapin/providers/Microsoft.Storage/storageAccounts/vaulttf**dynamicterrapin][0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:07Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-dynamic-terrapin/providers/Microsoft.Network/virtualNetworks/tf-**-dynamic-terrapin/subnets/tf-**-dynamic-terrapin][0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:07Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-dynamic-terrapin/providers/Microsoft.KeyVault/vaults/vaulttf**dynamicterrapin][0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:07Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-dynamic-terrapin/providers/Microsoft.KeyVault/vaults/vaulttf**dynamicterrapin/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:07Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Refreshing state... [id=https://vaulttf**dynamicterrapin.vault.azure.net/keys/tf**dynamicterrapin-a902f9ea4f77/34bc9687c59f4fafa61eb660d0d6a437][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:08Z logger.go:66: [0m[1mdata.azurerm_subscription.current: Refreshing state... [id=/subscriptions/************************************][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:08Z logger.go:66: [0m[1mdata.azurerm_client_config.current: Refreshing state... [id=2020-09-05 10:58:29.842027058 +0000 UTC][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:08Z logger.go:66: [0m[1mmodule.vault.data.azurerm_client_config.current: Refreshing state... [id=2020-09-05 10:58:29.719101783 +0000 UTC][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:08Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-node-ethical-coral][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:08Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-ethical-coral][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:08Z logger.go:66: [0m[1mazurerm_resource_group.network: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-ethical-coral][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:08Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-ethical-coral][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:08Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-ethical-coral/providers/Microsoft.Network/virtualNetworks/tf-**-ethical-coral][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:08Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-ethical-coral/providers/Microsoft.Storage/storageAccounts/vaulttf**ethicalcoral173][0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:08Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Refreshing state... [id=https://vaulttf**dynamicterrapin.blob.core.windows.net/vault][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:08Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-ethical-coral/providers/Microsoft.KeyVault/vaults/vaulttf**ethicalcoral173][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:08Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-ethical-coral/providers/Microsoft.Network/virtualNetworks/tf-**-ethical-coral/subnets/tf-**-ethical-coral][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:08Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-ethical-coral/providers/Microsoft.KeyVault/vaults/vaulttf**ethicalcoral173/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:08Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Refreshing state... [id=https://vaulttf**ethicalcoral173.vault.azure.net/keys/tf**ethicalcoral-1734ddd02567/debc592a9cd84ca0a2e4ec4be571e0ce][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:08Z logger.go:66: [0m[1mdata.azurerm_subscription.current: Refreshing state... [id=/subscriptions/************************************][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:08Z logger.go:66: [0m[1mazurerm_resource_group.network: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-quality-moose][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:08Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-quality-moose][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:08Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-node-quality-moose][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:08Z logger.go:66: [0m[1mmodule.dns.data.azurerm_dns_zone.apex_domain_zone[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/***********/providers/Microsoft.Network/dnszones/********************][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:08Z logger.go:66: [0m[1mdata.azurerm_client_config.current: Refreshing state... [id=2020-09-05 10:58:29.568399834 +0000 UTC][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:08Z logger.go:66: [0m[1mmodule.vault.data.azurerm_client_config.current: Refreshing state... [id=2020-09-05 10:58:29.569772642 +0000 UTC][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:08Z logger.go:66: [0m[1mazurerm_resource_group.dns[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-dns-quality-moose][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:08Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-quality-moose][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:08Z logger.go:66: [0m[1mmodule.dns.azurerm_dns_zone.dns[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-dns-quality-moose/providers/Microsoft.Network/dnszones/tf**qualitymoose.********************][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:08Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-quality-moose/providers/Microsoft.Network/virtualNetworks/tf-**-quality-moose][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:08Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-quality-moose/providers/Microsoft.Storage/storageAccounts/vaulttf**qualitymoosedb5][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:09Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-quality-moose/providers/Microsoft.KeyVault/vaults/vaulttf**qualitymoosedb5][0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:09Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Refreshing state... [id=https://vaulttf**ethicalcoral173.blob.core.windows.net/vault][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:09Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-quality-moose/providers/Microsoft.Network/virtualNetworks/tf-**-quality-moose/subnets/tf-**-quality-moose][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:09Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-quality-moose/providers/Microsoft.KeyVault/vaults/vaulttf**qualitymoosedb5/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:09Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Refreshing state... [id=https://vaulttf**qualitymoosedb5.vault.azure.net/keys/tf**qualitymoose-db53199abd66/382bf99d1cb64de184298cf1d075a989][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:10Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Refreshing state... [id=https://vaulttf**qualitymoosedb5.blob.core.windows.net/vault][0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:10Z logger.go:66: [0m[1mmodule.dns.azurerm_dns_ns_record.subdomain_ns_delegation[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/***********/providers/Microsoft.Network/dnszones/********************/NS/tf**qualitymoose][0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:11Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-node-accurate-primate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:11Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-accurate-primate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:11Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-accurate-primate/providers/Microsoft.Network/virtualNetworks/tf-**-accurate-primate/subnets/tf-**-accurate-primate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:11Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Destroying... [id=https://vaulttf**accurateprimate.blob.core.windows.net/vault][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:11Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Destroying... [id=https://vaulttf**accurateprimate.vault.azure.net/keys/tf**accurateprimate-bbb2bd91d726/98d6d95eb91c46a79fa7efb3873a8d47][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:11Z logger.go:66: [0m[1mmodule.registry.azurerm_container_registry.acr[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-registry-accurate-primate/providers/Microsoft.ContainerRegistry/registries/tf**accurateprimate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:11Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Destruction complete after 1s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:11Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-accurate-primate/providers/Microsoft.Storage/storageAccounts/vaulttf**accurateprimate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:12Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Destruction complete after 1s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:12Z logger.go:66: [0m[1mmodule.backup.azuread_service_principal.velero[0]: Destroying... [id=2a8162d0-8fc1-4328-9f58-766e564bf634][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:12Z logger.go:66: [0m[1mmodule.backup.azuread_application_password.velero[0]: Destroying... [id=b40d09ca-caff-4680-878c-43c33c414e08/password/581eabc1-1964-c9da-8195-909609b816f8][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:12Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-accurate-primate/providers/Microsoft.KeyVault/vaults/vaulttf**accurateprimate/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:12Z logger.go:66: [0m[1mmodule.backup.azuread_service_principal.velero[0]: Destruction complete after 0s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:12Z logger.go:66: [0m[1mmodule.backup.azuread_application_password.velero[0]: Destruction complete after 0s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:12Z logger.go:66: [0m[1mmodule.backup.random_string.velero[0]: Destroying... [id=2t_mYT25j3NqebNQvhpe2Ggmsrk39QXH][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:12Z logger.go:66: [0m[1mmodule.backup.random_string.velero[0]: Destruction complete after 0s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:12Z logger.go:66: [0m[1mmodule.backup.azuread_application.velero[0]: Destroying... [id=b40d09ca-caff-4680-878c-43c33c414e08][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:12Z logger.go:66: [0m[1mmodule.backup.azuread_application.velero[0]: Destruction complete after 0s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:12Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Destruction complete after 1s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:12Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-accurate-primate/providers/Microsoft.KeyVault/vaults/vaulttf**accurateprimate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:14Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Destruction complete after 3s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:15Z logger.go:66: [0m[1mmodule.registry.azurerm_container_registry.acr[0]: Destruction complete after 5s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:15Z logger.go:66: [0m[1mazurerm_resource_group.registry[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-registry-accurate-primate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:15Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Destruction complete after 3s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:15Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-accurate-primate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:15Z logger.go:66: [0m[1mrandom_id.random: Destroying... [id=u7K9kdcm][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:15Z logger.go:66: [0m[1mrandom_id.random: Destruction complete after 0s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-node-quality-moose][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-quality-moose][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Destroying... [id=https://vaulttf**qualitymoosedb5.blob.core.windows.net/vault][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.dns.azurerm_dns_ns_record.subdomain_ns_delegation[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/***********/providers/Microsoft.Network/dnszones/********************/NS/tf**qualitymoose][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-quality-moose/providers/Microsoft.Network/virtualNetworks/tf-**-quality-moose/subnets/tf-**-quality-moose][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Destroying... [id=https://vaulttf**qualitymoosedb5.vault.azure.net/keys/tf**qualitymoose-db53199abd66/382bf99d1cb64de184298cf1d075a989][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Destruction complete after 0s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-quality-moose/providers/Microsoft.Storage/storageAccounts/vaulttf**qualitymoosedb5][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Destruction complete after 1s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-quality-moose/providers/Microsoft.Network/virtualNetworks/tf-**-quality-moose][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Destroying... [id=https://vaulttf**ethicalcoral173.blob.core.windows.net/vault][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-ethical-coral/providers/Microsoft.Network/virtualNetworks/tf-**-ethical-coral/subnets/tf-**-ethical-coral][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Destroying... [id=https://vaulttf**ethicalcoral173.vault.azure.net/keys/tf**ethicalcoral-1734ddd02567/debc592a9cd84ca0a2e4ec4be571e0ce][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:18Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-ethical-coral][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:18Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-node-ethical-coral][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Destruction complete after 1s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Destroying... [id=https://vaulttf**dynamicterrapin.blob.core.windows.net/vault][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-quality-moose/providers/Microsoft.KeyVault/vaults/vaulttf**qualitymoosedb5/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Destroying... [id=https://vaulttf**dynamicterrapin.vault.azure.net/keys/tf**dynamicterrapin-a902f9ea4f77/34bc9687c59f4fafa61eb660d0d6a437][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-dynamic-terrapin/providers/Microsoft.Network/virtualNetworks/tf-**-dynamic-terrapin/subnets/tf-**-dynamic-terrapin][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-node-dynamic-terrapin][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:18Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-dynamic-terrapin][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:19Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Destruction complete after 0s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:19Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-ethical-coral/providers/Microsoft.Storage/storageAccounts/vaulttf**ethicalcoral173][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:19Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Destruction complete after 0s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:19Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-ethical-coral/providers/Microsoft.KeyVault/vaults/vaulttf**ethicalcoral173/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:19Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Destruction complete after 0s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:19Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-quality-moose/providers/Microsoft.KeyVault/vaults/vaulttf**qualitymoosedb5][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:19Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Destruction complete after 0s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:19Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-dynamic-terrapin/providers/Microsoft.Storage/storageAccounts/vaulttf**dynamicterrapin][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:19Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Destruction complete after 1s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:19Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-ethical-coral/providers/Microsoft.KeyVault/vaults/vaulttf**ethicalcoral173][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:19Z logger.go:66: [0m[1mmodule.dns.azurerm_dns_ns_record.subdomain_ns_delegation[0]: Destruction complete after 2s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:19Z logger.go:66: [0m[1mmodule.dns.azurerm_dns_zone.dns[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-dns-quality-moose/providers/Microsoft.Network/dnszones/tf**qualitymoose.********************][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:19Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Destruction complete after 1s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:19Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-dynamic-terrapin/providers/Microsoft.KeyVault/vaults/vaulttf**dynamicterrapin/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:20Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Destruction complete after 0s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:20Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-dynamic-terrapin/providers/Microsoft.KeyVault/vaults/vaulttf**dynamicterrapin][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:20Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Destruction complete after 3s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:21Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...primate/subnets/tf-**-accurate-primate, 10s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:21Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...tf-**-rg-cluster-node-accurate-primate, 10s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:21Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...oups/tf-**-rg-cluster-accurate-primate, 10s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:21Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Destruction complete after 10s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:21Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-accurate-primate/providers/Microsoft.Network/virtualNetworks/tf-**-accurate-primate][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:21Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Destruction complete after 3s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:22Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Destruction complete after 3s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:22Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Destruction complete after 4s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:22Z logger.go:66: [0m[1mrandom_id.random: Destroying... [id=21MZmr1m][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:22Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-quality-moose][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:22Z logger.go:66: [0m[1mrandom_id.random: Destruction complete after 0s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:22Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Destruction complete after 3s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:22Z logger.go:66: [0m[1mrandom_id.random: Destroying... [id=FzTd0CVn][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:22Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-ethical-coral][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:22Z logger.go:66: [0m[1mrandom_id.random: Destruction complete after 0s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:22Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Destruction complete after 3s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:22Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-dynamic-terrapin][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:22Z logger.go:66: [0m[1mrandom_id.random: Destroying... [id=qQL56k93][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:22Z logger.go:66: [0m[1mrandom_id.random: Destruction complete after 0s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:25Z logger.go:66: [0m[1mazurerm_resource_group.registry[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ups/tf-**-rg-registry-accurate-primate, 10s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:25Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...Groups/tf-**-rg-vault-accurate-primate, 10s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:26Z logger.go:66: [0m[1mmodule.dns.azurerm_dns_zone.dns[0]: Destruction complete after 7s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:26Z logger.go:66: [0m[1mazurerm_resource_group.dns[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-dns-quality-moose][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:28Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ps/tf-**-rg-cluster-node-quality-moose, 10s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:28Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...eGroups/tf-**-rg-cluster-quality-moose, 10s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:28Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rk/virtualNetworks/tf-**-quality-moose, 10s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:28Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ical-coral/subnets/tf-**-ethical-coral, 10s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:28Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...eGroups/tf-**-rg-cluster-ethical-coral, 10s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:28Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ps/tf-**-rg-cluster-node-ethical-coral, 10s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:28Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Destruction complete after 10s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:28Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...errapin/subnets/tf-**-dynamic-terrapin, 10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:28Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...tf-**-rg-cluster-node-dynamic-terrapin, 10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:28Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...oups/tf-**-rg-cluster-dynamic-terrapin, 10s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:29Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Destruction complete after 10s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:29Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Destruction complete after 10s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:29Z logger.go:66: [0m[1mazurerm_resource_group.network: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-quality-moose][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:29Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-ethical-coral/providers/Microsoft.Network/virtualNetworks/tf-**-ethical-coral][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:29Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-dynamic-terrapin/providers/Microsoft.Network/virtualNetworks/tf-**-dynamic-terrapin][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:31Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...tf-**-rg-cluster-node-accurate-primate, 20s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:31Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...oups/tf-**-rg-cluster-accurate-primate, 20s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:31Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...virtualNetworks/tf-**-accurate-primate, 10s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:31Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Destruction complete after 11s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:31Z logger.go:66: [0m[1mazurerm_resource_group.network: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-accurate-primate][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:32Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rceGroups/tf-**-rg-vault-quality-moose, 10s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:32Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rceGroups/tf-**-rg-vault-ethical-coral, 10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:32Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...Groups/tf-**-rg-vault-dynamic-terrapin, 10s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:35Z logger.go:66: [0m[1mazurerm_resource_group.registry[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ups/tf-**-rg-registry-accurate-primate, 20s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:35Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...Groups/tf-**-rg-vault-accurate-primate, 20s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:36Z logger.go:66: [0m[1mazurerm_resource_group.dns[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-dns-quality-moose, 10s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:38Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ps/tf-**-rg-cluster-node-quality-moose, 20s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:38Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...eGroups/tf-**-rg-cluster-quality-moose, 20s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:38Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...eGroups/tf-**-rg-cluster-ethical-coral, 20s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:38Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ps/tf-**-rg-cluster-node-ethical-coral, 20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:38Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...tf-**-rg-cluster-node-dynamic-terrapin, 20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:38Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...oups/tf-**-rg-cluster-dynamic-terrapin, 20s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:39Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-net-quality-moose, 10s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:39Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rk/virtualNetworks/tf-**-ethical-coral, 10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:39Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...virtualNetworks/tf-**-dynamic-terrapin, 10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:40Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Destruction complete after 10s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:40Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Destruction complete after 10s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:40Z logger.go:66: [0m[1mazurerm_resource_group.network: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-dynamic-terrapin][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:40Z logger.go:66: [0m[1mazurerm_resource_group.network: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-ethical-coral][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:41Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...tf-**-rg-cluster-node-accurate-primate, 30s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:41Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...oups/tf-**-rg-cluster-accurate-primate, 30s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:41Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ceGroups/tf-**-rg-net-accurate-primate, 10s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:42Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rceGroups/tf-**-rg-vault-quality-moose, 20s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:42Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rceGroups/tf-**-rg-vault-ethical-coral, 20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:42Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...Groups/tf-**-rg-vault-dynamic-terrapin, 20s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:45Z logger.go:66: [0m[1mazurerm_resource_group.registry[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ups/tf-**-rg-registry-accurate-primate, 30s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:45Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...Groups/tf-**-rg-vault-accurate-primate, 30s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:46Z logger.go:66: [0m[1mazurerm_resource_group.dns[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-dns-quality-moose, 20s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:48Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ps/tf-**-rg-cluster-node-quality-moose, 30s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:48Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...eGroups/tf-**-rg-cluster-quality-moose, 30s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:48Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...eGroups/tf-**-rg-cluster-ethical-coral, 30s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:48Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ps/tf-**-rg-cluster-node-ethical-coral, 30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:48Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...tf-**-rg-cluster-node-dynamic-terrapin, 30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:48Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...oups/tf-**-rg-cluster-dynamic-terrapin, 30s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:49Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-net-quality-moose, 20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:50Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ceGroups/tf-**-rg-net-dynamic-terrapin, 10s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:50Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-net-ethical-coral, 10s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:51Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...oups/tf-**-rg-cluster-accurate-primate, 40s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:51Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...tf-**-rg-cluster-node-accurate-primate, 40s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:51Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ceGroups/tf-**-rg-net-accurate-primate, 20s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:52Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rceGroups/tf-**-rg-vault-quality-moose, 30s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:52Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rceGroups/tf-**-rg-vault-ethical-coral, 30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:52Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...Groups/tf-**-rg-vault-dynamic-terrapin, 30s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:55Z logger.go:66: [0m[1mazurerm_resource_group.registry[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ups/tf-**-rg-registry-accurate-primate, 40s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:55Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...Groups/tf-**-rg-vault-accurate-primate, 40s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:56Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Destruction complete after 45s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:01:56Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Destruction complete after 45s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:56Z logger.go:66: [0m[1mazurerm_resource_group.dns[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-dns-quality-moose, 30s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:58Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ps/tf-**-rg-cluster-node-quality-moose, 40s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:58Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...eGroups/tf-**-rg-cluster-quality-moose, 40s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:58Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...eGroups/tf-**-rg-cluster-ethical-coral, 40s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:01:58Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ps/tf-**-rg-cluster-node-ethical-coral, 40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:58Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...tf-**-rg-cluster-node-dynamic-terrapin, 40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:01:58Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...oups/tf-**-rg-cluster-dynamic-terrapin, 40s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:01:59Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-net-quality-moose, 30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:02:00Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ceGroups/tf-**-rg-net-dynamic-terrapin, 20s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:02:00Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-net-ethical-coral, 20s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:02:00Z logger.go:66: [0m[1mazurerm_resource_group.registry[0]: Destruction complete after 45s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:02:00Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Destruction complete after 45s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:02:01Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ceGroups/tf-**-rg-net-accurate-primate, 30s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:02:02Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rceGroups/tf-**-rg-vault-quality-moose, 40s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:02:02Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rceGroups/tf-**-rg-vault-ethical-coral, 40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:02:02Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...Groups/tf-**-rg-vault-dynamic-terrapin, 40s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:02:03Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Destruction complete after 45s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:02:03Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Destruction complete after 45s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:02:04Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Destruction complete after 45s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:02:04Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Destruction complete after 45s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:02:04Z logger.go:66: [0m[1mazurerm_resource_group.cluster_nodes: Destruction complete after 45s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:02:04Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Destruction complete after 45s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:02:06Z logger.go:66: [0m[1mazurerm_resource_group.dns[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-dns-quality-moose, 40s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:02:08Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Destruction complete after 45s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:02:08Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Destruction complete after 45s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:02:08Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Destruction complete after 45s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:02:09Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-net-quality-moose, 40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:02:10Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ceGroups/tf-**-rg-net-dynamic-terrapin, 30s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:02:10Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-net-ethical-coral, 30s elapsed][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:02:11Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ceGroups/tf-**-rg-net-accurate-primate, 40s elapsed][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:02:12Z logger.go:66: [0m[1mazurerm_resource_group.dns[0]: Destruction complete after 45s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:02:15Z logger.go:66: [0m[1mazurerm_resource_group.network: Destruction complete after 45s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:02:15Z logger.go:66: [0m[1mrandom_pet.pet: Destroying... [id=quality-moose][0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:02:15Z logger.go:66: [0m[1mrandom_pet.pet: Destruction complete after 0s[0m[0m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:02:15Z logger.go:66: [0m[1m[32m
+TestTerraformEDnsWithApexDomainCluster 2020-09-05T11:02:15Z logger.go:66: Destroy complete! Resources: 16 destroyed.[0m
+--- FAIL: TestTerraformEDnsWithApexDomainCluster (292.78s)
+    apply.go:15: 
+        	Error Trace:	apply.go:15
+        	            				terraform_edns_cluster_test.go:50
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mcreating Managed Kubernetes Cluster "tf**qualitymoose" (Resource Group "tf-**-rg-cluster-quality-moose"): containerservice.ManagedClustersClient#CreateOrUpdate: Failure sending request: StatusCode=400 -- Original Error: Code="NodeResourceGroupAlreadyExists" Message="Node resource group 'tf-**-rg-cluster-node-quality-moose' under subscription '************************************' already exists, please provide a new one."[0m
+        	            	
+        	            	[0m  on modules/cluster/main.tf line 1, in resource "azurerm_kubernetes_cluster" "aks":
+        	            	   1: resource "azurerm_kubernetes_cluster" "aks" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformEDnsWithApexDomainCluster
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:02:17Z logger.go:66: [0m[1mazurerm_resource_group.network: Destruction complete after 45s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:02:17Z logger.go:66: [0m[1mrandom_pet.pet: Destroying... [id=accurate-primate][0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:02:17Z logger.go:66: [0m[1mrandom_pet.pet: Destruction complete after 0s[0m[0m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:02:17Z logger.go:66: [0m[1m[32m
+TestTerraformJxClusterWithContainerRegistry 2020-09-05T11:02:17Z logger.go:66: Destroy complete! Resources: 15 destroyed.[0m
+--- FAIL: TestTerraformJxClusterWithContainerRegistry (295.59s)
+    apply.go:15: 
+        	Error Trace:	apply.go:15
+        	            				terraform_**_cluster_with_container_registry_test.go:43
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mcreating Managed Kubernetes Cluster "tf**accurateprimate" (Resource Group "tf-**-rg-cluster-accurate-primate"): containerservice.ManagedClustersClient#CreateOrUpdate: Failure sending request: StatusCode=400 -- Original Error: Code="NodeResourceGroupAlreadyExists" Message="Node resource group 'tf-**-rg-cluster-node-accurate-primate' under subscription '************************************' already exists, please provide a new one."[0m
+        	            	
+        	            	[0m  on modules/cluster/main.tf line 1, in resource "azurerm_kubernetes_cluster" "aks":
+        	            	   1: resource "azurerm_kubernetes_cluster" "aks" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformJxClusterWithContainerRegistry
+TestTerraformBasicJxCluster 2020-09-05T11:02:20Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ceGroups/tf-**-rg-net-dynamic-terrapin, 40s elapsed][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:02:20Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-net-ethical-coral, 40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:02:25Z logger.go:66: [0m[1mazurerm_resource_group.network: Destruction complete after 45s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:02:25Z logger.go:66: [0m[1mazurerm_resource_group.network: Destruction complete after 46s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:02:26Z logger.go:66: [0m[1mrandom_pet.pet: Destroying... [id=dynamic-terrapin][0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:02:26Z logger.go:66: [0m[1mrandom_pet.pet: Destruction complete after 0s[0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:02:26Z logger.go:66: [0m[1mrandom_pet.pet: Destroying... [id=ethical-coral][0m[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:02:26Z logger.go:66: [0m[1mrandom_pet.pet: Destruction complete after 0s[0m[0m
+TestTerraformBasicJxCluster 2020-09-05T11:02:26Z logger.go:66: [0m[1m[32m
+TestTerraformBasicJxCluster 2020-09-05T11:02:26Z logger.go:66: Destroy complete! Resources: 13 destroyed.[0m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:02:26Z logger.go:66: [0m[1m[32m
+TestTerraformWithBackupEnabledTest 2020-09-05T11:02:26Z logger.go:66: Destroy complete! Resources: 17 destroyed.[0m
+--- FAIL: TestTerraformBasicJxCluster (303.97s)
+    apply.go:15: 
+        	Error Trace:	apply.go:15
+        	            				terraform_**_cluster_test.go:39
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mcreating Managed Kubernetes Cluster "tf**dynamicterrapin" (Resource Group "tf-**-rg-cluster-dynamic-terrapin"): containerservice.ManagedClustersClient#CreateOrUpdate: Failure sending request: StatusCode=400 -- Original Error: Code="NodeResourceGroupAlreadyExists" Message="Node resource group 'tf-**-rg-cluster-node-dynamic-terrapin' under subscription '************************************' already exists, please provide a new one."[0m
+        	            	
+        	            	[0m  on modules/cluster/main.tf line 1, in resource "azurerm_kubernetes_cluster" "aks":
+        	            	   1: resource "azurerm_kubernetes_cluster" "aks" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformBasicJxCluster
+--- FAIL: TestTerraformWithBackupEnabledTest (303.99s)
+    apply.go:15: 
+        	Error Trace:	apply.go:15
+        	            				terraform_cluster_backup_test.go:49
+        	Error:      	Received unexpected error:
+        	            	FatalError{Underlying: error while running command: exit status 1; [31m
+        	            	[1m[31mError: [0m[0m[1mcreating Managed Kubernetes Cluster "tf**ethicalcoral" (Resource Group "tf-**-rg-cluster-ethical-coral"): containerservice.ManagedClustersClient#CreateOrUpdate: Failure sending request: StatusCode=400 -- Original Error: Code="NodeResourceGroupAlreadyExists" Message="Node resource group 'tf-**-rg-cluster-node-ethical-coral' under subscription '************************************' already exists, please provide a new one."[0m
+        	            	
+        	            	[0m  on modules/cluster/main.tf line 1, in resource "azurerm_kubernetes_cluster" "aks":
+        	            	   1: resource "azurerm_kubernetes_cluster" "aks" [4m{[0m
+        	            	[0m
+        	            	[0m[0m}
+        	Test:       	TestTerraformWithBackupEnabledTest
+FAIL
+FAIL	github.com/jenkins-x/terraform-azurerm-**/test	303.996s
+FAIL
+make: *** [test] Error 1
+[31m
+Pipeline failed on stage 'ci' : container 'step-terratest'. The execution of the pipeline has stopped.[0m
