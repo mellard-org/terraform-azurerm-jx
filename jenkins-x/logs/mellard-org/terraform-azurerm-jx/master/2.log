@@ -1,37 +1,21 @@
 
-Showing logs for build [32mmeta-mellard-org-terraform-azur-xgpsm-2[0m stage [32mmeta-pipeline[0m and container [32mcredential-initializer[0m
-{"level":"info","ts":1598479013.9772987,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+Showing logs for build [32mmellard-org-terraform-azurerm-j-2j5k7-2[0m stage [32mdummy[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1599390049.9526806,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
 
-Showing logs for build [32mmeta-mellard-org-terraform-azur-xgpsm-2[0m stage [32mmeta-pipeline[0m and container [32mworking-dir-initializer[0m
+Showing logs for build [32mmellard-org-terraform-azurerm-j-2j5k7-2[0m stage [32mdummy[0m and container [32mworking-dir-initializer[0m
 
-Showing logs for build [32mmeta-mellard-org-terraform-azur-xgpsm-2[0m stage [32mmeta-pipeline[0m and container [32mplace-tools[0m
+Showing logs for build [32mmellard-org-terraform-azurerm-j-2j5k7-2[0m stage [32mdummy[0m and container [32mplace-tools[0m
 
-Showing logs for build [32mmeta-mellard-org-terraform-azur-xgpsm-2[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-mellard-org-terraform-azur-xgpsm-qrglf[0m
-{"level":"info","ts":1598479029.8966682,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ 49ed1a4f20056f323d387a682325045f640484bd in path /workspace/source"}
-{"level":"warn","ts":1598479029.8967402,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
-{"level":"info","ts":1598479029.9382596,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+Showing logs for build [32mmellard-org-terraform-azurerm-j-2j5k7-2[0m stage [32mdummy[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-2j5k7-dvbtz[0m
+{"level":"info","ts":1599390066.4789104,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ v0.0.8 in path /workspace/source"}
+{"level":"warn","ts":1599390066.478979,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1599390066.5235255,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
 
-Showing logs for build [32mmeta-mellard-org-terraform-azur-xgpsm-2[0m stage [32mmeta-pipeline[0m and container [32mstep-setup-builder-home[0m
+Showing logs for build [32mmellard-org-terraform-azurerm-j-2j5k7-2[0m stage [32mdummy[0m and container [32mstep-setup-builder-home[0m
 
-Showing logs for build [32mmeta-mellard-org-terraform-azur-xgpsm-2[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
-Using SHAs from PULL_REFS=master:49ed1a4f20056f323d387a682325045f640484bd
+Showing logs for build [32mmellard-org-terraform-azurerm-j-2j5k7-2[0m stage [32mdummy[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:97664f2c734221b944c40df5caa2cfd343abe03a
 WARNING: no SHAs to merge, falling back to initial cloned commit
 
-Showing logs for build [32mmeta-mellard-org-terraform-azur-xgpsm-2[0m stage [32mmeta-pipeline[0m and container [32mstep-merge-pull-refs[0m
-SKIP merge-pull-refs: Nothing to merge
-
-Showing logs for build [32mmeta-mellard-org-terraform-azur-xgpsm-2[0m stage [32mmeta-pipeline[0m and container [32mstep-create-effective-pipeline[0m
-performing pack detection in folder /workspace/source
---> Draft detected HCL (92.979119%)
---> Could not find a pack for HCL. Trying to find the next likely language match...
---> Draft detected Smarty (4.506926%)
---> Could not find a pack for Smarty. Trying to find the next likely language match...
---> Draft detected Shell (1.509200%)
---> Could not find a pack for Shell. Trying to find the next likely language match...
---> Draft detected GN (0.702915%)
---> Could not find a pack for GN. Trying to find the next likely language match...
---> Draft detected SaltStack (0.301840%)
---> Could not find a pack for SaltStack. Trying to find the next likely language match...
-error: failed to discover the build pack: failed to discover task pack in dir /workspace/source: there was an error detecting the language using packs from /tekton/home/.**/draft/packs/github.com/jenkins-x-buildpacks/jenkins-x-kubernetes/packs
-[31m
-Pipeline failed on stage 'meta-pipeline' : container 'step-create-effective-pipeline'. The execution of the pipeline has stopped.[0m
+Showing logs for build [32mmellard-org-terraform-azurerm-j-2j5k7-2[0m stage [32mdummy[0m and container [32mstep-echo[0m
+release pipeline not yet implemented
