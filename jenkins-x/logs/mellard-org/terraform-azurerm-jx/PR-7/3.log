@@ -1,0 +1,87 @@
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-8nb8x-3[0m stage [32mci[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1599384235.9403112,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-8nb8x-3[0m stage [32mci[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-8nb8x-3[0m stage [32mci[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-8nb8x-3[0m stage [32mci[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-8nb8x-z85cn[0m
+{"level":"info","ts":1599384337.4718206,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ master in path /workspace/source"}
+{"level":"warn","ts":1599384337.4718974,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1599384337.5184307,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-8nb8x-3[0m stage [32mci[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-8nb8x-3[0m stage [32mci[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:f9a260795addaee94931aacef2ee1f3a768e1feb,7:4484170528db9085de6a473e84e0268ac00d86f9
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 4484170528db9085de6a473e84e0268ac00d86f9: f9a260795addaee94931aacef2ee1f3a768e1feb:
+DEBUG: ran git fetch --unshallow origin 4484170528db9085de6a473e84e0268ac00d86f9: f9a260795addaee94931aacef2ee1f3a768e1feb: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard f9a260795addaee94931aacef2ee1f3a768e1feb
+DEBUG: ran git reset --hard f9a260795addaee94931aacef2ee1f3a768e1feb in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 4484170528db9085de6a473e84e0268ac00d86f9
+DEBUG: ran git merge 4484170528db9085de6a473e84e0268ac00d86f9 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e f9a260795addaee94931aacef2ee1f3a768e1feb..HEAD
+Merged SHA 65a2ff57d9b07c46c71f9c6277bad75a09da0bd2 with commit message 'Merge commit '4484170528db9085de6a473e84e0268ac00d86f9'' into base branch master
+Merged SHA 4484170528db9085de6a473e84e0268ac00d86f9 with commit message 'feat: enable specification of node_resource_group for AKS cluster resources' into base branch master
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-8nb8x-3[0m stage [32mci[0m and container [32mstep-terraform-lint[0m
+terraform init
+[0m[1mInitializing modules...[0m
+- backup in modules/backup
+- cluster in modules/cluster
+- dns in modules/dns
+- registry in modules/registry
+- vault in modules/vault
+- vnet in modules/vnet
+
+[0m[1mInitializing the backend...[0m
+
+[0m[1mInitializing provider plugins...[0m
+- Checking for available provider plugins...
+- Downloading plugin for provider "azurerm" (hashicorp/azurerm) 2.26.0...
+- Downloading plugin for provider "azuread" (hashicorp/azuread) 1.0.0...
+- Downloading plugin for provider "kubernetes" (hashicorp/kubernetes) 1.13.1...
+- Downloading plugin for provider "random" (hashicorp/random) 2.3.0...
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+terraform version
+Terraform v0.12.17
++ provider.azuread v1.0.0
++ provider.azurerm v2.26.0
++ provider.kubernetes v1.13.1
++ provider.random v2.3.0
+
+Your version of Terraform is out of date! The latest version
+is 0.13.2. You can update by downloading from https://www.terraform.io/downloads.html
+terraform fmt -check -diff -recursive
+main.tf
+--- old/main.tf
++++ new/main.tf
+@@ -182,8 +182,8 @@
+     dev_env_approvers           = var.dev_env_approvers
+ 
+     // External DNS
+-    enable_external_dns  = var.external_dns_enabled
+-    domain               = module.dns.domain
++    enable_external_dns = var.external_dns_enabled
++    domain              = module.dns.domain
+ 
+     // TLS
+     enable_tls                 = var.enable_tls
+make: *** [fmt] Error 3
+[31m
+Pipeline failed on stage 'ci' : container 'step-terraform-lint'. The execution of the pipeline has stopped.[0m
