@@ -1,52 +1,44 @@
 
-Showing logs for build [32mmellard-org-terraform-azurerm-j-ntc5x-1[0m stage [32mci[0m and container [32mcredential-initializer[0m
-{"level":"info","ts":1598868495.6847808,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+Showing logs for build [32mmeta-mellard-org-terraform-azur-7bcs2-1[0m stage [32mmeta-pipeline[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1599389837.8761263,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
 
-Showing logs for build [32mmellard-org-terraform-azurerm-j-ntc5x-1[0m stage [32mci[0m and container [32mworking-dir-initializer[0m
+Showing logs for build [32mmeta-mellard-org-terraform-azur-7bcs2-1[0m stage [32mmeta-pipeline[0m and container [32mworking-dir-initializer[0m
 
-Showing logs for build [32mmellard-org-terraform-azurerm-j-ntc5x-1[0m stage [32mci[0m and container [32mplace-tools[0m
+Showing logs for build [32mmeta-mellard-org-terraform-azur-7bcs2-1[0m stage [32mmeta-pipeline[0m and container [32mplace-tools[0m
 
-Showing logs for build [32mmellard-org-terraform-azurerm-j-ntc5x-1[0m stage [32mci[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-ntc5x-qxqdc[0m
-{"level":"info","ts":1598868508.8785152,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ master in path /workspace/source"}
-{"level":"warn","ts":1598868508.8786128,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
-{"level":"info","ts":1598868508.9269617,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+Showing logs for build [32mmeta-mellard-org-terraform-azur-7bcs2-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-mellard-org-terraform-azur-7bcs2-cvcpm[0m
+{"level":"info","ts":1599389853.912753,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ f9a260795addaee94931aacef2ee1f3a768e1feb in path /workspace/source"}
+{"level":"warn","ts":1599389853.9139616,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1599389853.964963,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
 
-Showing logs for build [32mmellard-org-terraform-azurerm-j-ntc5x-1[0m stage [32mci[0m and container [32mstep-setup-builder-home[0m
+Showing logs for build [32mmeta-mellard-org-terraform-azur-7bcs2-1[0m stage [32mmeta-pipeline[0m and container [32mstep-setup-builder-home[0m
 
-Showing logs for build [32mmellard-org-terraform-azurerm-j-ntc5x-1[0m stage [32mci[0m and container [32mstep-git-merge[0m
-Using SHAs from PULL_REFS=master:5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36,3:13334995ec4fe9927ad4dcf948a28f3915f522f4
-DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 13334995ec4fe9927ad4dcf948a28f3915f522f4: 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36:
-DEBUG: ran git fetch --unshallow origin 13334995ec4fe9927ad4dcf948a28f3915f522f4: 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36: in 
+Showing logs for build [32mmeta-mellard-org-terraform-azur-7bcs2-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:f9a260795addaee94931aacef2ee1f3a768e1feb,3:5144c8c5251bc5c1940c08fb63ee5668b3160b02
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 5144c8c5251bc5c1940c08fb63ee5668b3160b02: f9a260795addaee94931aacef2ee1f3a768e1feb:
+DEBUG: ran git fetch --unshallow origin 5144c8c5251bc5c1940c08fb63ee5668b3160b02: f9a260795addaee94931aacef2ee1f3a768e1feb: in 
 DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
 DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
 DEBUG: ran git checkout master in 
-DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36
-DEBUG: ran git reset --hard 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard f9a260795addaee94931aacef2ee1f3a768e1feb
+DEBUG: ran git reset --hard f9a260795addaee94931aacef2ee1f3a768e1feb in 
 DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
 DEBUG: ran clean --force -d . in 
-DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 13334995ec4fe9927ad4dcf948a28f3915f522f4
-DEBUG: ran git merge 13334995ec4fe9927ad4dcf948a28f3915f522f4 in 
-DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36..HEAD
-Merged SHA 13334995ec4fe9927ad4dcf948a28f3915f522f4 with commit message 'feat: Add in Key Vault test' into base branch master
-Merged SHA c68af34f36705d1a0c12e1035c1c6d1828de0d7d with commit message 'feat: Re-enabling CI pipeline' into base branch master
-
-Showing logs for build [32mmellard-org-terraform-azurerm-j-ntc5x-1[0m stage [32mci[0m and container [32mstep-terraform-lint[0m
-terraform init
-[0m[1mInitializing modules...[0m
-- backup in modules/backup
-- cluster in modules/cluster
-- dns in modules/dns
-- registry in modules/registry
-- vault in modules/vault
-- vnet in modules/vnet
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 5144c8c5251bc5c1940c08fb63ee5668b3160b02
+error: error during merge: merging 5144c8c5251bc5c1940c08fb63ee5668b3160b02 into master: git output: CONFLICT (rename/delete): **_module/modules/vault/local.tf deleted in HEAD and renamed to modules/vault/local.tf in 5144c8c5251bc5c1940c08fb63ee5668b3160b02. Version 5144c8c5251bc5c1940c08fb63ee5668b3160b02 of modules/vault/local.tf left in tree.
+CONFLICT (rename/delete): **_module/modules/dns/outputs.tf deleted in HEAD and renamed to modules/dns/outputs.tf in 5144c8c5251bc5c1940c08fb63ee5668b3160b02. Version 5144c8c5251bc5c1940c08fb63ee5668b3160b02 of modules/dns/outputs.tf left in tree.
+Auto-merging main.tf
+CONFLICT (rename/delete): **_module/local.tf deleted in HEAD and renamed to local.tf in 5144c8c5251bc5c1940c08fb63ee5668b3160b02. Version 5144c8c5251bc5c1940c08fb63ee5668b3160b02 of local.tf left in tree.
+Auto-merging jenkins-x.yml
+CONFLICT (content): Merge conflict in jenkins-x.yml
+Auto-merging .gitignore
+Automatic merge failed; fix conflicts and then commit the result.: failed to run 'git merge 5144c8c5251bc5c1940c08fb63ee5668b3160b02' command in directory '', output: 'CONFLICT (rename/delete): **_module/modules/vault/local.tf deleted in HEAD and renamed to modules/vault/local.tf in 5144c8c5251bc5c1940c08fb63ee5668b3160b02. Version 5144c8c5251bc5c1940c08fb63ee5668b3160b02 of modules/vault/local.tf left in tree.
+CONFLICT (rename/delete): **_module/modules/dns/outputs.tf deleted in HEAD and renamed to modules/dns/outputs.tf in 5144c8c5251bc5c1940c08fb63ee5668b3160b02. Version 5144c8c5251bc5c1940c08fb63ee5668b3160b02 of modules/dns/outputs.tf left in tree.
+Auto-merging main.tf
+CONFLICT (rename/delete): **_module/local.tf deleted in HEAD and renamed to local.tf in 5144c8c5251bc5c1940c08fb63ee5668b3160b02. Version 5144c8c5251bc5c1940c08fb63ee5668b3160b02 of local.tf left in tree.
+Auto-merging jenkins-x.yml
+CONFLICT (content): Merge conflict in jenkins-x.yml
+Auto-merging .gitignore
+Automatic merge failed; fix conflicts and then commit the result.'
 [31m
-[1m[31mError: [0m[0m[1mUnsupported Terraform Core version[0m
-
-[0mThis configuration does not support Terraform version 0.12.17. To proceed,
-either choose another supported Terraform version or update the root module's
-version constraint. Version constraints are normally set for good reason, so
-updating the constraint may lead to other errors or unexpected behavior.
-[0m[0m
-make: *** [init] Error 1
-[31m
-Pipeline failed on stage 'ci' : container 'step-terraform-lint'. The execution of the pipeline has stopped.[0m
+Pipeline failed on stage 'meta-pipeline' : container 'step-git-merge'. The execution of the pipeline has stopped.[0m
