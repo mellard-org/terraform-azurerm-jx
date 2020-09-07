@@ -1,57 +1,56 @@
 
-Showing logs for build [32mmellard-org-terraform-azurerm-j-djlln-12[0m stage [32mbuild[0m and container [32mcredential-initializer[0m
-{"level":"info","ts":1598958605.3478355,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+Showing logs for build [32mmellard-org-terraform-azurerm-j-blcht-12[0m stage [32mbuild[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1599465678.6152418,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
 
-Showing logs for build [32mmellard-org-terraform-azurerm-j-djlln-12[0m stage [32mbuild[0m and container [32mworking-dir-initializer[0m
+Showing logs for build [32mmellard-org-terraform-azurerm-j-blcht-12[0m stage [32mbuild[0m and container [32mworking-dir-initializer[0m
 
-Showing logs for build [32mmellard-org-terraform-azurerm-j-djlln-12[0m stage [32mbuild[0m and container [32mplace-tools[0m
+Showing logs for build [32mmellard-org-terraform-azurerm-j-blcht-12[0m stage [32mbuild[0m and container [32mplace-tools[0m
 
-Showing logs for build [32mmellard-org-terraform-azurerm-j-djlln-12[0m stage [32mbuild[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-djlln-8wknc[0m
-{"level":"info","ts":1598958619.543039,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ master in path /workspace/source"}
-{"level":"warn","ts":1598958619.5431123,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
-{"level":"info","ts":1598958619.5823264,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+Showing logs for build [32mmellard-org-terraform-azurerm-j-blcht-12[0m stage [32mbuild[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-blcht-h79zq[0m
+{"level":"info","ts":1599465691.9361637,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ master in path /workspace/source"}
+{"level":"warn","ts":1599465691.9362335,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1599465691.9826114,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
 
-Showing logs for build [32mmellard-org-terraform-azurerm-j-djlln-12[0m stage [32mbuild[0m and container [32mstep-setup-builder-home[0m
+Showing logs for build [32mmellard-org-terraform-azurerm-j-blcht-12[0m stage [32mbuild[0m and container [32mstep-setup-builder-home[0m
 
-Showing logs for build [32mmellard-org-terraform-azurerm-j-djlln-12[0m stage [32mbuild[0m and container [32mstep-git-merge[0m
-Using SHAs from PULL_REFS=master:5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36,3:225cd1d57f9e3e3ac6e4ddb6d5ac250fb0095ca5
-DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 225cd1d57f9e3e3ac6e4ddb6d5ac250fb0095ca5: 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36:
-DEBUG: ran git fetch --unshallow origin 225cd1d57f9e3e3ac6e4ddb6d5ac250fb0095ca5: 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36: in 
+Showing logs for build [32mmellard-org-terraform-azurerm-j-blcht-12[0m stage [32mbuild[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6,3:ece94ba235d519ded8d76be3f822794ead1bd228
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow ece94ba235d519ded8d76be3f822794ead1bd228: 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6:
+DEBUG: ran git fetch --unshallow origin ece94ba235d519ded8d76be3f822794ead1bd228: 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6: in 
 DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
 DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
 DEBUG: ran git checkout master in 
-DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36
-DEBUG: ran git reset --hard 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6
+DEBUG: ran git reset --hard 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6 in 
 DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
 DEBUG: ran clean --force -d . in 
-DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 225cd1d57f9e3e3ac6e4ddb6d5ac250fb0095ca5
-DEBUG: ran git merge 225cd1d57f9e3e3ac6e4ddb6d5ac250fb0095ca5 in 
-DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 5a446bbcb8b158cdbbc2ce90534f0d4eccdeea36..HEAD
-Merged SHA 225cd1d57f9e3e3ac6e4ddb6d5ac250fb0095ca5 with commit message 'feat: Add in Key Vault test' into base branch master
-Merged SHA c68af34f36705d1a0c12e1035c1c6d1828de0d7d with commit message 'feat: Re-enabling CI pipeline' into base branch master
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git merge ece94ba235d519ded8d76be3f822794ead1bd228
+DEBUG: ran git merge ece94ba235d519ded8d76be3f822794ead1bd228 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6..HEAD
+Merged SHA ece94ba235d519ded8d76be3f822794ead1bd228 with commit message 'feat: Add in Key Vault test' into base branch master
 
-Showing logs for build [32mmellard-org-terraform-azurerm-j-djlln-12[0m stage [32mbuild[0m and container [32mstep-build-test-commands[0m
+Showing logs for build [32mmellard-org-terraform-azurerm-j-blcht-12[0m stage [32mbuild[0m and container [32mstep-build-test-commands[0m
 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -o build/linux/verify_key_vault ./cmd/verify_key_vault
-go: downloading github.com/Azure/azure-sdk-for-go v46.0.0+incompatible
 go: downloading github.com/Azure/go-autorest v14.2.0+incompatible
+go: downloading github.com/Azure/azure-sdk-for-go v46.0.0+incompatible
 go: extracting github.com/Azure/go-autorest v14.2.0+incompatible
 go: downloading github.com/Azure/go-autorest/autorest v0.11.0
 go: extracting github.com/Azure/go-autorest/autorest v0.11.0
-go: downloading github.com/Azure/go-autorest/autorest/adal v0.9.2
-go: downloading github.com/Azure/go-autorest/tracing v0.6.0
 go: downloading github.com/Azure/go-autorest/logger v0.2.0
+go: downloading github.com/Azure/go-autorest/tracing v0.6.0
+go: downloading github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: extracting github.com/Azure/go-autorest/logger v0.2.0
 go: extracting github.com/Azure/go-autorest/autorest/adal v0.9.2
-go: downloading github.com/dgrijalva/jwt-go v3.2.0+incompatible
 go: downloading golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+go: downloading github.com/dgrijalva/jwt-go v3.2.0+incompatible
 go: downloading github.com/Azure/go-autorest/autorest/date v0.3.0
 go: extracting github.com/Azure/go-autorest/tracing v0.6.0
-go: extracting github.com/Azure/go-autorest/logger v0.2.0
-go: extracting github.com/Azure/go-autorest/autorest/date v0.3.0
 go: extracting github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: extracting github.com/Azure/go-autorest/autorest/date v0.3.0
 go: extracting golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
 go: extracting github.com/Azure/azure-sdk-for-go v46.0.0+incompatible
-go: downloading github.com/Azure/go-autorest/autorest/to v0.3.0
 go: downloading github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: downloading github.com/Azure/go-autorest/autorest/to v0.3.0
 go: extracting github.com/Azure/go-autorest/autorest/to v0.3.0
 go: extracting github.com/Azure/go-autorest/autorest/validation v0.2.0
 go: finding github.com/Azure/azure-sdk-for-go v46.0.0+incompatible
@@ -61,7 +60,23 @@ go: finding github.com/Azure/go-autorest/autorest/date v0.3.0
 go: finding github.com/Azure/go-autorest/autorest/to v0.3.0
 go: finding github.com/Azure/go-autorest/autorest/validation v0.2.0
 go: finding github.com/Azure/go-autorest/tracing v0.6.0
+go: finding github.com/Azure/go-autorest/logger v0.2.0
 go: finding github.com/dgrijalva/jwt-go v3.2.0+incompatible
 go: finding golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
-go: finding github.com/Azure/go-autorest/logger v0.2.0
 chmod +x build/linux/verify_key_vault
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-blcht-12[0m stage [32mbuild[0m and container [32mstep-build-and-push-image[0m
+[36mINFO[0m[0000] Downloading base image alpine:latest         
+2020/09/07 08:01:52 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0002] Error while retrieving image from cache: getting file info: stat /workspace/sha256:a15790640a6690aa1730c38cf0a440e2aa44aaca9b0e8931a9f2b0d7cc90fd65: no such file or directory 
+[36mINFO[0m[0002] Downloading base image alpine:latest         
+2020/09/07 08:01:55 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0004] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0004] Taking snapshot of full filesystem...        
+[36mINFO[0m[0020] ENTRYPOINT ["verify_key_vault"]              
+[36mINFO[0m[0020] Using files from context: [/workspace/source/test_commands/build/linux/verify_key_vault] 
+[36mINFO[0m[0020] COPY ./build/linux/verify_key_vault /usr/bin/verify_key_vault 
+[36mINFO[0m[0020] Taking snapshot of files...                  
+error pushing image: failed to push to destination index.docker.io/mellardc/verify_key_vault:latest: unsupported status code 401; body: 
+[31m
+Pipeline failed on stage 'build' : container 'step-build-and-push-image'. The execution of the pipeline has stopped.[0m
