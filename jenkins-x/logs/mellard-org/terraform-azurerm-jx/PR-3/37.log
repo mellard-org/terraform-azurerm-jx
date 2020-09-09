@@ -1,0 +1,728 @@
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mbuild[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1599640401.6834,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mbuild[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mbuild[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mbuild[0m and container [32mstep-create-dir-workspace-67ng9[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mbuild[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-kfdvl-dqj47[0m
+{"level":"info","ts":1599640427.3314688,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ master in path /workspace/source"}
+{"level":"warn","ts":1599640427.3315525,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1599640427.368297,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mbuild[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mbuild[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6,3:2aa9e9c303f3e5dfc18fa47d6d623b174c6486b3
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 2aa9e9c303f3e5dfc18fa47d6d623b174c6486b3: 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6:
+DEBUG: ran git fetch --unshallow origin 2aa9e9c303f3e5dfc18fa47d6d623b174c6486b3: 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6
+DEBUG: ran git reset --hard 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git merge 2aa9e9c303f3e5dfc18fa47d6d623b174c6486b3
+DEBUG: ran git merge 2aa9e9c303f3e5dfc18fa47d6d623b174c6486b3 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6..HEAD
+Merged SHA 2aa9e9c303f3e5dfc18fa47d6d623b174c6486b3 with commit message 'feat: Add in Key Vault test' into base branch master
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mbuild[0m and container [32mstep-build-test-commands[0m
+GOOS=linux GOARCH=amd64 CGO_ENABLED=0 GO111MODULE=on go build -o build/linux/verify_key_vault ./cmd/verify_key_vault
+go: downloading github.com/Azure/go-autorest v14.2.0+incompatible
+go: downloading github.com/Azure/azure-sdk-for-go v46.0.0+incompatible
+go: extracting github.com/Azure/go-autorest v14.2.0+incompatible
+go: downloading github.com/Azure/go-autorest/autorest v0.11.0
+go: extracting github.com/Azure/go-autorest/autorest v0.11.0
+go: downloading github.com/Azure/go-autorest/tracing v0.6.0
+go: downloading github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: downloading github.com/Azure/go-autorest/logger v0.2.0
+go: extracting github.com/Azure/go-autorest/tracing v0.6.0
+go: extracting github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: downloading github.com/Azure/go-autorest/autorest/date v0.3.0
+go: downloading golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+go: downloading github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: extracting github.com/Azure/go-autorest/logger v0.2.0
+go: extracting github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: extracting github.com/Azure/go-autorest/autorest/date v0.3.0
+go: extracting golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+go: extracting github.com/Azure/azure-sdk-for-go v46.0.0+incompatible
+go: downloading github.com/Azure/go-autorest/autorest/to v0.3.0
+go: downloading github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: extracting github.com/Azure/go-autorest/autorest/to v0.3.0
+go: extracting github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: finding github.com/Azure/azure-sdk-for-go v46.0.0+incompatible
+go: finding github.com/Azure/go-autorest/autorest v0.11.0
+go: finding github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: finding github.com/Azure/go-autorest/autorest/date v0.3.0
+go: finding github.com/Azure/go-autorest/autorest/to v0.3.0
+go: finding github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: finding github.com/Azure/go-autorest/tracing v0.6.0
+go: finding github.com/Azure/go-autorest/logger v0.2.0
+go: finding github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: finding golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+chmod +x build/linux/verify_key_vault
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mbuild[0m and container [32mstep-build-and-push-image[0m
+E0909 08:34:18.459489      11 aws_credentials.go:77] while getting AWS credentials NoCredentialProviders: no valid providers in chain. Deprecated.
+	For verbose messaging see aws.Config.CredentialsChainVerboseErrors
+[36mINFO[0m[0005] No base image, nothing to extract            
+[36mINFO[0m[0005] Built cross stage deps: map[]                
+[36mINFO[0m[0005] No base image, nothing to extract            
+[36mINFO[0m[0005] Executing 0 build triggers                   
+[36mINFO[0m[0005] Unpacking rootfs as cmd COPY ./build/linux/verify_key_vault /usr/bin/verify_key_vault requires it. 
+[36mINFO[0m[0005] ENTRYPOINT ["verify_key_vault"]              
+[36mINFO[0m[0005] COPY ./build/linux/verify_key_vault /usr/bin/verify_key_vault 
+[36mINFO[0m[0005] Taking snapshot of files...                  
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mbuild[0m and container [32mstep-source-mkdir-mellard-org-terraform-azurerm-j-kfdvl-xtjt5[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mbuild[0m and container [32mstep-source-copy-mellard-org-terraform-azurerm-j-kfdvl-dhcd6[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mci[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1599640478.5321743,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mci[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mci[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mci[0m and container [32mstep-create-dir-workspace-22ln7[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mci[0m and container [32mstep-source-copy-workspace-5prfn[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mci[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mci[0m and container [32mstep-terraform-lint[0m
+terraform init
+[0m[1mInitializing modules...[0m
+- backup in modules/backup
+- cluster in modules/cluster
+- dns in modules/dns
+- registry in modules/registry
+- vault in modules/vault
+- vnet in modules/vnet
+
+[0m[1mInitializing the backend...[0m
+
+[0m[1mInitializing provider plugins...[0m
+- Finding hashicorp/azurerm versions matching ">= 2.25.0"...
+- Finding hashicorp/random versions matching ">= 2.3.0"...
+- Finding hashicorp/azuread versions matching ">= 0.11.0"...
+- Finding hashicorp/kubernetes versions matching ">= 1.12.0"...
+- Installing hashicorp/azurerm v2.26.0...
+- Installed hashicorp/azurerm v2.26.0 (signed by HashiCorp)
+- Installing hashicorp/random v2.3.0...
+- Installed hashicorp/random v2.3.0 (signed by HashiCorp)
+- Installing hashicorp/azuread v1.0.0...
+- Installed hashicorp/azuread v1.0.0 (signed by HashiCorp)
+- Installing hashicorp/kubernetes v1.13.1...
+- Installed hashicorp/kubernetes v1.13.1 (signed by HashiCorp)
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+terraform version
+
+Your version of Terraform is out of date! The latest version
+is 0.13.2. You can update by downloading from https://www.terraform.io/downloads.html
+Terraform v0.13.0
++ provider registry.terraform.io/hashicorp/azuread v1.0.0
++ provider registry.terraform.io/hashicorp/azurerm v2.26.0
++ provider registry.terraform.io/hashicorp/kubernetes v1.13.1
++ provider registry.terraform.io/hashicorp/random v2.3.0
+terraform fmt -check -diff -recursive
+terraform validate
+[32m[1mSuccess![0m The configuration is valid.
+[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-kfdvl-37[0m stage [32mci[0m and container [32mstep-terratest[0m
+GO111MODULE=on go test -failfast -timeout 1h -parallel 8 -count=1 -v ./...
+go: downloading github.com/stretchr/testify v1.6.1
+go: downloading github.com/google/uuid v1.1.1
+go: downloading github.com/gruntwork-io/terratest v0.28.13
+go: downloading k8s.io/apimachinery v0.18.3
+go: downloading github.com/Azure/azure-sdk-for-go v45.1.0+incompatible
+go: downloading k8s.io/api v0.18.3
+go: extracting github.com/google/uuid v1.1.1
+go: downloading github.com/otiai10/copy v1.2.0
+go: extracting github.com/stretchr/testify v1.6.1
+go: downloading github.com/pmezard/go-difflib v1.0.0
+go: extracting k8s.io/apimachinery v0.18.3
+go: extracting github.com/pmezard/go-difflib v1.0.0
+go: downloading k8s.io/client-go v0.18.3
+go: extracting github.com/otiai10/copy v1.2.0
+go: downloading github.com/Azure/go-autorest v14.2.0+incompatible
+go: extracting github.com/Azure/go-autorest v14.2.0+incompatible
+go: downloading github.com/Azure/go-autorest/autorest v0.11.4
+go: extracting k8s.io/api v0.18.3
+go: extracting github.com/Azure/go-autorest/autorest v0.11.4
+go: downloading github.com/Azure/go-autorest/autorest/azure/auth v0.4.2
+go: extracting k8s.io/client-go v0.18.3
+go: extracting github.com/Azure/go-autorest/autorest/azure/auth v0.4.2
+go: downloading github.com/davecgh/go-spew v1.1.1
+go: extracting github.com/davecgh/go-spew v1.1.1
+go: downloading github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: extracting github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: downloading gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+go: extracting github.com/gruntwork-io/terratest v0.28.13
+go: extracting gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+go: downloading github.com/Azure/go-autorest/logger v0.2.0
+go: extracting github.com/Azure/go-autorest/logger v0.2.0
+go: downloading github.com/Azure/go-autorest/autorest/azure/cli v0.3.1
+go: downloading golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
+go: downloading github.com/Azure/go-autorest/tracing v0.6.0
+go: extracting github.com/Azure/go-autorest/autorest/azure/cli v0.3.1
+go: downloading github.com/Azure/go-autorest/autorest/date v0.3.0
+go: downloading github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: downloading github.com/gogo/protobuf v1.3.1
+go: downloading github.com/gruntwork-io/gruntwork-cli v0.5.1
+go: downloading github.com/golang/protobuf v1.3.2
+go: extracting github.com/Azure/go-autorest/autorest/date v0.3.0
+go: downloading github.com/Azure/azure-storage-blob-go v0.10.0
+go: extracting golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
+go: extracting github.com/gruntwork-io/gruntwork-cli v0.5.1
+go: downloading github.com/mitchellh/go-homedir v1.1.0
+go: extracting github.com/Azure/go-autorest/tracing v0.6.0
+go: downloading github.com/googleapis/gnostic v0.3.1
+go: extracting github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: extracting github.com/mitchellh/go-homedir v1.1.0
+go: extracting github.com/golang/protobuf v1.3.2
+go: extracting github.com/Azure/azure-storage-blob-go v0.10.0
+go: downloading golang.org/x/sys v0.0.0-20200107162124-548cf772de50
+go: downloading github.com/dimchansky/utfbom v1.1.0
+go: downloading golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+go: extracting golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+go: downloading k8s.io/utils v0.0.0-20200324210504-a9aa75ae1b89
+go: extracting github.com/gogo/protobuf v1.3.1
+go: extracting github.com/googleapis/gnostic v0.3.1
+go: extracting github.com/dimchansky/utfbom v1.1.0
+go: downloading k8s.io/klog v1.0.0
+go: downloading github.com/go-errors/errors v1.0.2-0.20180813162953-d98b870cc4e0
+go: extracting k8s.io/utils v0.0.0-20200324210504-a9aa75ae1b89
+go: downloading golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
+go: extracting k8s.io/klog v1.0.0
+go: downloading github.com/aws/aws-sdk-go v1.27.1
+go: extracting golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
+go: extracting github.com/go-errors/errors v1.0.2-0.20180813162953-d98b870cc4e0
+go: downloading github.com/modern-go/reflect2 v1.0.1
+go: extracting golang.org/x/sys v0.0.0-20200107162124-548cf772de50
+go: extracting github.com/modern-go/reflect2 v1.0.1
+go: downloading github.com/go-sql-driver/mysql v1.4.1
+go: extracting github.com/go-sql-driver/mysql v1.4.1
+go: extracting github.com/Azure/azure-sdk-for-go v45.1.0+incompatible
+go: extracting github.com/aws/aws-sdk-go v1.27.1
+go: downloading golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
+go: downloading sigs.k8s.io/structured-merge-diff v1.0.1-0.20191108220359-b1b620dd3f06
+go: downloading sigs.k8s.io/yaml v1.2.0
+go: downloading github.com/google/gofuzz v1.1.0
+go: extracting sigs.k8s.io/yaml v1.2.0
+go: extracting github.com/google/gofuzz v1.1.0
+go: downloading gopkg.in/yaml.v2 v2.2.8
+go: downloading gopkg.in/inf.v0 v0.9.1
+go: extracting gopkg.in/yaml.v2 v2.2.8
+go: extracting sigs.k8s.io/structured-merge-diff v1.0.1-0.20191108220359-b1b620dd3f06
+go: extracting gopkg.in/inf.v0 v0.9.1
+go: downloading github.com/pquerna/otp v1.2.0
+go: downloading cloud.google.com/go v0.51.0
+go: downloading sigs.k8s.io/structured-merge-diff/v3 v3.0.0
+go: extracting golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
+go: extracting sigs.k8s.io/structured-merge-diff/v3 v3.0.0
+go: extracting github.com/pquerna/otp v1.2.0
+go: downloading github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: downloading github.com/Azure/azure-pipeline-go v0.2.2
+go: downloading github.com/urfave/cli v1.22.1
+go: extracting github.com/urfave/cli v1.22.1
+go: extracting github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: downloading github.com/spf13/pflag v1.0.5
+go: extracting github.com/Azure/azure-pipeline-go v0.2.2
+go: downloading github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c
+go: downloading github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d
+go: extracting github.com/spf13/pflag v1.0.5
+go: extracting cloud.google.com/go v0.51.0
+go: downloading github.com/cpuguy83/go-md2man v1.0.10
+go: extracting github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c
+go: extracting github.com/cpuguy83/go-md2man v1.0.10
+go: downloading github.com/json-iterator/go v1.1.8
+go: extracting github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d
+go: downloading github.com/imdario/mergo v0.3.7
+go: downloading github.com/cpuguy83/go-md2man/v2 v2.0.0
+go: downloading golang.org/x/text v0.3.2
+go: extracting github.com/cpuguy83/go-md2man/v2 v2.0.0
+go: extracting github.com/json-iterator/go v1.1.8
+go: downloading github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: extracting github.com/imdario/mergo v0.3.7
+go: extracting github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: downloading github.com/russross/blackfriday v1.5.2
+go: extracting golang.org/x/text v0.3.2
+go: extracting github.com/russross/blackfriday v1.5.2
+go: downloading github.com/russross/blackfriday/v2 v2.0.1
+go: extracting github.com/russross/blackfriday/v2 v2.0.1
+go: downloading github.com/shurcooL/sanitized_anchor_name v1.0.0
+go: downloading github.com/Azure/go-autorest/autorest/to v0.3.0
+go: downloading github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: downloading github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
+go: extracting github.com/shurcooL/sanitized_anchor_name v1.0.0
+go: extracting github.com/Azure/go-autorest/autorest/to v0.3.0
+go: extracting github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: extracting github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
+go: finding github.com/Azure/azure-sdk-for-go v45.1.0+incompatible
+go: finding github.com/Azure/azure-storage-blob-go v0.10.0
+go: finding github.com/Azure/go-autorest/autorest v0.11.4
+go: finding github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: finding github.com/Azure/go-autorest/autorest/azure/auth v0.4.2
+go: finding github.com/google/uuid v1.1.1
+go: finding github.com/Azure/go-autorest/autorest/to v0.3.0
+go: finding github.com/Azure/go-autorest/autorest/date v0.3.0
+go: finding github.com/gruntwork-io/terratest v0.28.13
+go: finding github.com/Azure/go-autorest/tracing v0.6.0
+go: finding github.com/otiai10/copy v1.2.0
+go: finding github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: finding github.com/stretchr/testify v1.6.1
+go: finding github.com/gruntwork-io/gruntwork-cli v0.5.1
+go: finding k8s.io/api v0.18.3
+go: finding github.com/Azure/azure-pipeline-go v0.2.2
+go: finding k8s.io/apimachinery v0.18.3
+go: finding github.com/gogo/protobuf v1.3.1
+go: finding github.com/Azure/go-autorest/logger v0.2.0
+go: finding k8s.io/client-go v0.18.3
+go: finding golang.org/x/sys v0.0.0-20200107162124-548cf772de50
+go: finding github.com/davecgh/go-spew v1.1.1
+go: finding github.com/Azure/go-autorest/autorest/azure/cli v0.3.1
+go: finding github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: finding github.com/pmezard/go-difflib v1.0.0
+go: finding github.com/dimchansky/utfbom v1.1.0
+go: finding golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
+go: finding github.com/go-errors/errors v1.0.2-0.20180813162953-d98b870cc4e0
+go: finding github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d
+go: finding gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+go: finding github.com/urfave/cli v1.22.1
+go: finding golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
+go: finding github.com/aws/aws-sdk-go v1.27.1
+go: finding github.com/imdario/mergo v0.3.7
+go: finding github.com/mitchellh/go-homedir v1.1.0
+go: finding github.com/spf13/pflag v1.0.5
+go: finding github.com/golang/protobuf v1.3.2
+go: finding github.com/google/gofuzz v1.1.0
+go: finding github.com/googleapis/gnostic v0.3.1
+go: finding gopkg.in/inf.v0 v0.9.1
+go: finding github.com/cpuguy83/go-md2man/v2 v2.0.0
+go: finding gopkg.in/yaml.v2 v2.2.8
+go: finding github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: finding github.com/russross/blackfriday/v2 v2.0.1
+go: finding k8s.io/klog v1.0.0
+go: finding github.com/shurcooL/sanitized_anchor_name v1.0.0
+go: finding github.com/json-iterator/go v1.1.8
+go: finding github.com/modern-go/reflect2 v1.0.1
+go: finding github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: finding golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+go: finding cloud.google.com/go v0.51.0
+go: finding github.com/go-sql-driver/mysql v1.4.1
+go: finding sigs.k8s.io/yaml v1.2.0
+go: finding github.com/pquerna/otp v1.2.0
+go: finding sigs.k8s.io/structured-merge-diff/v3 v3.0.0
+go: finding golang.org/x/text v0.3.2
+go: finding github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c
+go: finding github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
+go: finding golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
+go: finding k8s.io/utils v0.0.0-20200324210504-a9aa75ae1b89
+=== RUN   TestTerraformBasicJxCluster
+=== PAUSE TestTerraformBasicJxCluster
+=== CONT  TestTerraformBasicJxCluster
+TestTerraformBasicJxCluster 2020-09-09T08:37:10Z retry.go:72: terraform [init -upgrade=false]
+TestTerraformBasicJxCluster 2020-09-09T08:37:10Z logger.go:66: Running command terraform with args [init -upgrade=false]
+TestTerraformBasicJxCluster 2020-09-09T08:37:10Z logger.go:66: [0m[1mInitializing modules...[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:10Z logger.go:66: - backup in modules/backup
+TestTerraformBasicJxCluster 2020-09-09T08:37:10Z logger.go:66: - cluster in modules/cluster
+TestTerraformBasicJxCluster 2020-09-09T08:37:10Z logger.go:66: - dns in modules/dns
+TestTerraformBasicJxCluster 2020-09-09T08:37:10Z logger.go:66: - registry in modules/registry
+TestTerraformBasicJxCluster 2020-09-09T08:37:10Z logger.go:66: - vault in modules/vault
+TestTerraformBasicJxCluster 2020-09-09T08:37:10Z logger.go:66: - vnet in modules/vnet
+TestTerraformBasicJxCluster 2020-09-09T08:37:10Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-09-09T08:37:10Z logger.go:66: [0m[1mInitializing the backend...[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:10Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-09-09T08:37:10Z logger.go:66: [0m[1mInitializing provider plugins...[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:10Z logger.go:66: - Finding hashicorp/azurerm versions matching ">= 2.25.0"...
+TestTerraformBasicJxCluster 2020-09-09T08:37:11Z logger.go:66: - Finding hashicorp/random versions matching ">= 2.3.0"...
+TestTerraformBasicJxCluster 2020-09-09T08:37:11Z logger.go:66: - Finding hashicorp/azuread versions matching ">= 0.11.0"...
+TestTerraformBasicJxCluster 2020-09-09T08:37:11Z logger.go:66: - Finding hashicorp/kubernetes versions matching ">= 1.12.0"...
+TestTerraformBasicJxCluster 2020-09-09T08:37:12Z logger.go:66: - Installing hashicorp/random v2.3.0...
+TestTerraformBasicJxCluster 2020-09-09T08:37:12Z logger.go:66: - Installed hashicorp/random v2.3.0 (signed by HashiCorp)
+TestTerraformBasicJxCluster 2020-09-09T08:37:12Z logger.go:66: - Installing hashicorp/azuread v1.0.0...
+TestTerraformBasicJxCluster 2020-09-09T08:37:12Z logger.go:66: - Installed hashicorp/azuread v1.0.0 (signed by HashiCorp)
+TestTerraformBasicJxCluster 2020-09-09T08:37:12Z logger.go:66: - Installing hashicorp/kubernetes v1.13.1...
+TestTerraformBasicJxCluster 2020-09-09T08:37:13Z logger.go:66: - Installed hashicorp/kubernetes v1.13.1 (signed by HashiCorp)
+TestTerraformBasicJxCluster 2020-09-09T08:37:13Z logger.go:66: - Installing hashicorp/azurerm v2.26.0...
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: - Installed hashicorp/azurerm v2.26.0 (signed by HashiCorp)
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: [0m[32m
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: You may now begin working with Terraform. Try running "terraform plan" to see
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: any changes that are required for your infrastructure. All Terraform commands
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: should now work.
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: If you ever set or change modules or backend configuration for Terraform,
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: rerun this command to reinitialize your working directory. If you forget, other
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: commands will detect it and remind you to do so if necessary.[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z retry.go:72: terraform [get -update]
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: Running command terraform with args [get -update]
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: - backup in modules/backup
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: - cluster in modules/cluster
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: - dns in modules/dns
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: - registry in modules/registry
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: - vault in modules/vault
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: - vnet in modules/vnet
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z retry.go:72: terraform [apply -input=false -auto-approve -lock=false]
+TestTerraformBasicJxCluster 2020-09-09T08:37:15Z logger.go:66: Running command terraform with args [apply -input=false -auto-approve -lock=false]
+TestTerraformBasicJxCluster 2020-09-09T08:37:24Z logger.go:66: [0m[1mdata.azurerm_subscription.current: Refreshing state...[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:24Z logger.go:66: [0m[1mmodule.vault.data.azurerm_client_config.current: Refreshing state...[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:24Z logger.go:66: [0m[1mdata.azurerm_client_config.current: Refreshing state...[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:33Z logger.go:66: [0m[1mrandom_id.random: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:33Z logger.go:66: [0m[1mrandom_pet.pet: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:33Z logger.go:66: [0m[1mrandom_pet.pet: Creation complete after 0s [id=cool-bonefish][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:33Z logger.go:66: [0m[1mrandom_id.random: Creation complete after 0s [id=GA-DLiRp][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:41Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:41Z logger.go:66: [0m[1mazurerm_resource_group.network: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:41Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:41Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Creation complete after 1s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-cool-bonefish][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:42Z logger.go:66: [0m[1mazurerm_resource_group.network: Creation complete after 1s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-cool-bonefish][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:42Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Creation complete after 1s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:42Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:42Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:42Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:52Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Still creating... [10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:52Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:52Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Still creating... [10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:37:53Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Creation complete after 11s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-cool-bonefish/providers/Microsoft.Network/virtualNetworks/tf-**-cool-bonefish][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:00Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:02Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:02Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Still creating... [20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:03Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Creation complete after 21s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish/providers/Microsoft.Storage/storageAccounts/vaulttf**coolbonefish180][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:03Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:03Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Creation complete after 0s [id=https://vaulttf**coolbonefish180.blob.core.windows.net/vault][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:10Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Still creating... [10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:11Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Creation complete after 10s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-cool-bonefish/providers/Microsoft.Network/virtualNetworks/tf-**-cool-bonefish/subnets/tf-**-cool-bonefish][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:11Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:12Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:21Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:22Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:31Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:32Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [50s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:41Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:42Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m0s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:51Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:38:52Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:01Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [50s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:02Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:11Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [1m0s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:12Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:21Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [1m10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:22Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:31Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [1m20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:32Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [1m50s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:41Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [1m30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:42Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Still creating... [2m0s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:47Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Creation complete after 2m6s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish/providers/Microsoft.KeyVault/vaults/vaulttf**coolbonefish180][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:47Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:48Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Creation complete after 0s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish/providers/Microsoft.KeyVault/vaults/vaulttf**coolbonefish180/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:48Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:49Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Creation complete after 1s [id=https://vaulttf**coolbonefish180.vault.azure.net/keys/tf**coolbonefish-180f832e2469/c61eb7ebf0f0460f801ed51e8e9b75bf][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:39:51Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [1m40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:40:01Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [1m50s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:40:11Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [2m0s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:40:21Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [2m10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:40:31Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [2m20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:40:41Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [2m30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:40:51Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [2m40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:41:01Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [2m50s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:41:11Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [3m0s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:41:21Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [3m10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:41:31Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [3m20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:41:41Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [3m30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:41:51Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [3m40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:42:01Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [3m50s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:42:11Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [4m0s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:42:21Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [4m10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:42:31Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [4m20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:42:41Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [4m30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:42:51Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [4m40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:43:01Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [4m50s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:43:11Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [5m0s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:43:21Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [5m10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:43:31Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still creating... [5m20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:43:38Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Creation complete after 5m28s [id=/subscriptions/************************************/resourcegroups/tf-**-rg-cluster-cool-bonefish/providers/Microsoft.ContainerService/managedClusters/tf**coolbonefish][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:43:38Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.kubelet_vault_access_policy[0]: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:43:38Z logger.go:66: [0m[1mmodule.cluster.kubernetes_namespace.jenkins_x_namespace: Creating...[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:43:38Z logger.go:66: [0m[1mmodule.cluster.kubernetes_namespace.jenkins_x_namespace: Creation complete after 0s [id=**][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.kubelet_vault_access_policy[0]: Creation complete after 1s [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish/providers/Microsoft.KeyVault/vaults/vaulttf**coolbonefish180/objectId/878fcbbe-e233-4b47-8cfa-f09ce17493cb][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: [0m[1m[32m
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: Apply complete! Resources: 15 added, 0 changed, 0 destroyed.[0m
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: [0m[1m[32m
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: Outputs:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: cluster_name = tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: cluster_resource_group = tf-**-rg-cluster-cool-bonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: connect = az aks get-credentials --subscription ************************************ --name tf**coolbonefish --resource-group tf-**-rg-cluster-cool-bonefish --*****
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: container_registry_name = tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: dns_prefix = tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: dns_resource_group = tf-**-rg-dns-cool-bonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: domain_name = tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: env_vars = export VAULT_AZURE_STORAGE_ACCESS_KEY=f36hOeLlptTsjAFD2OzIyKHeUUbkIzH7XyAZAbXPpST3jIfMmO3W2DCnB8WtEdP+KNKyLeismFkVE8Z8SUm+NQ==
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: fully_qualified_domain_name = 
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: **_requirements = autoUpdate:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   enabled: false
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   schedule: ""
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: terraform: true
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: cluster:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   clusterName: "tf**coolbonefish"
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   devEnvApprovers: []
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   environmentGitOwner: ""
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   provider: aks
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   registry: ""
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: gitops: true
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: environments:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   - key: dev
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   - key: staging
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   - key: production
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: ingress:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   domain: ""
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   ignoreLoadBalancer: false
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   externalDNS: false
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   tls:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     email: ""
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     enabled: false
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     production: true
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: kaniko: true
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: secretStorage: vault
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: vault:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   azure:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     tenantId: "************************************"
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     vaultName: "vaulttf**coolbonefish180"
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     keyName: "tf**coolbonefish-180f832e2469"
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     storageAccountName: "vaulttf**coolbonefish180"
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     containerName: "vault"
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: storage:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   backup:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     enabled: false
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   logs:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     enabled: false
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   reports:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     enabled: false
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   repository:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     enabled: false
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: versionStream:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   ref: master
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   url: https://github.com/jenkins-x/jenkins-x-versions.git
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: webhook: lighthouse
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: kube_*****_config_raw = apiVersion: v1
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: clusters:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: - cluster:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUV5akNDQXJLZ0F3SUJBZ0lSQUpTUVBJajB3aHI0aHp5b1BSWkJjUmd3RFFZSktvWklodmNOQVFFTEJRQXcKRFRFTE1Ba0dBMVVFQXhNQ1kyRXdJQmNOTWpBd09UQTVNRGd5T0RRNFdoZ1BNakExTURBNU1Ea3dPRE00TkRoYQpNQTB4Q3pBSkJnTlZCQU1UQW1OaE1JSUNJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBZzhBTUlJQ0NnS0NBZ0VBCnBLZjZicmZ1bGpMNmV3TGsvNnBPejljclVoT1AvUGc1ZkY4MzZER2NBcXA5UEU5NHNlekJZTUUzdkxpZGNPZWsKQkt0R1dCbnFRSlVGTHlCMmFPWHU4enFReWkyTlpHVTY3cnpySWxUbElFYmVFYTJTcWwwdVY2VjZGTGpZMlVFTgpUbTd2cFhLTjlibUFmN3hvUVdscUMzcFZqTnpLRU9vTE12WXNKUHpqNnJnZ0FWYytZTi94cTdBNDlpbTRJeWtKCitFQVdOaDRqTWtXanNDa2xuRndDUWMyeXFmTnJNaUFKWmxnWXFKY3BWMUFlUVpzSkVXeHNFN0pFNmVQTjMybnoKWkxQT3A2dlhFVWMxVHpPQytkSERleXROWllmQ05iemxpaEZqYktNMVBpUDA1TTdxMmJHTTdOZWdtNUhOK2Q5cAo3R3dQeGtWREJFN21IMkQ2YXVuWlZUcEhQc00wMTQvWURnTUtFeVRwTmFzalYyN1FRVVpFcXZLWGRuZUtycVB3CnlWMzh5YkVJbElhcXZhMlRIOU1OUVRSRHYvS3dVc2NzVTBHVUhWLzlMZDUwRjg3NVl4eXg4bDlkTXN5N3poaXYKNktjbkRrS2ZPZkVTazJMVCtmUHV4ZG1iQlRES2dIMUlFWUxiTU52Ujdnc0RLRUc1cm13MFpWN3o2UWFJK3ZUSgpRdDJlYkpaTWRnZjVGeEpYSThIWCsxVExJb2R4bHlzd29Jb2VwYlRyeWNGYXRzL0diNG8vSjhGSjlzYnZJWWV1CkVLVzExd0xRUk9Vak5mZk45QTJhWWd1SUNrQkl5L0QvdDhzZDBmcitkMjhZbDF5Q0o0NXlMVzVEb1RFWjE1YU4KNTBtVzlRN0JTY3JQZzlOLzlxaE5ienRTK0M0Mnd2RzFhOGtmUWNTaWdkc0NBd0VBQWFNak1DRXdEZ1lEVlIwUApBUUgvQkFRREFnS2tNQThHQTFVZEV3RUIvd1FGTUFNQkFmOHdEUVlKS29aSWh2Y05BUUVMQlFBRGdnSUJBQ1ZHClB1ZkpuMTNXcEN3UmNMaDhyUWFHK1VuU3NYRE1TOXpzMmJjZWNiQ3dhbjkwUjJ0QmVJREtZbVdzMThUK1oza2YKK1p0UUtUWVVqeWQ3VTF3cndIdENBOFFWYUdCdUV6WkZJWEdmOTkxZXlkM1hpcGhuTlhNRXNZVE94TjZ1RnhCYgpXRE1DSXNPL1lUNG01OU1KL1ZLVyt5Y1JEdTVNUGxsTG9OYWFWRkptNmFXS2xQaFNxZkxQT3FoMmg5cDRhdGhZCjN2bENSdXJQYTc4QlVoclpsVmxKNFV4dUJ4a3lPQnkvWjFNMWVkdUZHRFhlam1ObnJEeUxKT3dFNjV1NEIzYmEKRnJyZDJ4dmh1Q0FkU1BlZVBYb2Zyc2dkQUNXTEE3QWlRdVhSWnBjNmYvWDViVFZ2dENCVDRnWGRjaXZPK1NmQwpDcEdQUlJvUG91eVoxWlpxbTJZNVI3UkJZOGo1enNoRHlrVHIzdml2UjZGUzkzNlZDMVBLSk5nb1dWLyt2SEtCCjNQZ0xBOEh2SXJuSUNJK1dxVUIrU0JGN2RKaG9aNGV6c2RXaUZlTXdOR2ZYWnVlQlJqMDQ2NUIwR2UxQkdZTXoKZU5xYkphblhsZkxrMFZ5KytBemJsODE0d0dWaVoxK3NiR3JYOWY0WmVHMWhBcHFWVldxTG4yRkNyNFJDelA2UwpOZXpCc3R1VENIejB5K2lpNHo4NHQ2MFk1VjZaTGo5UXZ4a0EzK05PR1l4dllLMHVZaXJLeXQzVDhsNFBLbWZDCk1adUlyS1VqTkdKYktBOGVXZWhoaUtQU0VqS3h4TjRPT0V1NlVTZWlhdTdPQWVGNFA1VnZUdmxWanpPS0RKY2cKQ2lLTlFQZmQ3L3lyN1A1cjBXWGJpZ29CYm1hZklCMTNnU1d0a2lhKwotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     server: https://tf**coolbonefish-5cbcf5c3.hcp.australiaeast.azmk8s.io:443
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   name: tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: contexts:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: - context:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     cluster: tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     user: clusterAdmin_tf-**-rg-cluster-cool-bonefish_tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   name: tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: current-context: tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: kind: Config
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: preferences: {}
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: users:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: - name: clusterAdmin_tf-**-rg-cluster-cool-bonefish_tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:   user:
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUUvRENDQXVTZ0F3SUJBZ0lRQlM2U1BDaUU4MlFVT1l4STRWTVJ6akFOQmdrcWhraUc5dzBCQVFzRkFEQU4KTVFzd0NRWURWUVFERXdKallUQWVGdzB5TURBNU1Ea3dPREk0TkRoYUZ3MHlNakE1TURrd09ETTRORGhhTURBeApGekFWQmdOVkJBb1REbk41YzNSbGJUcHRZWE4wWlhKek1SVXdFd1lEVlFRREV3eHRZWE4wWlhKamJHbGxiblF3CmdnSWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUNEd0F3Z2dJS0FvSUNBUUNhNXBkWFF1cGZWZW1KL2V5N3J1TysKMHh0VGMwcTRZY3k2clJ3SytRVHVoYXc1OHVBRUM4dGZZUTU5VDZyQzVXM3lQL3JSL0NTNzI0dUdPTEtyYk5pNwplcUsvaDhZWHZGM2tGZU5semdadjlRQ3o4Y28yVXJBS3UrcnlxRGFsMkYxOUxIVHB5ZFB6a0NqalNMVHpRUENpCm1oQzBqd2NEL21wbk1YVWN1YitmNTFQNmg4dUZUSVNOVTgwNmMwMkxzZVBmZWRKeEUzUTJuMm95Y0pqOCtqZGcKZ3JBelVlRUtSWHJITmFXNmlhVUFwYjF5eXU3YWdFbXgwWWdlampzU2V3YzJ3cExMV25sRys4Mlh4WFR5dlVGOQpsbG5zQWhXNWhOQ2pJVy9yNG5NSnNWRThleWhWNjk3ajNjLzBEZ2xxQkV5cDN2dlY5MnFRcktxcmZncm5IOUMrCjJFSndDR1hRUDVjSitqR0syTjk5TmVlM3JHU3pqVzNkVElabTlQWDIyc2FZUWo3Nm9hZ3NXV1p3T2FQcWRlSkYKcDhFTVlzREJxNmduNUhYQnlZbkN3VXpyR3BZeWwwVURmNDByNXQzY0RVV1QxMTJRbU9uR2pzbXRBTGJrNXhYNgpWMkE3NHlmdkVDM2JZdXJJTHc2eU5lSnZMS0grdmRsaFl3VVBCTmNoN3BTUjUrQ1lSL3VFbEorRHcwUnpZdU1MClIxSnNSRSsxWklYcXZKcUhCYTZTTjZSVXNkZE50eHVMMmxXWkhkSmt6QUo0UlZ3RzNmRUFiempRUG9LcVlGWUEKeE00UStqblFVN0NVRERiMXYxMGVDZ29FNkJ6aVBSNi9GWG1sT1FFSDJHMVdIeDFYTkxRK29tMXZQanVHS3ErbwpNUHY0dnJka2lNbkxEY3JjdXBUdmRRSURBUUFCb3pVd016QU9CZ05WSFE4QkFmOEVCQU1DQmFBd0V3WURWUjBsCkJBd3dDZ1lJS3dZQkJRVUhBd0l3REFZRFZSMFRBUUgvQkFJd0FEQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FnRUEKQnNKRGhQZGhENlhGOGRhcURCbmVGRjB5L1dFVTJCTUlpUGlFeW5FSUNZdlR6Q1J6TXBod0JVOFF5SG0xS1JsRgp0c0dRTVNWaEU1RnVXQW8vcktSZnJ0U3lqeE5NWHNabHAwQXoyQm8zN3JKUmRtaHVNRkFRTjRMa1EvcW84dEZpCnk1UDQ0L3k0RmQrSHNmRVJnbEVRajZ1OHo1emRiMzUrUGtia3R4Ynp5VEtGZGtzNm5rV2JvcG9EMkcxSDFxUUgKS0xyS2RsSzdwWWFGKytFTzhnWU5DZEI5ZERXYUh6Y3VTSk1MZHlZbWFYZ2UrTkJ6OTlMVjhQbHFNUUpjUkUycwpNdzhtckdDcnZvanJVVFlEclJIQnNQM3JKQm1kWkR1U1JCTis3Nncvb1h3cVhsMDZPdTB0QmJPdkNvN3hybTdWCmxDMGU3cXpNeTBLWmdaTnl1ZUFZeFk1WkRLNEJBbTJpMVNYNHl2aUFOYlpyR0R5V285VEgyUVdSVHZIaUVFT2wKb0labkZaVjFma29mQUNwREdmYkJhUTBtMEhkdml1UDV2WTJSYzFIelkvR09IdHNxMWdHN21wSlF5bVNFc3lnMgp6T0dMS090VUR1UkxDWTRtdFB0a2w5b1JzMWVyY0xTRU0rWWQ0MmJSK0x3aE5VUmJVeU1jeWp4TW52SnYrN0s2CmlZRk1Na0RPL01ENldIR2pIVTZSNThpaG1mRFpJZE9KTVVCcDYvVG1KbjM2WVo4SnBTVkMxb0lTaS9ybXlYQ0EKcm1lWStGS0gwN0Fzdlo4MG5IeXdQVnhoWlQ2VytqMDFkRndkWEJqZFBWSjVQWTZranlYT2t1MTg3OE4vVU9GaQpwelBaR0VkK2lyQXd6cjdtUkd0YU1KK3A2S0FsR2N5bmJRQUJJNkNNSnRZPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     client-key-data: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlKS0FJQkFBS0NBZ0VBbXVhWFYwTHFYMVhwaWYzc3U2N2p2dE1iVTNOS3VHSE11cTBjQ3ZrRTdvV3NPZkxnCkJBdkxYMkVPZlUrcXd1VnQ4ai82MGZ3a3U5dUxoaml5cTJ6WXUzcWl2NGZHRjd4ZDVCWGpaYzRHYi9VQXMvSEsKTmxLd0NydnE4cWcycGRoZGZTeDA2Y25UODVBbzQwaTA4MER3b3BvUXRJOEhBLzVxWnpGMUhMbS9uK2RUK29mTApoVXlFalZQTk9uTk5pN0hqMzNuU2NSTjBOcDlxTW5DWS9QbzNZSUt3TTFIaENrVjZ4eldsdW9tbEFLVzljc3J1CjJvQkpzZEdJSG80N0Vuc0hOc0tTeTFwNVJ2dk5sOFYwOHIxQmZaWlo3QUlWdVlUUW95RnY2K0p6Q2JGUlBIc28KVmV2ZTQ5M1A5QTRKYWdSTXFkNzcxZmRxa0t5cXEzNEs1eC9RdnRoQ2NBaGwwRCtYQ2ZveGl0amZmVFhudDZ4awpzNDF0M1V5R1p2VDE5dHJHbUVJKytxR29MRmxtY0RtajZuWGlSYWZCREdMQXdhdW9KK1Ixd2NtSndzRk02eHFXCk1wZEZBMytOSytiZDNBMUZrOWRka0pqcHhvN0pyUUMyNU9jVitsZGdPK01uN3hBdDIyTHF5QzhPc2pYaWJ5eWgKL3IzWllXTUZEd1RYSWU2VWtlZmdtRWY3aEpTZmc4TkVjMkxqQzBkU2JFUlB0V1NGNnJ5YWh3V3VramVrVkxIWApUYmNiaTlwVm1SM1NaTXdDZUVWY0J0M3hBRzg0MEQ2Q3FtQldBTVRPRVBvNTBGT3dsQXcyOWI5ZEhnb0tCT2djCjRqMGV2eFY1cFRrQkI5aHRWaDhkVnpTMFBxSnRiejQ3aGlxdnFERDcrTDYzWklqSnl3M0szTHFVNzNVQ0F3RUEKQVFLQ0FnQjVnL090ak56M3RSbmtHc01mNk83WXdCdHJ0OElpS3ZiRWF4RFl1c2xYcEoyYlNDRGNpN1FiT3JSMwpNWXd3SUhQRDJ0VVU3Y3lUWW9OdDVBU2wzbG1YbVhrYTc1UkRBbzVWWTZaa010OXg3SzJFZkdXNWY5eUNUekRjCjg0RUxVVlRsNFg1RitRTEF5NUtIMm4yNVpuUmYycVRJUUh1c2NtVmVWcm9jc3NyVTBsQmE5VFIvZWF0eWd3ODQKajBPQ0Z5ZEFKUDBsbjdGSE9IL0MyZm5xV3hBZU1lZXdHc2VEbTBYYUNRZmQ4aVR6QVJKQmYxa3BLQUtuOEV2cwpUSCtpMjhpbytMTFh2RDN2cFpGL1FuT2dDVC9iR1p1cFBXbDFnKzk0U2I3WE9Xb3RiR0RpSld0YkhCSmFoNk9mClBYTzlLMnBJeUppZkhkMEhhYXpwbzVOQ0JQOW52eGw5eW1uRmY0azF6c2w5ZHlId3o4d0pzaFd0RW1tNFVuWEQKVUY5d3ZmS0ZYYW9INitoWkQ2TFBXc0tnUytQZ1BXSm1lMWloQVo0VWlTK3RtR1oreTZnVDlOY2JEWlFwY0ZaQQpLMjhDbW5LdDRRT09nTVpEMmZPeDJpZEpiY3lMK0F3MG9xRVFXVkF0d2FWT3lUWjNabmlEQUxXY2wwZjVnZjVKClJHNXNMS1lQTFk0WU4wOXRxUmg5UUoyb1hXSUFRQ3JrT3FkSlhUUGl4TFVkQmdEaUdnVU5qT1dsb2lWTk13cmwKeGt1Y1FCcE1INmNlaFpLdEpZWDg4a3c0a2ZlZ3M0OGZ1Qm1uUTByY2xKQnhPRWlLYlpjK0xaQW5MSENYNjc1YwpzdXZjMThjTlhUVWxXTGhXQkJ5d1ZySEJNWUVZSTBtRjFtMk1EOUwvRGxNOUtEeHpBUUtDQVFFQXl1aWVmM1hKClJYdTlJVkdYajdkNFdqTGFYOTk1VkF2cERyZ1NWc3Y5RGk2MW45eGhPMW43ZEU1R0ZDbDVWVzhqMEZtV3d3cVoKcThYM0VCMzF0RDZ1K05TVVhGS0Zwa1ZJL2NmejhrM2pGUXJYbnFVci9LL1pjQ3BsTWk0S094ekNFS0FBM3ljUApKWjNQUExtRXdMa2xtaWdBdTZNVmFnMjFXU29wSUppWFVWbnJ6UndLS3VVNzZRaFZ3WjBUbWFZQWpYd1NLYWFiCmg4QmlocER3L1poeEJYbUJrWXNNdGVXbWRnMDFQN1ZVMURyQ1B5aVNvWjFPVC95c1RJM2hyYzMyNWlLUWFOalgKLzlLMjhXcTJDSlBrVnVYbDNEbEs2S0tRY1RqQXdaSEg4Z2E2cW1acWFVc3Y4RmxHa2RoS3llZGdEeGlQS0ZITwpQSVR0aTYzdE9mN1VSUUtDQVFFQXcyNUU5UnlrbVFqNEtHaXo3TTA4TTB5d053aFVMUjZVVVZXdVpUbllNUUJRCitmeEdaTVU3dGMrUi9STmZsamlpUGxNazdlUnNSQUdNMVFuOFNJQXppblBXNDFYbWp6VXhMRTVKMmxDdk5UREwKZGNLbkp5L2llNG9yUEYvRU13dGJHL0ovdktaK2Q4WjhtQzlqbGRNTDZwODhsT3lGWllvUFRET04rMlBZRHVNbQo2Y09yZ1VFS3ZudElraWt4RlpJUHkwb1NJbWt2Z3FONUpvVzBGMjd4QUVJWExMWGlSeXFMM0ZoY0lqbDk3eHB5Cmc1WHFYUElsWjFjM1NKeU9FYmRlaGZwaEZRYmR4ZGdXbHVzMk5iRVhmYUpoTUVSSmZVY0FKd1ZHN3JLcjd6bU0KVVRxYlllRUJ6b2NGWWZJRmNmQ2JTVUhMeC9tQWo2S0F6alRiN1F5WmNRS0NBUUJVaFM4NGdyVFRONmJoa1I0ago1RlhDcExvb0EydURvZTV6amlNOWVuMHZnaTl2cHBudDRoNkhKTysyQ0V5ZFZNMURSWDR5UW1FZWx6akJ3dWtOCktxc3h4VU1EYmZCMEFScFZkQXZlbTZrQ28rQ0xHZHhIeG13NWQ3OXRkcFlXWjNWQy9aTS9ZUUxETllnVWtHYUcKN05pSDdTL1krU2E3WlhocjZzNzAzL3J3RFJmVytWNFczaVBsZnU1UjF2OUtHa2JTcUtMY0xLVk9sOG15cWY5bwpjeTVwREdMM1lFZHNJWHdFWXA0U3FwTHFVSXVIU1h4Q3k4YktOTU1FcEhra0w4NHZzS2djdEc3TkJsWGtIQUkxCmNuMUQ0VUd0U1VRMXdUbVBvQWRTMmtuQ1BDRlhSNC85eWk3dTNCRTBRVGR1QU80WGU3QnVLQjFUUWorODFqY2gKMkU5TkFvSUJBQ1VaVkx2WElTUHdBUFBpMUcwYWxOZ0VNZHR3bUZJc1lPbUR3MlJ4ODZseHJ1MlZ4Mk12MGVMMApzWGtDYVgzaDZHSytjOTg1SXBoU1Z3TEdMMzh2M3hqa1hxR3ZWK0pOcmJVRWM1NmUvSE96Zkp3eFJIdjY2aHFiCm94T0Y5bi9lSXdDT0sxT0xvNnhuSUpYZlFSOWEvZ01mRVdnUDhrN1JRNUFxcFVSWXN0WTRwdFZ2a0tvcng3ZGIKUGU2SkpVazcvZ1dRWFJydEx0aTA0YlcvWWUyazROazBzcU9KTDVoazZrSDlBQmg3STMzMVhsRytic3dRSjZ1VApjZW8xMWY1aytldWpHVFRkcGRIOThHUGI2T0dPYWJBdTJCWktrRXpZNHAyRnNlNTBPcEZpTWxIbE4wUUFhOUJoCjcxS2xtQVVHTU9SYU9pNFBIaW1tSnA5K2gxVmJzL0VDZ2dFQkFJUDN1RU5tbHo5Mm5NYWpTRnNSUW1jbU5nRlYKVTNRZjJpMGNEc2o0dTZvZVl4T0FybGNBMWdyZHd1WVFlUnk5NzRDdUZGMFhWQ1hURlFNdnBUdHVoeW1jeGFxTApxRkRYME5Oc3krR203eno2MFlvaEtBZ05wQVY4UDhkMUYxWWtCQmQyMlg1MFVGdStHTFla
+UTl0clVyL2pjVlFhCnBSbzEveENWUjVURXlNWUt0L2s5WTR6Zm8zRG5DWDNxbUNxbUZpOVZESTJuTTIxd3MvV1I5cytFNTdjUXlzLzgKVnEyT1NRUTZneG8xdThiZ05xR2tGcm9kRFR2dU8wQlFTeXVoOHJpNm1TczlLdWN4QTdmaTJFaUxOanBZbk5mQgpSejdwTkhERkx0dHd3OTVuSy8wV1FTeSt5N001VjZPWVNYbjl3TzR5K2daUFZGd0ZOWmhKcUQ1NzJVdz0KLS0tLS1FTkQgUlNBIFBSSVZBVEUgS0VZLS0tLS0K
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66:     token: 4713b3bb38bb695404f30e8bb86ce3acc51f2c33fa15471be7b66c463e8837dd453c18a02cf5661f64174ec71e2838d945a2d21dce164c5ac1f8adb871d2f8f7
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: network_name = tf-**-cool-bonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: network_resource_group = tf-**-rg-net-cool-bonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: subnet_name = tf-**-cool-bonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: subscription_id = ************************************
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: tenant_id = ************************************
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: vault_container_name = vault
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: vault_key_name = tf**coolbonefish-180f832e2469
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: vault_name = vaulttf**coolbonefish180
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: vault_resource_group_name = tf-**-rg-vault-cool-bonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: vault_storage_account_key = f36hOeLlptTsjAFD2OzIyKHeUUbkIzH7XyAZAbXPpST3jIfMmO3W2DCnB8WtEdP+KNKyLeismFkVE8Z8SUm+NQ==
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: vault_storage_account_name = vaulttf**coolbonefish180
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: velero_client_id = 
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: velero_client_secret = 
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: velero_container_name = 
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: velero_namespace = velero
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: velero_storage_account_name = 
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: velero_storage_resource_group_name = tf-**-rg-cluster-node-cool-bonefish[0m
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z retry.go:72: terraform [output -no-color cluster_resource_group]
+TestTerraformBasicJxCluster 2020-09-09T08:43:39Z logger.go:66: Running command terraform with args [output -no-color cluster_resource_group]
+TestTerraformBasicJxCluster 2020-09-09T08:43:40Z logger.go:66: tf-**-rg-cluster-cool-bonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:40Z retry.go:72: terraform [output -no-color cluster_name]
+TestTerraformBasicJxCluster 2020-09-09T08:43:40Z logger.go:66: Running command terraform with args [output -no-color cluster_name]
+TestTerraformBasicJxCluster 2020-09-09T08:43:41Z logger.go:66: tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:41Z retry.go:72: terraform [output -no-color subscription_id]
+TestTerraformBasicJxCluster 2020-09-09T08:43:41Z logger.go:66: Running command terraform with args [output -no-color subscription_id]
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66: ************************************
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z retry.go:72: terraform [output -no-color kube_*****_config_raw]
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66: Running command terraform with args [output -no-color kube_*****_config_raw]
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66: apiVersion: v1
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66: clusters:
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66: - cluster:
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66:     certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUV5akNDQXJLZ0F3SUJBZ0lSQUpTUVBJajB3aHI0aHp5b1BSWkJjUmd3RFFZSktvWklodmNOQVFFTEJRQXcKRFRFTE1Ba0dBMVVFQXhNQ1kyRXdJQmNOTWpBd09UQTVNRGd5T0RRNFdoZ1BNakExTURBNU1Ea3dPRE00TkRoYQpNQTB4Q3pBSkJnTlZCQU1UQW1OaE1JSUNJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBZzhBTUlJQ0NnS0NBZ0VBCnBLZjZicmZ1bGpMNmV3TGsvNnBPejljclVoT1AvUGc1ZkY4MzZER2NBcXA5UEU5NHNlekJZTUUzdkxpZGNPZWsKQkt0R1dCbnFRSlVGTHlCMmFPWHU4enFReWkyTlpHVTY3cnpySWxUbElFYmVFYTJTcWwwdVY2VjZGTGpZMlVFTgpUbTd2cFhLTjlibUFmN3hvUVdscUMzcFZqTnpLRU9vTE12WXNKUHpqNnJnZ0FWYytZTi94cTdBNDlpbTRJeWtKCitFQVdOaDRqTWtXanNDa2xuRndDUWMyeXFmTnJNaUFKWmxnWXFKY3BWMUFlUVpzSkVXeHNFN0pFNmVQTjMybnoKWkxQT3A2dlhFVWMxVHpPQytkSERleXROWllmQ05iemxpaEZqYktNMVBpUDA1TTdxMmJHTTdOZWdtNUhOK2Q5cAo3R3dQeGtWREJFN21IMkQ2YXVuWlZUcEhQc00wMTQvWURnTUtFeVRwTmFzalYyN1FRVVpFcXZLWGRuZUtycVB3CnlWMzh5YkVJbElhcXZhMlRIOU1OUVRSRHYvS3dVc2NzVTBHVUhWLzlMZDUwRjg3NVl4eXg4bDlkTXN5N3poaXYKNktjbkRrS2ZPZkVTazJMVCtmUHV4ZG1iQlRES2dIMUlFWUxiTU52Ujdnc0RLRUc1cm13MFpWN3o2UWFJK3ZUSgpRdDJlYkpaTWRnZjVGeEpYSThIWCsxVExJb2R4bHlzd29Jb2VwYlRyeWNGYXRzL0diNG8vSjhGSjlzYnZJWWV1CkVLVzExd0xRUk9Vak5mZk45QTJhWWd1SUNrQkl5L0QvdDhzZDBmcitkMjhZbDF5Q0o0NXlMVzVEb1RFWjE1YU4KNTBtVzlRN0JTY3JQZzlOLzlxaE5ienRTK0M0Mnd2RzFhOGtmUWNTaWdkc0NBd0VBQWFNak1DRXdEZ1lEVlIwUApBUUgvQkFRREFnS2tNQThHQTFVZEV3RUIvd1FGTUFNQkFmOHdEUVlKS29aSWh2Y05BUUVMQlFBRGdnSUJBQ1ZHClB1ZkpuMTNXcEN3UmNMaDhyUWFHK1VuU3NYRE1TOXpzMmJjZWNiQ3dhbjkwUjJ0QmVJREtZbVdzMThUK1oza2YKK1p0UUtUWVVqeWQ3VTF3cndIdENBOFFWYUdCdUV6WkZJWEdmOTkxZXlkM1hpcGhuTlhNRXNZVE94TjZ1RnhCYgpXRE1DSXNPL1lUNG01OU1KL1ZLVyt5Y1JEdTVNUGxsTG9OYWFWRkptNmFXS2xQaFNxZkxQT3FoMmg5cDRhdGhZCjN2bENSdXJQYTc4QlVoclpsVmxKNFV4dUJ4a3lPQnkvWjFNMWVkdUZHRFhlam1ObnJEeUxKT3dFNjV1NEIzYmEKRnJyZDJ4dmh1Q0FkU1BlZVBYb2Zyc2dkQUNXTEE3QWlRdVhSWnBjNmYvWDViVFZ2dENCVDRnWGRjaXZPK1NmQwpDcEdQUlJvUG91eVoxWlpxbTJZNVI3UkJZOGo1enNoRHlrVHIzdml2UjZGUzkzNlZDMVBLSk5nb1dWLyt2SEtCCjNQZ0xBOEh2SXJuSUNJK1dxVUIrU0JGN2RKaG9aNGV6c2RXaUZlTXdOR2ZYWnVlQlJqMDQ2NUIwR2UxQkdZTXoKZU5xYkphblhsZkxrMFZ5KytBemJsODE0d0dWaVoxK3NiR3JYOWY0WmVHMWhBcHFWVldxTG4yRkNyNFJDelA2UwpOZXpCc3R1VENIejB5K2lpNHo4NHQ2MFk1VjZaTGo5UXZ4a0EzK05PR1l4dllLMHVZaXJLeXQzVDhsNFBLbWZDCk1adUlyS1VqTkdKYktBOGVXZWhoaUtQU0VqS3h4TjRPT0V1NlVTZWlhdTdPQWVGNFA1VnZUdmxWanpPS0RKY2cKQ2lLTlFQZmQ3L3lyN1A1cjBXWGJpZ29CYm1hZklCMTNnU1d0a2lhKwotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66:     server: https://tf**coolbonefish-5cbcf5c3.hcp.australiaeast.azmk8s.io:443
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66:   name: tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66: contexts:
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66: - context:
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66:     cluster: tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66:     user: clusterAdmin_tf-**-rg-cluster-cool-bonefish_tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66:   name: tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66: current-context: tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66: kind: Config
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66: preferences: {}
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66: users:
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66: - name: clusterAdmin_tf-**-rg-cluster-cool-bonefish_tf**coolbonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66:   user:
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66:     client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUUvRENDQXVTZ0F3SUJBZ0lRQlM2U1BDaUU4MlFVT1l4STRWTVJ6akFOQmdrcWhraUc5dzBCQVFzRkFEQU4KTVFzd0NRWURWUVFERXdKallUQWVGdzB5TURBNU1Ea3dPREk0TkRoYUZ3MHlNakE1TURrd09ETTRORGhhTURBeApGekFWQmdOVkJBb1REbk41YzNSbGJUcHRZWE4wWlhKek1SVXdFd1lEVlFRREV3eHRZWE4wWlhKamJHbGxiblF3CmdnSWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUNEd0F3Z2dJS0FvSUNBUUNhNXBkWFF1cGZWZW1KL2V5N3J1TysKMHh0VGMwcTRZY3k2clJ3SytRVHVoYXc1OHVBRUM4dGZZUTU5VDZyQzVXM3lQL3JSL0NTNzI0dUdPTEtyYk5pNwplcUsvaDhZWHZGM2tGZU5semdadjlRQ3o4Y28yVXJBS3UrcnlxRGFsMkYxOUxIVHB5ZFB6a0NqalNMVHpRUENpCm1oQzBqd2NEL21wbk1YVWN1YitmNTFQNmg4dUZUSVNOVTgwNmMwMkxzZVBmZWRKeEUzUTJuMm95Y0pqOCtqZGcKZ3JBelVlRUtSWHJITmFXNmlhVUFwYjF5eXU3YWdFbXgwWWdlampzU2V3YzJ3cExMV25sRys4Mlh4WFR5dlVGOQpsbG5zQWhXNWhOQ2pJVy9yNG5NSnNWRThleWhWNjk3ajNjLzBEZ2xxQkV5cDN2dlY5MnFRcktxcmZncm5IOUMrCjJFSndDR1hRUDVjSitqR0syTjk5TmVlM3JHU3pqVzNkVElabTlQWDIyc2FZUWo3Nm9hZ3NXV1p3T2FQcWRlSkYKcDhFTVlzREJxNmduNUhYQnlZbkN3VXpyR3BZeWwwVURmNDByNXQzY0RVV1QxMTJRbU9uR2pzbXRBTGJrNXhYNgpWMkE3NHlmdkVDM2JZdXJJTHc2eU5lSnZMS0grdmRsaFl3VVBCTmNoN3BTUjUrQ1lSL3VFbEorRHcwUnpZdU1MClIxSnNSRSsxWklYcXZKcUhCYTZTTjZSVXNkZE50eHVMMmxXWkhkSmt6QUo0UlZ3RzNmRUFiempRUG9LcVlGWUEKeE00UStqblFVN0NVRERiMXYxMGVDZ29FNkJ6aVBSNi9GWG1sT1FFSDJHMVdIeDFYTkxRK29tMXZQanVHS3ErbwpNUHY0dnJka2lNbkxEY3JjdXBUdmRRSURBUUFCb3pVd016QU9CZ05WSFE4QkFmOEVCQU1DQmFBd0V3WURWUjBsCkJBd3dDZ1lJS3dZQkJRVUhBd0l3REFZRFZSMFRBUUgvQkFJd0FEQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FnRUEKQnNKRGhQZGhENlhGOGRhcURCbmVGRjB5L1dFVTJCTUlpUGlFeW5FSUNZdlR6Q1J6TXBod0JVOFF5SG0xS1JsRgp0c0dRTVNWaEU1RnVXQW8vcktSZnJ0U3lqeE5NWHNabHAwQXoyQm8zN3JKUmRtaHVNRkFRTjRMa1EvcW84dEZpCnk1UDQ0L3k0RmQrSHNmRVJnbEVRajZ1OHo1emRiMzUrUGtia3R4Ynp5VEtGZGtzNm5rV2JvcG9EMkcxSDFxUUgKS0xyS2RsSzdwWWFGKytFTzhnWU5DZEI5ZERXYUh6Y3VTSk1MZHlZbWFYZ2UrTkJ6OTlMVjhQbHFNUUpjUkUycwpNdzhtckdDcnZvanJVVFlEclJIQnNQM3JKQm1kWkR1U1JCTis3Nncvb1h3cVhsMDZPdTB0QmJPdkNvN3hybTdWCmxDMGU3cXpNeTBLWmdaTnl1ZUFZeFk1WkRLNEJBbTJpMVNYNHl2aUFOYlpyR0R5V285VEgyUVdSVHZIaUVFT2wKb0labkZaVjFma29mQUNwREdmYkJhUTBtMEhkdml1UDV2WTJSYzFIelkvR09IdHNxMWdHN21wSlF5bVNFc3lnMgp6T0dMS090VUR1UkxDWTRtdFB0a2w5b1JzMWVyY0xTRU0rWWQ0MmJSK0x3aE5VUmJVeU1jeWp4TW52SnYrN0s2CmlZRk1Na0RPL01ENldIR2pIVTZSNThpaG1mRFpJZE9KTVVCcDYvVG1KbjM2WVo4SnBTVkMxb0lTaS9ybXlYQ0EKcm1lWStGS0gwN0Fzdlo4MG5IeXdQVnhoWlQ2VytqMDFkRndkWEJqZFBWSjVQWTZranlYT2t1MTg3OE4vVU9GaQpwelBaR0VkK2lyQXd6cjdtUkd0YU1KK3A2S0FsR2N5bmJRQUJJNkNNSnRZPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66:     client-key-data: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlKS0FJQkFBS0NBZ0VBbXVhWFYwTHFYMVhwaWYzc3U2N2p2dE1iVTNOS3VHSE11cTBjQ3ZrRTdvV3NPZkxnCkJBdkxYMkVPZlUrcXd1VnQ4ai82MGZ3a3U5dUxoaml5cTJ6WXUzcWl2NGZHRjd4ZDVCWGpaYzRHYi9VQXMvSEsKTmxLd0NydnE4cWcycGRoZGZTeDA2Y25UODVBbzQwaTA4MER3b3BvUXRJOEhBLzVxWnpGMUhMbS9uK2RUK29mTApoVXlFalZQTk9uTk5pN0hqMzNuU2NSTjBOcDlxTW5DWS9QbzNZSUt3TTFIaENrVjZ4eldsdW9tbEFLVzljc3J1CjJvQkpzZEdJSG80N0Vuc0hOc0tTeTFwNVJ2dk5sOFYwOHIxQmZaWlo3QUlWdVlUUW95RnY2K0p6Q2JGUlBIc28KVmV2ZTQ5M1A5QTRKYWdSTXFkNzcxZmRxa0t5cXEzNEs1eC9RdnRoQ2NBaGwwRCtYQ2ZveGl0amZmVFhudDZ4awpzNDF0M1V5R1p2VDE5dHJHbUVJKytxR29MRmxtY0RtajZuWGlSYWZCREdMQXdhdW9KK1Ixd2NtSndzRk02eHFXCk1wZEZBMytOSytiZDNBMUZrOWRka0pqcHhvN0pyUUMyNU9jVitsZGdPK01uN3hBdDIyTHF5QzhPc2pYaWJ5eWgKL3IzWllXTUZEd1RYSWU2VWtlZmdtRWY3aEpTZmc4TkVjMkxqQzBkU2JFUlB0V1NGNnJ5YWh3V3VramVrVkxIWApUYmNiaTlwVm1SM1NaTXdDZUVWY0J0M3hBRzg0MEQ2Q3FtQldBTVRPRVBvNTBGT3dsQXcyOWI5ZEhnb0tCT2djCjRqMGV2eFY1cFRrQkI5aHRWaDhkVnpTMFBxSnRiejQ3aGlxdnFERDcrTDYzWklqSnl3M0szTHFVNzNVQ0F3RUEKQVFLQ0FnQjVnL090ak56M3RSbmtHc01mNk83WXdCdHJ0OElpS3ZiRWF4RFl1c2xYcEoyYlNDRGNpN1FiT3JSMwpNWXd3SUhQRDJ0VVU3Y3lUWW9OdDVBU2wzbG1YbVhrYTc1UkRBbzVWWTZaa010OXg3SzJFZkdXNWY5eUNUekRjCjg0RUxVVlRsNFg1RitRTEF5NUtIMm4yNVpuUmYycVRJUUh1c2NtVmVWcm9jc3NyVTBsQmE5VFIvZWF0eWd3ODQKajBPQ0Z5ZEFKUDBsbjdGSE9IL0MyZm5xV3hBZU1lZXdHc2VEbTBYYUNRZmQ4aVR6QVJKQmYxa3BLQUtuOEV2cwpUSCtpMjhpbytMTFh2RDN2cFpGL1FuT2dDVC9iR1p1cFBXbDFnKzk0U2I3WE9Xb3RiR0RpSld0YkhCSmFoNk9mClBYTzlLMnBJeUppZkhkMEhhYXpwbzVOQ0JQOW52eGw5eW1uRmY0azF6c2w5ZHlId3o4d0pzaFd0RW1tNFVuWEQKVUY5d3ZmS0ZYYW9INitoWkQ2TFBXc0tnUytQZ1BXSm1lMWloQVo0VWlTK3RtR1oreTZnVDlOY2JEWlFwY0ZaQQpLMjhDbW5LdDRRT09nTVpEMmZPeDJpZEpiY3lMK0F3MG9xRVFXVkF0d2FWT3lUWjNabmlEQUxXY2wwZjVnZjVKClJHNXNMS1lQTFk0WU4wOXRxUmg5UUoyb1hXSUFRQ3JrT3FkSlhUUGl4TFVkQmdEaUdnVU5qT1dsb2lWTk13cmwKeGt1Y1FCcE1INmNlaFpLdEpZWDg4a3c0a2ZlZ3M0OGZ1Qm1uUTByY2xKQnhPRWlLYlpjK0xaQW5MSENYNjc1YwpzdXZjMThjTlhUVWxXTGhXQkJ5d1ZySEJNWUVZSTBtRjFtMk1EOUwvRGxNOUtEeHpBUUtDQVFFQXl1aWVmM1hKClJYdTlJVkdYajdkNFdqTGFYOTk1VkF2cERyZ1NWc3Y5RGk2MW45eGhPMW43ZEU1R0ZDbDVWVzhqMEZtV3d3cVoKcThYM0VCMzF0RDZ1K05TVVhGS0Zwa1ZJL2NmejhrM2pGUXJYbnFVci9LL1pjQ3BsTWk0S094ekNFS0FBM3ljUApKWjNQUExtRXdMa2xtaWdBdTZNVmFnMjFXU29wSUppWFVWbnJ6UndLS3VVNzZRaFZ3WjBUbWFZQWpYd1NLYWFiCmg4QmlocER3L1poeEJYbUJrWXNNdGVXbWRnMDFQN1ZVMURyQ1B5aVNvWjFPVC95c1RJM2hyYzMyNWlLUWFOalgKLzlLMjhXcTJDSlBrVnVYbDNEbEs2S0tRY1RqQXdaSEg4Z2E2cW1acWFVc3Y4RmxHa2RoS3llZGdEeGlQS0ZITwpQSVR0aTYzdE9mN1VSUUtDQVFFQXcyNUU5UnlrbVFqNEtHaXo3TTA4TTB5d053aFVMUjZVVVZXdVpUbllNUUJRCitmeEdaTVU3dGMrUi9STmZsamlpUGxNazdlUnNSQUdNMVFuOFNJQXppblBXNDFYbWp6VXhMRTVKMmxDdk5UREwKZGNLbkp5L2llNG9yUEYvRU13dGJHL0ovdktaK2Q4WjhtQzlqbGRNTDZwODhsT3lGWllvUFRET04rMlBZRHVNbQo2Y09yZ1VFS3ZudElraWt4RlpJUHkwb1NJbWt2Z3FONUpvVzBGMjd4QUVJWExMWGlSeXFMM0ZoY0lqbDk3eHB5Cmc1WHFYUElsWjFjM1NKeU9FYmRlaGZwaEZRYmR4ZGdXbHVzMk5iRVhmYUpoTUVSSmZVY0FKd1ZHN3JLcjd6bU0KVVRxYlllRUJ6b2NGWWZJRmNmQ2JTVUhMeC9tQWo2S0F6alRiN1F5WmNRS0NBUUJVaFM4NGdyVFRONmJoa1I0ago1RlhDcExvb0EydURvZTV6amlNOWVuMHZnaTl2cHBudDRoNkhKTysyQ0V5ZFZNMURSWDR5UW1FZWx6akJ3dWtOCktxc3h4VU1EYmZCMEFScFZkQXZlbTZrQ28rQ0xHZHhIeG13NWQ3OXRkcFlXWjNWQy9aTS9ZUUxETllnVWtHYUcKN05pSDdTL1krU2E3WlhocjZzNzAzL3J3RFJmVytWNFczaVBsZnU1UjF2OUtHa2JTcUtMY0xLVk9sOG15cWY5bwpjeTVwREdMM1lFZHNJWHdFWXA0U3FwTHFVSXVIU1h4Q3k4YktOTU1FcEhra0w4NHZzS2djdEc3TkJsWGtIQUkxCmNuMUQ0VUd0U1VRMXdUbVBvQWRTMmtuQ1BDRlhSNC85eWk3dTNCRTBRVGR1QU80WGU3QnVLQjFUUWorODFqY2gKMkU5TkFvSUJBQ1VaVkx2WElTUHdBUFBpMUcwYWxOZ0VNZHR3bUZJc1lPbUR3MlJ4ODZseHJ1MlZ4Mk12MGVMMApzWGtDYVgzaDZHSytjOTg1SXBoU1Z3TEdMMzh2M3hqa1hxR3ZWK0pOcmJVRWM1NmUvSE96Zkp3eFJIdjY2aHFiCm94T0Y5bi9lSXdDT0sxT0xvNnhuSUpYZlFSOWEvZ01mRVdnUDhrN1JRNUFxcFVSWXN0WTRwdFZ2a0tvcng3ZGIKUGU2SkpVazcvZ1dRWFJydEx0aTA0YlcvWWUyazROazBzcU9KTDVoazZrSDlBQmg3STMzMVhsRytic3dRSjZ1VApjZW8xMWY1aytldWpHVFRkcGRIOThHUGI2T0dPYWJBdTJCWktrRXpZNHAyRnNlNTBPcEZpTWxIbE4wUUFhOUJoCjcxS2xtQVVHTU9SYU9pNFBIaW1tSnA5K2gxVmJzL0VDZ2dFQkFJUDN1RU5tbHo5Mm5NYWpTRnNSUW1jbU5nRlYKVTNRZjJpMGNEc2o0dTZvZVl4T0FybGNBMWdyZHd1WVFlUnk5NzRDdUZGMFhWQ1hURlFNdnBUdHVoeW1jeGFxTApxRkRYME5Oc3krR203eno2MFlvaEtBZ05wQVY4UDhkMUYxWWtCQmQyMlg1MFVGdStHTFla
+UTl0clVyL2pjVlFhCnBSbzEveENWUjVURXlNWUt0L2s5WTR6Zm8zRG5DWDNxbUNxbUZpOVZESTJuTTIxd3MvV1I5cytFNTdjUXlzLzgKVnEyT1NRUTZneG8xdThiZ05xR2tGcm9kRFR2dU8wQlFTeXVoOHJpNm1TczlLdWN4QTdmaTJFaUxOanBZbk5mQgpSejdwTkhERkx0dHd3OTVuSy8wV1FTeSt5N001VjZPWVNYbjl3TzR5K2daUFZGd0ZOWmhKcUQ1NzJVdz0KLS0tLS1FTkQgUlNBIFBSSVZBVEUgS0VZLS0tLS0K
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66:     token: 4713b3bb38bb695404f30e8bb86ce3acc51f2c33fa15471be7b66c463e8837dd453c18a02cf5661f64174ec71e2838d945a2d21dce164c5ac1f8adb871d2f8f7
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66: 
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z retry.go:72: terraform [output -no-color vault_storage_account_name]
+TestTerraformBasicJxCluster 2020-09-09T08:43:42Z logger.go:66: Running command terraform with args [output -no-color vault_storage_account_name]
+TestTerraformBasicJxCluster 2020-09-09T08:43:43Z logger.go:66: vaulttf**coolbonefish180
+TestTerraformBasicJxCluster 2020-09-09T08:43:43Z retry.go:72: terraform [output -no-color vault_storage_account_key]
+TestTerraformBasicJxCluster 2020-09-09T08:43:43Z logger.go:66: Running command terraform with args [output -no-color vault_storage_account_key]
+TestTerraformBasicJxCluster 2020-09-09T08:43:44Z logger.go:66: f36hOeLlptTsjAFD2OzIyKHeUUbkIzH7XyAZAbXPpST3jIfMmO3W2DCnB8WtEdP+KNKyLeismFkVE8Z8SUm+NQ==
+TestTerraformBasicJxCluster 2020-09-09T08:43:44Z retry.go:72: terraform [output -no-color vault_resource_group_name]
+TestTerraformBasicJxCluster 2020-09-09T08:43:44Z logger.go:66: Running command terraform with args [output -no-color vault_resource_group_name]
+TestTerraformBasicJxCluster 2020-09-09T08:43:45Z logger.go:66: tf-**-rg-vault-cool-bonefish
+TestTerraformBasicJxCluster 2020-09-09T08:43:45Z retry.go:72: terraform [output -no-color vault_name]
+TestTerraformBasicJxCluster 2020-09-09T08:43:45Z logger.go:66: Running command terraform with args [output -no-color vault_name]
+TestTerraformBasicJxCluster 2020-09-09T08:43:46Z logger.go:66: vaulttf**coolbonefish180
+TestTerraformBasicJxCluster 2020-09-09T08:43:46Z retry.go:72: terraform [output -no-color vault_container_name]
+TestTerraformBasicJxCluster 2020-09-09T08:43:46Z logger.go:66: Running command terraform with args [output -no-color vault_container_name]
+TestTerraformBasicJxCluster 2020-09-09T08:43:46Z logger.go:66: vault
+TestTerraformBasicJxCluster 2020-09-09T08:43:46Z retry.go:72: terraform [output -no-color vault_key_name]
+TestTerraformBasicJxCluster 2020-09-09T08:43:46Z logger.go:66: Running command terraform with args [output -no-color vault_key_name]
+TestTerraformBasicJxCluster 2020-09-09T08:43:47Z logger.go:66: tf**coolbonefish-180f832e2469
+Initial subscription ID is ************************************
+Final subscription ID is ************************************
+Initial subscription ID is ************************************
+Final subscription ID is ************************************
+TestTerraformBasicJxCluster 2020-09-09T08:43:48Z client.go:33: Configuring kubectl using config file /tmp/e06df255-f056-4f54-b208-eff836606f88110363787/.kubeconfig with context 
+2020/09/09 08:48:49 Timeout waiting for pod to complete
+TestTerraformBasicJxCluster 2020-09-09T08:48:49Z retry.go:72: terraform [destroy -auto-approve -input=false -lock=false]
+TestTerraformBasicJxCluster 2020-09-09T08:48:49Z logger.go:66: Running command terraform with args [destroy -auto-approve -input=false -lock=false]
+TestTerraformBasicJxCluster 2020-09-09T08:48:52Z logger.go:66: [0m[1mrandom_id.random: Refreshing state... [id=GA-DLiRp][0m
+TestTerraformBasicJxCluster 2020-09-09T08:48:52Z logger.go:66: [0m[1mrandom_pet.pet: Refreshing state... [id=cool-bonefish][0m
+TestTerraformBasicJxCluster 2020-09-09T08:48:59Z logger.go:66: [0m[1mmodule.vault.data.azurerm_client_config.current: Refreshing state... [id=2020-09-09 08:37:25.064121656 +0000 UTC][0m
+TestTerraformBasicJxCluster 2020-09-09T08:48:59Z logger.go:66: [0m[1mdata.azurerm_client_config.current: Refreshing state... [id=2020-09-09 08:37:25.069955384 +0000 UTC][0m
+TestTerraformBasicJxCluster 2020-09-09T08:48:59Z logger.go:66: [0m[1mdata.azurerm_subscription.current: Refreshing state... [id=/subscriptions/************************************][0m
+TestTerraformBasicJxCluster 2020-09-09T08:48:59Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-cool-bonefish][0m
+TestTerraformBasicJxCluster 2020-09-09T08:48:59Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish][0m
+TestTerraformBasicJxCluster 2020-09-09T08:48:59Z logger.go:66: [0m[1mazurerm_resource_group.network: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-cool-bonefish][0m
+TestTerraformBasicJxCluster 2020-09-09T08:48:59Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-cool-bonefish/providers/Microsoft.Network/virtualNetworks/tf-**-cool-bonefish][0m
+TestTerraformBasicJxCluster 2020-09-09T08:48:59Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish/providers/Microsoft.Storage/storageAccounts/vaulttf**coolbonefish180][0m
+TestTerraformBasicJxCluster 2020-09-09T08:48:59Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish/providers/Microsoft.KeyVault/vaults/vaulttf**coolbonefish180][0m
+TestTerraformBasicJxCluster 2020-09-09T08:48:59Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-cool-bonefish/providers/Microsoft.Network/virtualNetworks/tf-**-cool-bonefish/subnets/tf-**-cool-bonefish][0m
+TestTerraformBasicJxCluster 2020-09-09T08:48:59Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Refreshing state... [id=/subscriptions/************************************/resourcegroups/tf-**-rg-cluster-cool-bonefish/providers/Microsoft.ContainerService/managedClusters/tf**coolbonefish][0m
+TestTerraformBasicJxCluster 2020-09-09T08:48:59Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish/providers/Microsoft.KeyVault/vaults/vaulttf**coolbonefish180/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:00Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Refreshing state... [id=https://vaulttf**coolbonefish180.vault.azure.net/keys/tf**coolbonefish-180f832e2469/c61eb7ebf0f0460f801ed51e8e9b75bf][0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:00Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Refreshing state... [id=https://vaulttf**coolbonefish180.blob.core.windows.net/vault][0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:50Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.kubelet_vault_access_policy[0]: Refreshing state... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish/providers/Microsoft.KeyVault/vaults/vaulttf**coolbonefish180/objectId/878fcbbe-e233-4b47-8cfa-f09ce17493cb][0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:50Z logger.go:66: [0m[1mmodule.cluster.kubernetes_namespace.jenkins_x_namespace: Refreshing state... [id=**][0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:58Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.kubelet_vault_access_policy[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish/providers/Microsoft.KeyVault/vaults/vaulttf**coolbonefish180/objectId/878fcbbe-e233-4b47-8cfa-f09ce17493cb][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:58Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Destroying... [id=https://vaulttf**coolbonefish180.blob.core.windows.net/vault][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:58Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Destroying... [id=https://vaulttf**coolbonefish180.vault.azure.net/keys/tf**coolbonefish-180f832e2469/c61eb7ebf0f0460f801ed51e8e9b75bf][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:59Z logger.go:66: [0m[1mmodule.cluster.kubernetes_namespace.jenkins_x_namespace: Destroying... [id=**][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:59Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.kubelet_vault_access_policy[0]: Destruction complete after 0s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:59Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_container.vault[0]: Destruction complete after 0s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:59Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish/providers/Microsoft.Storage/storageAccounts/vaulttf**coolbonefish180][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:59Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_key.generated[0]: Destruction complete after 0s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:59Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish/providers/Microsoft.KeyVault/vaults/vaulttf**coolbonefish180/objectId/bc11ce34-bc63-41fd-ab10-83659d7015e4][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:59Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault_access_policy.terraform_vault_access_policy[0]: Destruction complete after 1s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:49:59Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish/providers/Microsoft.KeyVault/vaults/vaulttf**coolbonefish180][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:01Z logger.go:66: [0m[1mmodule.vault.azurerm_storage_account.vault[0]: Destruction complete after 3s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:02Z logger.go:66: [0m[1mmodule.vault.azurerm_key_vault.vault[0]: Destruction complete after 2s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:02Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-vault-cool-bonefish][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:02Z logger.go:66: [0m[1mrandom_id.random: Destroying... [id=GA-DLiRp][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:02Z logger.go:66: [0m[1mrandom_id.random: Destruction complete after 0s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:05Z logger.go:66: [0m[1mmodule.cluster.kubernetes_namespace.jenkins_x_namespace: Destruction complete after 6s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:05Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Destroying... [id=/subscriptions/************************************/resourcegroups/tf-**-rg-cluster-cool-bonefish/providers/Microsoft.ContainerService/managedClusters/tf**coolbonefish][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:12Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rceGroups/tf-**-rg-vault-cool-bonefish, 10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:15Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:22Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rceGroups/tf-**-rg-vault-cool-bonefish, 20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:25Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:32Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rceGroups/tf-**-rg-vault-cool-bonefish, 30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:35Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:42Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rceGroups/tf-**-rg-vault-cool-bonefish, 40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:45Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:47Z logger.go:66: [0m[1mazurerm_resource_group.vault[0]: Destruction complete after 46s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:50:55Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 50s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:51:05Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 1m0s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:51:15Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 1m10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:51:25Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 1m20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:51:35Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 1m30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:51:45Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 1m40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:51:55Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 1m50s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:52:05Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 2m0s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:52:15Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 2m10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:52:25Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 2m20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:52:35Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 2m30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:52:45Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 2m40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:52:55Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 2m50s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:53:05Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 3m0s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:53:15Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 3m10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:53:25Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 3m20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:53:35Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 3m30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:53:45Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 3m40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:53:55Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 3m50s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:05Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rvice/managedClusters/tf**coolbonefish, 4m0s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:06Z logger.go:66: [0m[1mmodule.cluster.azurerm_kubernetes_cluster.aks: Destruction complete after 4m1s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:06Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-cluster-cool-bonefish][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:06Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-cool-bonefish/providers/Microsoft.Network/virtualNetworks/tf-**-cool-bonefish/subnets/tf-**-cool-bonefish][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:06Z logger.go:66: [0m[1mmodule.vnet.azurerm_subnet.cluster_subnet: Destruction complete after 0s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:06Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-cool-bonefish/providers/Microsoft.Network/virtualNetworks/tf-**-cool-bonefish][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:16Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...eGroups/tf-**-rg-cluster-cool-bonefish, 10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:16Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...rk/virtualNetworks/tf-**-cool-bonefish, 10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:16Z logger.go:66: [0m[1mmodule.vnet.azurerm_virtual_network.cluster: Destruction complete after 11s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:16Z logger.go:66: [0m[1mazurerm_resource_group.network: Destroying... [id=/subscriptions/************************************/resourceGroups/tf-**-rg-net-cool-bonefish][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:26Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...eGroups/tf-**-rg-cluster-cool-bonefish, 20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:26Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-net-cool-bonefish, 10s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:36Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...eGroups/tf-**-rg-cluster-cool-bonefish, 30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:36Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-net-cool-bonefish, 20s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:46Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...eGroups/tf-**-rg-cluster-cool-bonefish, 40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:46Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-net-cool-bonefish, 30s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:51Z logger.go:66: [0m[1mazurerm_resource_group.cluster: Destruction complete after 45s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:54:56Z logger.go:66: [0m[1mazurerm_resource_group.network: Still destroying... [id=/subscriptions/6973a0e5-ce16-480c-935b-...ourceGroups/tf-**-rg-net-cool-bonefish, 40s elapsed][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:55:02Z logger.go:66: [0m[1mazurerm_resource_group.network: Destruction complete after 45s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:55:02Z logger.go:66: [0m[1mrandom_pet.pet: Destroying... [id=cool-bonefish][0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:55:02Z logger.go:66: [0m[1mrandom_pet.pet: Destruction complete after 0s[0m[0m
+TestTerraformBasicJxCluster 2020-09-09T08:55:02Z logger.go:66: [0m[1m[32m
+TestTerraformBasicJxCluster 2020-09-09T08:55:02Z logger.go:66: Destroy complete! Resources: 15 destroyed.[0m
+--- FAIL: TestTerraformBasicJxCluster (1071.66s)
+    terraform_**_cluster_test.go:96: 
+        	Error Trace:	terraform_**_cluster_test.go:96
+        	Error:      	Received unexpected error:
+        	            	error waiting for pod to complete
+        	Test:       	TestTerraformBasicJxCluster
+    terraform_**_cluster_test.go:97: 
+        	Error Trace:	terraform_**_cluster_test.go:97
+        	Error:      	Not equal: 
+        	            	expected: 0
+        	            	actual  : -1
+        	Test:       	TestTerraformBasicJxCluster
+FAIL
+FAIL	github.com/jenkins-x/terraform-azurerm-**/test	1071.669s
+FAIL
+make: *** [test] Error 1
+[31m
+Pipeline failed on stage 'ci' : container 'step-terratest'. The execution of the pipeline has stopped.[0m
