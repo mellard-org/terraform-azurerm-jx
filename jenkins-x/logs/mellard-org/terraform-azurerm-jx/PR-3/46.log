@@ -1,0 +1,74 @@
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-r5dfp-46[0m stage [32mbuild[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1599726574.68237,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-r5dfp-46[0m stage [32mbuild[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-r5dfp-46[0m stage [32mbuild[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-r5dfp-46[0m stage [32mbuild[0m and container [32mstep-git-source-mellard-org-terraform-azurerm-j-r5dfp-2xhsf[0m
+{"level":"info","ts":1599726588.3737128,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/mellard-org/terraform-azurerm-**.git @ master in path /workspace/source"}
+{"level":"warn","ts":1599726588.3737948,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1599726588.4095852,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-r5dfp-46[0m stage [32mbuild[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-r5dfp-46[0m stage [32mbuild[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6,3:de7faca154408410e1cd0f17d340b3201cd2f667
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow de7faca154408410e1cd0f17d340b3201cd2f667: 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6:
+DEBUG: ran git fetch --unshallow origin de7faca154408410e1cd0f17d340b3201cd2f667: 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6: in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6
+DEBUG: ran git reset --hard 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge de7faca154408410e1cd0f17d340b3201cd2f667
+DEBUG: ran git merge de7faca154408410e1cd0f17d340b3201cd2f667 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 36e07b1bdb7f7e71dba6f5fade21c9f938b2d0e6..HEAD
+Merged SHA de7faca154408410e1cd0f17d340b3201cd2f667 with commit message 'chore: add flag to avoid lighthouse automatically mounting the kaniko secret' into base branch master
+Merged SHA 4d678b634f7a374359633edb7e45ebfdeca4d6b0 with commit message 'feat: Add in Key Vault test' into base branch master
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-r5dfp-46[0m stage [32mbuild[0m and container [32mstep-build-test-commands[0m
+GOOS=linux GOARCH=amd64 CGO_ENABLED=0 GO111MODULE=on go build -o build/linux/verify_key_vault ./cmd/verify_key_vault
+go: downloading github.com/Azure/go-autorest v14.2.0+incompatible
+go: downloading github.com/Azure/azure-sdk-for-go v46.0.0+incompatible
+go: extracting github.com/Azure/go-autorest v14.2.0+incompatible
+go: downloading github.com/Azure/go-autorest/autorest v0.11.0
+go: extracting github.com/Azure/go-autorest/autorest v0.11.0
+go: downloading github.com/Azure/go-autorest/tracing v0.6.0
+go: downloading github.com/Azure/go-autorest/logger v0.2.0
+go: downloading github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: extracting github.com/Azure/go-autorest/tracing v0.6.0
+go: extracting github.com/Azure/go-autorest/logger v0.2.0
+go: extracting github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: downloading github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: downloading golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+go: downloading github.com/Azure/go-autorest/autorest/date v0.3.0
+go: extracting github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: extracting github.com/Azure/go-autorest/autorest/date v0.3.0
+go: extracting golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+go: extracting github.com/Azure/azure-sdk-for-go v46.0.0+incompatible
+go: downloading github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: downloading github.com/Azure/go-autorest/autorest/to v0.3.0
+go: extracting github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: extracting github.com/Azure/go-autorest/autorest/to v0.3.0
+go: finding github.com/Azure/azure-sdk-for-go v46.0.0+incompatible
+go: finding github.com/Azure/go-autorest/autorest v0.11.0
+go: finding github.com/Azure/go-autorest/autorest/adal v0.9.2
+go: finding github.com/Azure/go-autorest/autorest/date v0.3.0
+go: finding github.com/Azure/go-autorest/autorest/to v0.3.0
+go: finding github.com/Azure/go-autorest/autorest/validation v0.2.0
+go: finding github.com/Azure/go-autorest/tracing v0.6.0
+go: finding github.com/Azure/go-autorest/logger v0.2.0
+go: finding github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: finding golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+chmod +x build/linux/verify_key_vault
+
+Showing logs for build [32mmellard-org-terraform-azurerm-j-r5dfp-46[0m stage [32mbuild[0m and container [32mstep-build-and-push-image[0m
+E0910 08:30:33.989396      11 aws_credentials.go:77] while getting AWS credentials NoCredentialProviders: no valid providers in chain. Deprecated.
+	For verbose messaging see aws.Config.CredentialsChainVerboseErrors
+error checking push permissions -- make sure you entered the correct tag name, and that you are authenticated correctly, and try again: checking push permission for "gcr.io/jenkinsxio/azure_verify_key_vault:1.0": resolving authorization for gcr.io failed: error getting credentials - err: exit status 1, out: `docker-credential-gcr/helper: could not retrieve GCR's access token: google: could not find default credentials. See https://developers.google.com/accounts/docs/application-default-credentials for more information.`
+[31m
+Pipeline failed on stage 'build' : container 'step-build-and-push-image'. The execution of the pipeline has stopped.[0m
